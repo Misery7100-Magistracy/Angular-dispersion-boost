@@ -3,13 +3,12 @@
 % ------------------------- %
 
 \documentclass[10pt]{article}
-\linespread{1.2}
-\setlength{\parskip}{1.5em}
+\linespread{1.05}
+\setlength{\parskip}{0.45em}
 
 % ------------------------- %
 %  Packages
 % ------------------------- %
-
 
 \usepackage[utf8]{inputenc}
 \usepackage[T2A]{fontenc}
@@ -32,8 +31,6 @@
 \usepackage[fixlanguage]{babelbib}
 \usepackage[oldsyntax]{stackengine}
 
-
-
 \def\stacktype{S}\Sstackgap=-4.3pt
 
 % ------------------------- %
@@ -42,7 +39,6 @@
 
 \input{assets/defs.tex}
 \input{assets/cmds.tex}
-
 
 % ------------------------- %
 %  Document
@@ -64,25 +60,24 @@
 	\thinmuskip = 1mu
 	\thickmuskip = 6mu
 
+	\renewcommand{\equationautorefname}{}
+
 	% add components
 
-	\title{
-		Усиление угловой дисперсии лазерных гармоник высокого порядка 
-		при помощи массивов сферических частиц
-	}
-	\author{Литвинов Лев}
+	\title{Эффективное направленное рассение XUV излучения при помощи сферических кластеров}
+	\author{}
 	\maketitle
-	
+
 	\input{components/introduction.tex}
 	\input{components/base_model.tex}
 	\input{components/single_sphere.tex}
 	\input{components/multiple_spheres.tex}
 
 	% add bibliography
-	\begin{flushleft}
-		\selectbiblanguage{english}
-		\bibliographystyle{unsrt}
-		\bibliography{components/bibliography.bib}
-	\end{flushleft}
+	%\begin{flushleft}
+	\selectbiblanguage{english}
+	\bibliographystyle{ieeetr}
+	\bibliography{components/bibliography.bib}
+	%\end{flushleft}
 
 \end{document}
