@@ -1,3 +1,32 @@
 \section{Множество кластеров в рамках кубической области}
 
-Возвращаясь к \autoref{plasma_area1:image}
+В рамках теории рассеяния Ми была рассмотрена конфигурация множества рассеивающих кластеров, образующая примитивную кубическую решетку с 4 узлами в ребре и различными длинами ребра элементарной ячейки $b : \{\lambda_{10},\:2\lambda_{10},\:3\lambda_{10}\}$. Радиус кластеров $a = 6.37$ нм. Для моделирования был использован программный пакет CELES \cite{celes}.
+
+Для случая $b = \lambda_{10}$ можно заметить качественное рассеяние от граней куба на углы $\approx 150^{\circ}$, $-150^{\circ}$ относительно направления волнового вектора (\autoref{multi_sph_b1:image} г). Большая часть поля локализована в области рассеивателей (\autoref{multi_sph_b1:image} в). При $b = 2\lambda_{10}$ и угле падения $\approx 30^{\circ}$ наблюдается небольшое усиление рассеяния на малые углы (относительно направления волнового вектора). Вариант $b = 3\lambda_{10}$ за счет увеличенной разреженности между одиночными рассеивателями позволяет избавиться от сильного отражения, что видно по картинам дальнего поля (\autoref{multi_sph_b3:image} б, г). 
+
+\begin{figure}[H]
+    (а)\:\subimg[components/img/celes/64sph_b83nm_l83nm_0deg_near]{0.4\textwidth}
+    (б)\:\subimg[components/img/celes/64sph_b83nm_l83nm_0deg_far]{0.4\textwidth}
+    \\(в)\:\subimg[components/img/celes/64sph_b83nm_l83nm_45deg_near]{0.4\textwidth}
+    (г)\:\subimg[components/img/celes/64sph_b83nm_l83nm_45deg_far]{0.4\textwidth}
+    \caption{\textbf{Рассеяние десятой гармоники на множестве кластеров.} $b = \lambda_{10}$; а, б -- нормальное падение; в, г -- падение под углом $45^{\circ}$; а, в -- ближнее поле; б, г -- дальнее.}
+    \label{multi_sph_b1:image}
+\end{figure}
+
+\begin{figure}[H]
+    (а)\:\subimg[components/img/celes/64sph_b166nm_l83nm_0deg_near]{0.4\textwidth}
+    (б)\:\subimg[components/img/celes/64sph_b166nm_l83nm_0deg_far]{0.4\textwidth}
+    \\(в)\:\subimg[components/img/celes/64sph_b166nm_l83nm_30deg_near]{0.4\textwidth}
+    (г)\:\subimg[components/img/celes/64sph_b166nm_l83nm_30deg_far]{0.4\textwidth}
+    \caption{\textbf{Рассеяние десятой гармоники на множестве кластеров.} $b = 2\lambda_{10}$; а, б -- нормальное падение; в, г -- падение под углом $30^{\circ}$; а, в -- ближнее поле; б, г -- дальнее.}
+    \label{multi_sph_b2:image}
+\end{figure}
+
+\begin{figure}[H]
+    (а)\:\subimg[components/img/celes/64sph_b249nm_l83nm_0deg_near]{0.4\textwidth}
+    (б)\:\subimg[components/img/celes/64sph_b249nm_l83nm_0deg_far]{0.4\textwidth}
+    \\(в)\:\subimg[components/img/celes/64sph_b249nm_l83nm_30deg_near]{0.4\textwidth}
+    (г)\:\subimg[components/img/celes/64sph_b249nm_l83nm_30deg_far]{0.4\textwidth}
+    \caption{\textbf{Рассеяние десятой гармоники на множестве кластеров.} $b = 3\lambda_{10}$; а, б -- нормальное падение; в, г -- падение под углом $30^{\circ}$; а, в -- ближнее поле; б, г -- дальнее.}
+    \label{multi_sph_b3:image}
+\end{figure}
