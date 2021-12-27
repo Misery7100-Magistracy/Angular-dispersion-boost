@@ -1,32 +1,36 @@
-\section{Множество кластеров в рамках кубической области}
+\section{Multiple clusters}
 
-В рамках теории рассеяния Ми была рассмотрена конфигурация множества рассеивающих кластеров, образующая примитивную кубическую решетку с 4 узлами в ребре и различными длинами ребра элементарной ячейки $b : \{\lambda_{10},\:2\lambda_{10},\:3\lambda_{10}\}$. Радиус кластеров $a = 6.37$ нм. Для моделирования был использован программный пакет CELES \cite{celes}.
+Within the Mie theory following multiple clusters spatial configuration considered: simple cubic lattice with 4 edge nodes and different length of the edge of unit cell $b : \{\lambda_{10},\:2\lambda_{10},\:3\lambda_{10}\}$. Cluster radius $a = 6.37$ nm. The CELES software package was used for modeling \cite{celes}.
 
-Для случая $b = \lambda_{10}$ можно заметить качественное рассеяние от граней куба на углы $\approx 150^{\circ}$, $-150^{\circ}$ относительно направления волнового вектора (\autoref{multi_sph_b1:image} г). Большая часть поля локализована в области рассеивателей (\autoref{multi_sph_b1:image} в). При $b = 2\lambda_{10}$ и угле падения $\approx 30^{\circ}$ наблюдается небольшое усиление рассеяния на малые углы (относительно направления волнового вектора). Вариант $b = 3\lambda_{10}$ за счет увеличенной разреженности между одиночными рассеивателями позволяет избавиться от сильного отражения, что видно по картинам дальнего поля (\autoref{multi_sph_b3:image} б, г). 
+For the case of $b = \lambda_{10}$ we can see efficient scattering by facets of the spatial lattice at angles $\approx 150^{\circ}$, $-150^{\circ}$ relative to the wave vector direction (\autoref{multi_sph_b1:image}d). Most of the field is localized in the area of clusters.
+
+For $b = 2\lambda_{10}$ and angle of incidence $\approx 30^{\circ}$ there is a slight increase in scattering at small angles (\autoref{multi_sph_b2:image}d).
+
+For $b = 3\lambda_{10}$ due to the increased rarefaction between clusters allows us to get rid of strong reflection, which can be seen from the far-field (\autoref{multi_sph_b3:image}d).
 
 \begin{figure}[H]
-    (а)\:\subimg[components/img/celes/64sph_b83nm_l83nm_0deg_near]{0.4\textwidth}
-    (б)\:\subimg[components/img/celes/64sph_b83nm_l83nm_0deg_far]{0.4\textwidth}
-    \\(в)\:\subimg[components/img/celes/64sph_b83nm_l83nm_45deg_near]{0.4\textwidth}
-    (г)\:\subimg[components/img/celes/64sph_b83nm_l83nm_45deg_far]{0.4\textwidth}
-    \caption{\textbf{Рассеяние десятой гармоники на множестве кластеров.} $b = \lambda_{10}$; а, б -- нормальное падение; в, г -- падение под углом $45^{\circ}$; а, в -- ближнее поле; б, г -- дальнее.}
+    (a)\:\subimg[components/img/celes/64sph_b83nm_l83nm_0deg_near]{0.4\textwidth}
+    (b)\:\subimg[components/img/celes/64sph_b83nm_l83nm_0deg_far]{0.4\textwidth}
+    \\(c)\:\subimg[components/img/celes/64sph_b83nm_l83nm_45deg_near]{0.4\textwidth}
+    (d)\:\subimg[components/img/celes/64sph_b83nm_l83nm_45deg_far]{0.4\textwidth}
+    \caption{$10$-th harmonic scattering by multiple clusters. $b = \lambda_{10}$; a, b --- normal incidence; c, d --- incidence at $45^{\circ}$ angle; a, c --- near-field; b, d --- far-field.}
     \label{multi_sph_b1:image}
 \end{figure}
 
 \begin{figure}[H]
-    (а)\:\subimg[components/img/celes/64sph_b166nm_l83nm_0deg_near]{0.4\textwidth}
-    (б)\:\subimg[components/img/celes/64sph_b166nm_l83nm_0deg_far]{0.4\textwidth}
-    \\(в)\:\subimg[components/img/celes/64sph_b166nm_l83nm_30deg_near]{0.4\textwidth}
-    (г)\:\subimg[components/img/celes/64sph_b166nm_l83nm_30deg_far]{0.4\textwidth}
-    \caption{\textbf{Рассеяние десятой гармоники на множестве кластеров.} $b = 2\lambda_{10}$; а, б -- нормальное падение; в, г -- падение под углом $30^{\circ}$; а, в -- ближнее поле; б, г -- дальнее.}
+    (a)\:\subimg[components/img/celes/64sph_b166nm_l83nm_0deg_near]{0.4\textwidth}
+    (b)\:\subimg[components/img/celes/64sph_b166nm_l83nm_0deg_far]{0.4\textwidth}
+    \\(c)\:\subimg[components/img/celes/64sph_b166nm_l83nm_30deg_near]{0.4\textwidth}
+    (d)\:\subimg[components/img/celes/64sph_b166nm_l83nm_30deg_far]{0.4\textwidth}
+    \caption{$10$-th harmonic scattering by multiple clusters. $b = 2\lambda_{10}$; a, b --- normal incidence; c, d --- incidence at $45^{\circ}$ angle; a, c --- near-field; b, d --- far-field.}
     \label{multi_sph_b2:image}
 \end{figure}
 
 \begin{figure}[H]
-    (а)\:\subimg[components/img/celes/64sph_b249nm_l83nm_0deg_near]{0.4\textwidth}
-    (б)\:\subimg[components/img/celes/64sph_b249nm_l83nm_0deg_far]{0.4\textwidth}
-    \\(в)\:\subimg[components/img/celes/64sph_b249nm_l83nm_30deg_near]{0.4\textwidth}
-    (г)\:\subimg[components/img/celes/64sph_b249nm_l83nm_30deg_far]{0.4\textwidth}
-    \caption{\textbf{Рассеяние десятой гармоники на множестве кластеров.} $b = 3\lambda_{10}$; а, б -- нормальное падение; в, г -- падение под углом $30^{\circ}$; а, в -- ближнее поле; б, г -- дальнее.}
+    (a)\:\subimg[components/img/celes/64sph_b249nm_l83nm_0deg_near]{0.4\textwidth}
+    (b)\:\subimg[components/img/celes/64sph_b249nm_l83nm_0deg_far]{0.4\textwidth}
+    \\(c)\:\subimg[components/img/celes/64sph_b249nm_l83nm_30deg_near]{0.4\textwidth}
+    (d)\:\subimg[components/img/celes/64sph_b249nm_l83nm_30deg_far]{0.4\textwidth}
+    \caption{$10$-th harmonic scattering by multiple clusters. $b = 3\lambda_{10}$; a, b --- normal incidence; c, d --- incidence at $45^{\circ}$ angle; a, c --- near-field; b, d --- far-field.}
     \label{multi_sph_b3:image}
 \end{figure}
