@@ -1,35 +1,35 @@
-\section{Базовая модель}
+\section{Base model}
 
-Рассмотрим одиночный сферический кластер радиуса $a$, облученный коротким фемтосекундным импульсом длительностью и интенсивностью порядка $I_{h} \approx 10^{14}$ $\textrm{Вт/см}^2$. Модель Друде даёт представление диэлектрической функции плазмы:
+Let us consoider a single cluster with radius $a$ irradiated by short femtosecond pulse with intensity about $I_{h} \approx 10^{14}$ $\textrm{W/cm}^2$. The Drude model yields the dielectric function of the plasma:
 
     \eq
-		\varepsilon (\omega) = 1 - \left( \frac{\omega_{pe}}{\omega} \right)^2 \frac{1}{1 + i \beta_{e}}, \qquad \omega_{pe} = \sqrt{\frac{4 \pi e^2 n_e}{m_e}}
+		\varepsilon (\omega) = 1 - \left( \frac{\omega_{pe}}{\omega} \right)^2 \frac{1}{1 + i \beta_{e}}, \qquad \omega_{pe} = \sqrt{\frac{4 \pi e^2 n_e}{m_e}},
 		\label{eps_plasma}
 	\qe
 
-Здесь $\omega$ -- рассматриваемая гармоническая частота, $\omega_{pe}$ -- электронная плазменная частота, $e$ и $m_e$ -- заряд и масса электрона, $n_e = Z n_i$ -- электронная плотность, где $Z$ - средняя степень ионизации, $n_i$ -- ионная плотность. $\beta_{e} = v_e / \omega$ и $v_e$ коэффициент электрон-ионных столкновений в приближении Спитцера. Так как предполагается рассмотрение рассеяния, плотность кластера должна быть выше критической для заданной частоты $n_c = \omega^2 m_e / 4 \pi e^2$. Тогда, например, для 10-ой гармоники лазерного излучения с длиной волны $\lambda_{L} = 830$ нм мы получаем условие $n_e > 1.3 \cdot 10^{23}$ $\textrm{см}^{-3}$.
+\noindent where $\omega$ --- harmonic (angular) frequency under consideration; $\omega_{pe}$ --- the electron plasma frequency; $e$, $m_e$ --- electron charge and mass; $n_e = Z n_i$ --- the electron number density, where $Z$ --- average ionization degree, $n_i$ --- ion density. $\beta_{e} = v_e / \omega$ and $v_e$ --- electron-ion collision rate in Spitzer approximation. As we are going to consider scattering of harmonic radiation, the cluster should have a density above the critical one for this harmonic: $n_c = \omega^2 m_e / 4 \pi e^2$. Thus for example, for 10-th laser harmonic with wavelength $\lambda_{L} = 830$ nm one obtains condition $n_e > 1.3 \cdot 10^{23}$ $\textrm{cm}^{-3}$.
 
-Теория Ми может быть использована для описания упругого рассеяния электромагнитных волн частицами произвольного в случае линейных взаимодействий, а также позволяет получить описание рассеянного поля и поля внутри рассеивающего объекта. Основной шаг - решение скалярного уравнения Гельмгольца в правильной системе координат (в данном случае сферической) и получение векторных решений. Для сферического кластера можем записать решение соответствующего уравнения, используя сферические функции Бесселя и Ханкеля $n$-ого порядка \cite{boren_huffman}.
+The Mie theory can be used for the description of elastic electromagnetic wave scattering by arbitrary sized particles in case of linear interactions and let obtain scattered and internal field. A main step is to solve the scalar Helmholtz Equation in suitable coordinate system andgain the vector solutions. For spherical cluster the solution of corresponding equation can be written in the form of Bessel and Hankel functions of $n$-th order~\cite{boren_huffman}.
 
-Возьмем плоскую волну, распространяющуюся вдоль оси $z$ декартовой системы координат, поляризованную вдоль оси $x$, что может быть записано как 
+Assume an incident plane wave propagating along $z$ axis of cartesian coordinate system and polarized along $x$ axis:
 
     \eq
         \vectbf{E}{i} = E_0\:e^{i\omega t - ikz}\:\vectbf{e}{x},
         \label{E_i_sph}
     \qe
 
-\noindentгде $k = \omega/c$ - волновое число, $\vectbf{e}{x}$ - единичный вектор оси $x$, также являющийся вектором поляризации (\autoref{single_sph_scheme:image}). 
+\noindent where $k = \omega/c$ --- wavenumber, $\vectbf{e}{x}$ --- the unit vector of $x$ axis direction and polarization vector:
 
-    \img[components/img/single_sph_scheme]{\textbf{Схема базовой модели.}}{single_sph_scheme:image}{}{0.73\textwidth}
+    \img[components/img/single_sph_scheme]{Base model scheme.}{single_sph_scheme:image}{}{0.73\textwidth}
 
-Далее эту плоскую можно разложить в ряд, используя обобщённое разложение Фурье. В случае изотропной среды имеем следующий вид рассеянного поля \cite{boren_huffman}:
+Now we can expand the plane wave into series using generalized Fourier expantions. Assuming our media is isotropic we obtain following form of scattered field~\cite{boren_huffman}:
 
     \eq
 		\vectbf{E}{s} = \sum_{n = 1}^{\infty}E_n \left[ i a_n\left(ka, m\right) \vectbf{N}{}^{(3)}_{e1n} - b_n\left(ka, m\right) \vectbf{M}{}^{(3)}_{o1n} \right], \qquad E_n = i^{n} E_0 \frac{2n + 1}{n \left( n + 1\right)}
         \label{E_s_sph}
 	\qe
 
-Здесь $n$ - номер векторной гармоники, полученный после трансформации из декартовой системы координат в сферическую, $m = \sqrt{\varepsilon\left(\omega\right)}$ - коэффициент преломления мишени. Коэффициенты векторных гармоник имеют следующий вид:
+$n$ --- vector harmonic number after cartesian-spherical coordinate system transformation, $m = \sqrt{\varepsilon\left(\omega\right)}$ --- refractive index of the target. Vector harmonics coefficients have the following form~\cite{boren_huffman}:
 
 
     \eq
@@ -41,17 +41,21 @@
         b_n(x,\:m) = \frac{\func{\psi}{n}{\prime}{x} \func{\psi}{n}{}{mx} - m \func{\psi}{n}{\prime}{mx} \func{\psi}{n}{}{x}}{\func{\xi}{n}{\prime}{x} \func{\psi}{n}{}{mx} - m \func{\psi}{n}{\prime}{mx} \func{\xi}{n}{}{x}},
         \label{bn_bessel}
     \qe
+    \eqc % artificial indent after the equation
+    \cqe %
 
-\noindentгде $\func{\psi}{n}{}{z} = z \func{j}{n}{}{z}$, $\func{\xi}{n}{}{z} = z \func{h}{n}{}{z}$ -- функции Риккати-Бесселя, $h_n = j_n + i \gamma_n$ -- сферические функции Ханкеля первого рода.
+\noindent $\func{\psi}{n}{}{z} = z \func{j}{n}{}{z}$, $\func{\xi}{n}{}{z} = z \func{h}{n}{}{z}$ --- Riccati-Bessel functions, $h_n = j_n + i \gamma_n$ --- spherical Hankel functions of the first kind. 
 
-В случае сферической симметрии амплитуда рассеянного поля максимальна для $m^2 = - (n+ 1) / n$ при $ka \ll 1$, что даёт соответствующий набор резонансных плотностей в бесстолкновительном случае $n_e = n_c(2n + 1) / n$. Это можно получить, используя нулевое асимптотическое приближение функций Бесселя, в результате чего коэффициенты (\Autoref{an_bessel, bn_bessel}) значительно упрощаются:
+In case of spherical symmetry amplitude of the scattered field is maximum for $m^2 = - (n+ 1) / n$ when $ka \ll 1$, that gain corresponding set of resonance densities in collision-less case: $n_e = n_c(2n + 1) / n$.
+
+% В случае сферической симметрии амплитуда рассеянного поля максимальна для $m^2 = - (n+ 1) / n$ при $ka \ll 1$, что даёт соответствующий набор резонансных плотностей в бесстолкновительном случае $n_e = n_c(2n + 1) / n$. Это можно получить, используя нулевое асимптотическое приближение функций Бесселя, в результате чего коэффициенты (\Autoref{an_bessel, bn_bessel}) значительно упрощаются:
 
     \eq
         a_n\left( x \to 0,\:m \right) = \left( 1 + 2i \frac{ (2n - 1)! (2n + 1)!}{4^n \: n! (n + 1)!} \frac{\left(m^2 + \frac{n + 1}{n} \right)}{(m^2 - 1)} \frac{1}{x^{2n+1}} \right)^{-1}, \qquad b_n\left( x \to 0,\:m \right) = 0
         \label{ab_asymp}
     \qe
 
-Такое приближение можно использовать вместо (\Autoref{an_bessel, bn_bessel}) для объектов достаточно маленького радиуса, но уже при $ka \sim 1$ оно перестаёт быть разумным, особенно для больших $n$. Вместо него в таком случае лучше подходит аппроксимация первого порядка:
+% Такое приближение можно использовать вместо (\Autoref{an_bessel, bn_bessel}) для объектов достаточно маленького радиуса, но уже при $ka \sim 1$ оно перестаёт быть разумным, особенно для больших $n$. Вместо него в таком случае лучше подходит аппроксимация первого порядка:
 
     \eq
 		a_n\left( x ,\:m \right) = \left( 1 + i \frac{ C_n x^{-1 -2n} \left( (4(1 + n + m^2 n) (-3 + 4n (1 + n)) - 2(m^2 - 1)(3 + n(5 + 2n + m^2 (2n - 1))) x^2) \right)}{\pi (m^2 - 1)(2n + 3)(n + 1)(4(2n + 3) - 2(m^2 + 1)x^2)} \right)^{-1}
@@ -61,22 +65,22 @@
 		C_n = 2^{1 + 2n} \Gamma(n - \frac{1}{2}) \Gamma(n + \frac{5}{2})
 	\cqe
 
-На \autoref{ab_asymp:image} показана зависимость коэффициента рассеяния от электронной плотности для двух различных значений радиуса в рамках нулевого асимптотического приближения и сравнение первого и нулевого приближений. Видно, что с ростом $n$ ширина резонансного пика быстро уменьшается, а также б\'{о}льшим радиусам (безразмерным) $ka$ соответствует б\'{о}льшая их ширина. Помимо этого, с ростом радиуса растет и значение резонансной плотности, что видно на \autoref{nenc_123:image}.
+% На \autoref{ab_asymp:image} показана зависимость коэффициента рассеяния от электронной плотности для двух различных значений радиуса в рамках нулевого асимптотического приближения и сравнение первого и нулевого приближений. Видно, что с ростом $n$ ширина резонансного пика быстро уменьшается, а также б\'{о}льшим радиусам (безразмерным) $ka$ соответствует б\'{о}льшая их ширина. Помимо этого, с ростом радиуса растет и значение резонансной плотности, что видно на \autoref{nenc_123:image}.
 
-    \begin{figure}[ht]
-		(a)\qquad \subimg[components/img/sph_base/sph_ka0.5_123]{0.66\textwidth}
-		\\ (б)\qquad \subimg[components/img/sph_base/sph_ka1.5_123]{0.66\textwidth}
-        \\ (в)\qquad \subimg[components/img/sph_base/sph_ka1.5_123_1st]{0.66\textwidth}
-		\caption{\textbf{Коэффициенты сферических гармоник.} $ka = 0.5$ (а), $ka = 1.5$ (б) в нулевом приближении; $ka = 1.5$ в первом приближении (в). $\beta_e = 0$. Кривые exact были построены с использованием полных разложений функций Бесселя и Ханкеля.}
-		\label{ab_asymp:image}
-	\end{figure}
+%     \begin{figure}[ht]
+% 		(a)\qquad \subimg[components/img/sph_base/sph_ka0.5_123]{0.66\textwidth}
+% 		\\ (б)\qquad \subimg[components/img/sph_base/sph_ka1.5_123]{0.66\textwidth}
+%         \\ (в)\qquad \subimg[components/img/sph_base/sph_ka1.5_123_1st]{0.66\textwidth}
+% 		\caption{\textbf{Коэффициенты сферических гармоник.} $ka = 0.5$ (а), $ka = 1.5$ (б) в нулевом приближении; $ka = 1.5$ в первом приближении (в). $\beta_e = 0$. Кривые exact были построены с использованием полных разложений функций Бесселя и Ханкеля.}
+% 		\label{ab_asymp:image}
+% 	\end{figure}
 
 
-Подобные аппроксимации позволяют оценить резонансные случаи для материала с заданным коэффициентом преломления $m$, равно как и оценить $m$, отвечающий необходимой длине волны. Так как рассматривается XUV излучение, охватывающее длины волн порядка $20-120$ нм, радиусы сферических рассеивателей должны быть порядка нескольких нанометров, что обуславливает $ka \sim 1$. Очевидно, что для таких $ka$ резонансные значения электронной плотности могут быть велики в рассмотрении $n = 1$ как слагаемого, дающего наибольший вклад в результирующее поле (\autoref{nenc_123:image}). Не выходя за рамки высокотемпературной плазмы, мы можем использовать только $n_e < 10^{24}$ $\textrm{см}^{-3}$. Тогда для $ka > 0.9$ разумнее оценивать резонансную плотность, используя $n = 2$.
+% Подобные аппроксимации позволяют оценить резонансные случаи для материала с заданным коэффициентом преломления $m$, равно как и оценить $m$, отвечающий необходимой длине волны. Так как рассматривается XUV излучение, охватывающее длины волн порядка $20-120$ нм, радиусы сферических рассеивателей должны быть порядка нескольких нанометров, что обуславливает $ka \sim 1$. Очевидно, что для таких $ka$ резонансные значения электронной плотности могут быть велики в рассмотрении $n = 1$ как слагаемого, дающего наибольший вклад в результирующее поле (\autoref{nenc_123:image}). Не выходя за рамки высокотемпературной плазмы, мы можем использовать только $n_e < 10^{24}$ $\textrm{см}^{-3}$. Тогда для $ka > 0.9$ разумнее оценивать резонансную плотность, используя $n = 2$.
 
-Используя первое приближение (\ref{an_sph_asymp1}), для качественного рассеяния при $\lambda_{10} = \lambda_{L} / 10 = 83$ нм получаем $n_e \approx 5 \cdot 10^{23}$ $\textrm{см}^{-3}$ в случае $ka \approx 0.5$ и $n_e \approx 5.7 \cdot 10^{23}$ $\textrm{см}^{-3}$ в случае $ka \approx 0.7$.
+% Используя первое приближение (\ref{an_sph_asymp1}), для качественного рассеяния при $\lambda_{10} = \lambda_{L} / 10 = 83$ нм получаем $n_e \approx 5 \cdot 10^{23}$ $\textrm{см}^{-3}$ в случае $ka \approx 0.5$ и $n_e \approx 5.7 \cdot 10^{23}$ $\textrm{см}^{-3}$ в случае $ka \approx 0.7$.
 
-    \img[components/img/sph_base/nenc_123]{\textbf{Резонансная электронная плотность в зависимости от радиуса.} Кривые посчитаны в точках максимума коэффициента (\ref{an_sph_asymp1}), $\beta_e = 0$.}{nenc_123:image}{}{0.66\textwidth}
+%     \img[components/img/sph_base/nenc_123]{\textbf{Резонансная электронная плотность в зависимости от радиуса.} Кривые посчитаны в точках максимума коэффициента (\ref{an_sph_asymp1}), $\beta_e = 0$.}{nenc_123:image}{}{0.66\textwidth}
 
 
 
