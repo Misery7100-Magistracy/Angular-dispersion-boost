@@ -80,9 +80,9 @@
 
 % ------------------------- %
 
-\newcommand{\img}[5][anything]{
+\newcommand{\img}[4][anything]{
     \begin{figure}[H]{
-        \center{\includegraphics[width={#5}]{{#1}} {#4}} % 0.8\textwidth
+        \center{\includegraphics[width={#4}]{{#1}}}
         \caption{#2}
         \label{#3}}
     \end{figure}
@@ -90,9 +90,9 @@
 
 % ------------------------- %
 
-\newcommand{\floatimg}[5][anything]{
+\newcommand{\floatimg}[4][anything]{
     \begin{figure}[ht]{
-        \center{\includegraphics[width={#5}]{{#1}} {#4}} % 0.8\textwidth
+        \center{\includegraphics[width={#4}]{{#1}}}
         \caption{#2}
         \label{#3}}
     \end{figure}

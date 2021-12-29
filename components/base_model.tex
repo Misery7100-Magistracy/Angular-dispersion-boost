@@ -20,7 +20,7 @@ Assume an incident plane wave propagating along $z$ axis of cartesian coordinate
 
 \noindent where $k = \omega/c$ --- wavenumber, $\vectbf{e}{x}$ --- the unit vector of $x$ axis direction and polarization vector:
 
-    \img[components/img/single_sph_scheme]{Base model scheme.}{single_sph_scheme:image}{}{0.73\textwidth}
+    \img[components/img/single_sph_scheme]{Base model scheme.}{single_sph_scheme:image}{0.73\textwidth}
 
 Now we can expand the plane wave into series using generalized Fourier expantions. Assuming our media is isotropic we obtain following form of scattered field~\cite{boren_huffman}:
 
@@ -63,21 +63,23 @@ This approximation can be used instead of (\Autoref{an_bessel, bn_bessel}) for s
 		C_n = 2^{1 + 2n} \Gamma(n - \frac{1}{2}) \Gamma(n + \frac{5}{2})
 	\cqe
 
-\autoref{ab_asymp:image} shows dependence of the scattering coefficient on the electron density for two different values of the radius in zero-order approximation and comparison of the first- and zero-order approximations. We can see, that with increase of $n$ width of the resonance peak decreases rapidly. Larger $ka$ corresponds to larger peak width. Besides that, with increase of $ka$ value of the resonance density increases, that shown in \autoref{nenc_123:image}.
+\autoref{ab_asymp:image} shows dependence of the scattering coefficient on the electron density for two different values of the radius in zero-order approximation. We can compare it with the first-order for $ka = 1.5$ (\autoref{ab1:image}). We can see, that with increase of $n$ width of the resonance peak decreases rapidly. Larger $ka$ corresponds to larger peak width. Besides that, with increase of $ka$ value of the resonance density increases, that shown in \autoref{nenc_123:image}.
 
-    \begin{figure}[ht]
-		(a)\qquad \subimg[components/img/sph_base/sph_ka0.5_123]{0.66\textwidth}
-		\\ (b)\qquad \subimg[components/img/sph_base/sph_ka1.5_123]{0.66\textwidth}
-        \\ (c)\qquad \subimg[components/img/sph_base/sph_ka1.5_123_1st]{0.66\textwidth}
-		\caption{Spherical harmonics coefficients. $ka = 0.5$ (a), $ka = 1.5$ (b) in zero-order approximation; $ka = 1.5$ in first-order approximation (c). $\beta_e = 0$. "Exact" curves were plotted using full expansions of the Bessel and Hankel fucntions.}
+    \begin{figure}[H]
+		(a)\: \subimg[components/img/sph_base/sph_ka0.5_123]{0.66\textwidth}
+		\\ (b)\: \subimg[components/img/sph_base/sph_ka1.5_123]{0.66\textwidth}
+        % \\ (c)\qquad \subimg[components/img/sph_base/sph_ka1.5_123_1st]{0.66\textwidth}
+		\caption{Spherical harmonics coefficients. $ka = 0.5$ (a), $ka = 1.5$ (b) in zero-order approximation, $\beta_e = 0$. "Exact" curves were plotted using full expansions of the Bessel and Hankel fucntions.}
 		\label{ab_asymp:image}
 	\end{figure}
+
+    \img[components/img/sph_base/sph_ka1.5_123_1st]{$ka = 1.5$ in first-order approximation. $\beta_e = 0$. "Exact" curves were plotted using full expansions of the Bessel and Hankel fucntions.}{ab1:image}{0.66\textwidth}
 
 Such approximations allow us to estimate the resonance cases for a material with pre-defined refractive index $m$ as well as estimate refractive index corresponding to the required wavelength. As we consider XUV range radiation (20-120 nm), radiuses of spherical scatterers should be about few nanometers, that causes $ka \sim 1$. Obviously, for such $ ka $ the resonance values of the electron density can be large in considering $n = 1$ as term with the largest contribution to the scattered field. Staying within high-temperature plasma we should use only $n_e < 10^{24}$ $\textrm{cm}^{-3}$. Thus for $ka > 0.9$ it is more reasonable to estimate the resonance electon density using $n = 2$.
 
 Using first-order approximation (\ref{an_sph_asymp1}) with wavelength $\lambda_{10} = \lambda_{L} / 10 = 83$ nm we get $n_e \approx 5 \cdot 10^{23}$ $\textrm{cm}^{-3}$ for $ka \approx 0.5$ and $n_e \approx 5.7 \cdot 10^{23}$ $\textrm{cm}^{-3}$ for $ka \approx 0.7$ to reach efficient scattering.
 
-    \img[components/img/sph_base/nenc_123]{Resonance electron density depending on radius. Curves were calculated in maximum points of (\ref{an_sph_asymp1}), $\beta_e = 0$.}{nenc_123:image}{}{0.66\textwidth}
+    \img[components/img/sph_base/nenc_123]{Resonance electron density depending on radius. Curves were calculated in maximum points of (\ref{an_sph_asymp1}), $\beta_e = 0$.}{nenc_123:image}{0.66\textwidth}
 
 
 
