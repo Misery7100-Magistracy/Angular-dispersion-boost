@@ -30,6 +30,7 @@
 \usepackage[unicode=true,hidelinks]{hyperref}
 \usepackage[fixlanguage]{babelbib}
 \usepackage[oldsyntax]{stackengine}
+\usepackage[labelformat=simple, labelsep=colon]{subfig}
 
 % ------------------------- %
 %  Custom components
@@ -60,10 +61,12 @@
 	\thinmuskip = 1mu
 	\thickmuskip = 6mu
 	\def\stacktype{S}\Sstackgap=-4.3pt
+	\floatsetup[figure]{style=plain,subcapbesideposition=top}
 
-	% renew autoreferences
+	% renew or new autoreferences
 
-	\renewcommand{\equationautorefname}{}
+	% \renewcommand{\equationautorefname}{}
+	\newcommand{\subfigureautorefname}{\figureautorefname}
 
 	% add components
 
