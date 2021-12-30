@@ -3,22 +3,22 @@
 Let us consider a single cluster with radius $a$ irradiated by short femtosecond pulse with intensity about $I_{h} \approx 10^{14}$ $\textrm{W/cm}^2$. The Drude model yields the dielectric function of the plasma:
 
     \eq
-		\varepsilon (\omega) = 1 - \left( \frac{\omega_{pe}}{\omega} \right)^2 \frac{1}{1 + i \beta_{e}}, \qquad \omega_{pe} = \sqrt{\frac{4 \pi e^2 n_e}{m_e}},
+		\varepsilon (\w) = 1 - \left( \frac{\w_{pe}}{\w} \right)^2 \frac{1}{1 + i \beta_{e}}, \qquad \w_{pe} = \sqrt{\frac{4 \pi e^2 n_e}{m_e}},
 		\label{eps_plasma}
 	\qe
 
-\noindent where $\omega$ --- harmonic (angular) frequency under consideration; $\omega_{pe}$ --- the electron plasma frequency; $e$, $m_e$ --- electron charge and mass; $n_e = Z n_i$ --- the electron number density, where $Z$ --- average ionization degree, $n_i$ --- ion density. $\beta_{e} = v_e / \omega$ and $v_e$ --- electron-ion collision rate in Spitzer approximation. As we are going to consider scattering of harmonic radiation, the cluster should have a density above the critical one for this harmonic: $n_c = \omega^2 m_e / 4 \pi e^2$. Thus for example, for 10-th laser harmonic with wavelength $\lambda_{L} = 830$ nm one obtains condition $n_e > 1.3 \cdot 10^{23}$ $\textrm{cm}^{-3}$.
+\noindent where $\w$ --- harmonic (angular) frequency under consideration; $\w_{pe}$ --- the electron plasma frequency; $e$, $m_e$ --- electron charge and mass; $n_e = Z n_i$ --- the electron number density, where $Z$ --- average ionization degree, $n_i$ --- ion density. $\beta_{e} = v_e / \w$ and $v_e$ --- electron-ion collision rate in Spitzer approximation. As we are going to consider scattering of harmonic radiation, the cluster should have a density above the critical one for this harmonic: $n_c = \w^2 m_e / 4 \pi e^2$. Thus for example, for 10-th laser harmonic with wavelength $\lambda_{L} = 830$ nm one obtains condition $n_e > 1.3 \cdot 10^{23}$ $\textrm{cm}^{-3}$.
 
 The Mie theory can be used for the description of elastic electromagnetic wave scattering by arbitrary sized particles in case of linear interactions and let obtain scattered and internal field. A main step is to solve the scalar Helmholtz Equation in suitable coordinate system andgain the vector solutions. For spherical cluster the solution of corresponding equation can be written in the form of Bessel and Hankel functions of $n$-th order~\cite{boren_huffman}.
 
 Assume an incident plane wave propagating along $z$ axis of cartesian coordinate system and polarized along $x$ axis:
 
     \eq
-        \vectbf{E}{i} = E_0\:e^{i\omega t - ikz}\:\vectbf{e}{x},
+        \vectbf{E}{i} = E_0\:e^{i\w t - ikz}\:\vectbf{e}{x},
         \label{E_i_sph}
     \qe
 
-\noindent where $k = \omega/c$ --- wavenumber, $\vectbf{e}{x}$ --- the unit vector of $x$ axis direction and polarization vector:
+\noindent where $k = \w/c$ --- wavenumber, $\vectbf{e}{x}$ --- the unit vector of $x$ axis direction and polarization vector:
 
     \img[components/img/single_sph_scheme]{Base model scheme.}{single_sph_scheme:image}{0.73\textwidth}
 
@@ -29,7 +29,7 @@ Now we can expand the plane wave into series using generalized Fourier expantion
         \label{E_s_sph}
 	\qe
 
-$n$ --- vector harmonic number after cartesian-spherical coordinate system transformation, $m = \sqrt{\varepsilon\left(\omega\right)}$ --- refractive index of the target. Vector harmonics coefficients have the following form~\cite{boren_huffman}:
+$n$ --- vector harmonic number after cartesian-spherical coordinate system transformation, $m = \sqrt{\varepsilon\left(\w\right)}$ --- refractive index of the target. Vector harmonics coefficients have the following form~\cite{boren_huffman}:
 
 
     \eq

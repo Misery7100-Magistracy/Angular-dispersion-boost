@@ -17,7 +17,7 @@
 \usepackage{listings}
 \usepackage{booktabs}
 \usepackage{xcolor}
-\usepackage[margin=1.0in, headsep=0.3in]{geometry} % margin=0.9
+\usepackage[margin=1.0in, headsep=0.3in]{geometry}
 \usepackage{xspace}
 \usepackage{graphicx}
 \usepackage[font=small, labelfont=bf, width=0.95\linewidth]{caption}
@@ -31,14 +31,14 @@
 \usepackage[fixlanguage]{babelbib}
 \usepackage[oldsyntax]{stackengine}
 
-\def\stacktype{S}\Sstackgap=-4.3pt
-
 % ------------------------- %
-%  Assets
+%  Custom components
 % ------------------------- %
 
-\input{assets/defs.tex}
-\input{assets/cmds.tex}
+\input{custom/def.tex}
+\input{custom/equation.tex}
+\input{custom/autoref_multiple.tex}
+\input{custom/figure.tex}
 
 % ------------------------- %
 %  Document
@@ -59,6 +59,9 @@
 
 	\thinmuskip = 1mu
 	\thickmuskip = 6mu
+	\def\stacktype{S}\Sstackgap=-4.3pt
+
+	% renew autoreferences
 
 	\renewcommand{\equationautorefname}{}
 
@@ -74,6 +77,7 @@
 	\input{components/multiple_spheres.tex}
 
 	% add bibliography
+
 	\selectbiblanguage{english}
 	\bibliographystyle{ieeetr}
 	\bibliography{components/bibliography.bib}
