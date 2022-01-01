@@ -1,0 +1,3 @@
+[submodule "celes"]
+	path = celes
+	url = https://github.com/disordered-photonics/celes
