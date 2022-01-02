@@ -43,12 +43,12 @@ class MatEngine(Engine):
 
 class MSTM(MatEngine):
 
-    CIRCLE_PTS = 181
+    # CIRCLE_PTS = 181
 
     TARGET_PLOT = {
 
         'plot'      : True,
-        'pt_reduce' : 1,
+        #'pt_reduce' : 1,
         'alpha'     : 0.1,
         'color'     : 'white'
     }
@@ -65,11 +65,12 @@ class MSTM(MatEngine):
         self.circles = pd.DataFrame(self.get_array('particles_xy'))
         self.circles.rename(
             
-            columns={0 : 'x', 1 : 'y'}, 
+            columns={0 : 'x', 1 : 'y', 2 : 'z', 3 : 'r'}, 
             inplace=True
             
         )
-        self.circles.drop_duplicates(['x', 'y'])
+        self.circles.drop_duplicates(['x', 'z', 'r'], inplace=True)
+        self.circles.reset_index(drop=True, inplace=True)
     
     # ------------------------- #
 
@@ -103,18 +104,32 @@ class MSTM(MatEngine):
 
         if target.get('plot'):
 
-            for i in range(0, self.circles.shape[0], self.CIRCLE_PTS):
-                x = self.circles.loc[i : i + self.CIRCLE_PTS - 1 : target.get('pt_reduce')].x
-                y = self.circles.loc[i : i + self.CIRCLE_PTS - 1 : target.get('pt_reduce')].y
+            for i in range(self.circles.shape[0]):
 
-                ax.plot(
-                    
-                    x, y, 
-                    linewidth=0.05, 
-                    color=target.get('color'), 
-                    alpha=target.get('alpha')
-                    
+                x, _, y, r = self.circles.loc[i]
+                circle = plt.Circle(
+                
+                    (x, y), 
+                    r, 
+                    color=target.get('color'),
+                    alpha=target.get('alpha'),
+                    fill=False
+                
                 )
+
+                ax.add_patch(circle)
+
+                # x = self.circles.loc[i : i + self.CIRCLE_PTS - 1 : target.get('pt_reduce')].x
+                # y = self.circles.loc[i : i + self.CIRCLE_PTS - 1 : target.get('pt_reduce')].y
+
+                # ax.plot(
+                    
+                #     x, y, 
+                #     linewidth=0.05, 
+                #     color=target.get('color'), 
+                #     alpha=target.get('alpha')
+                    
+                # )
         
         for ang in angles:
 

@@ -20,8 +20,8 @@ data = dlmread('./particles.txt');
 % ----------------------------------------------------------------------- %
 %% main code
 
-coords = euler(data(:, 1:3), 0, 5, 0);
-mat_fname = 'mstm_output.mat';
+coords = euler(data(:, 1:3), 0, 0, 0);
+mat_fname = './output/12edge_8.9a_1.851m_0deg_TE_300width.mat';
 
 % initialize particles and field
 particles = celes_particles('positionArray',        coords, ...
@@ -109,14 +109,7 @@ ylabel('z, nm');
 fig = gcf;
 
 axObjs = fig.Children;
-cxdata = axObjs(2).Children(1).Children.XData;
-cydata = axObjs(2).Children(1).Children.YData;
-cydata = cydata.';
-cxdata = cxdata.';
-cxdata = cxdata(~isnan(cxdata));
-cydata = cydata(~isnan(cydata));
-
-particles_xy = [cxdata cydata];
+particles_xy = [coords data(:, 4)];
 heatmap = axObjs(2).Children(2).CData;
 grid_max = bnd;
 grid_step = stp;
