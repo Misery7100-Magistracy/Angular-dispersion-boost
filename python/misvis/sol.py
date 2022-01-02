@@ -70,15 +70,6 @@ class Field2D(SolEngine):
 
     }
 
-    TARGET_PLOT = {
-
-        'plot'      : True,
-        'radius'    : 8.9,
-        'color'     : 'white',
-        'alpha'     : 0.1
-
-    }
-
     # ------------------------- #
 
     def __init__(
@@ -112,9 +103,9 @@ class Field2D(SolEngine):
         self.data.rename(columns=rename, inplace=True)
         self.data.drop(normal, axis=1, inplace=True)
 
-        inplane = [x for x in self.COLUMNS.values() if x != normal]
-        self.grid_max = self.data[inplane].max().max()
-        self.grid_step = max(self.data[inplane[0]].diff()[1], self.data[inplane[1]].diff()[1])
+        self.inplane = [x for x in self.COLUMNS.values() if x != normal]
+        self.grid_max = self.data[self.inplane].max().max()
+        self.grid_step = max(self.data[self.inplane[0]].diff()[1], self.data[self.inplane[1]].diff()[1])
 
         length = self.data.shape[0]
 
@@ -159,13 +150,11 @@ class Field2D(SolEngine):
         configure_mpl(font_scale=font_scale)
 
         fig, ax = plt.subplots(**kwargs)
-        field = ax.imshow(pltdata, cmap='hot', extent=extent)
+        field = ax.imshow(pltdata, cmap=self.GLOBCMAP, extent=extent)
 
         divider = make_axes_locatable(ax)
-        cax = divider.append_axes("right", size="5%", pad=0.4)
+        cax = divider.append_axes(**self.CBARPROPS)
         plt.colorbar(field, cax=cax)
-
-        # circle2 = plt.Circle((5, 5), 0.5, color='b', fill=False)
 
         target = {**self.TARGET_PLOT, **target}
 
@@ -182,8 +171,8 @@ class Field2D(SolEngine):
                 )
             ax.add_patch(circle)
 
-        ax.set_xlabel(r'$x$, $\rm{nm}$', labelpad=15)
-        ax.set_ylabel(r'$z$, $\rm{nm}$', labelpad=15)
+        ax.set_xlabel(r'$' + self.inplane[0] + r'$, $\rm{nm}$', **self.AXISLABEL)
+        ax.set_ylabel(r'$' + self.inplane[1] + r'$, $\rm{nm}$', **self.AXISLABEL)
 
         if xtick: 
             

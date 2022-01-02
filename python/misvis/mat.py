@@ -43,16 +43,6 @@ class MatEngine(Engine):
 
 class MSTM(MatEngine):
 
-    # CIRCLE_PTS = 181
-
-    TARGET_PLOT = {
-
-        'plot'      : True,
-        #'pt_reduce' : 1,
-        'alpha'     : 0.1,
-        'color'     : 'white'
-    }
-
     # ------------------------- #
 
     def __init__(self, fname: str, **kwargs) -> None:
@@ -94,10 +84,10 @@ class MSTM(MatEngine):
         configure_mpl(font_scale=font_scale)
 
         fig, ax = plt.subplots(**kwargs)
-        field = ax.imshow(pltdata, cmap='hot', extent=extent)
+        field = ax.imshow(pltdata, cmap=self.GLOBCMAP, extent=extent)
 
         divider = make_axes_locatable(ax)
-        cax = divider.append_axes("right", size="5%", pad=0.4)
+        cax = divider.append_axes(**self.CBARPROPS)
         plt.colorbar(field, cax=cax)
 
         target = {**self.TARGET_PLOT, **target}
@@ -118,25 +108,13 @@ class MSTM(MatEngine):
                 )
 
                 ax.add_patch(circle)
-
-                # x = self.circles.loc[i : i + self.CIRCLE_PTS - 1 : target.get('pt_reduce')].x
-                # y = self.circles.loc[i : i + self.CIRCLE_PTS - 1 : target.get('pt_reduce')].y
-
-                # ax.plot(
-                    
-                #     x, y, 
-                #     linewidth=0.05, 
-                #     color=target.get('color'), 
-                #     alpha=target.get('alpha')
-                    
-                # )
         
         for ang in angles:
 
             self.add_sc_line(ang, ax, extval)
         
-        ax.set_xlabel(r'$x$, $\rm{nm}$', labelpad=15)
-        ax.set_ylabel(r'$z$, $\rm{nm}$', labelpad=15)
+        ax.set_xlabel(r'$x$, $\rm{nm}$', **self.AXISLABEL)
+        ax.set_ylabel(r'$z$, $\rm{nm}$', **self.AXISLABEL)
 
         if xtick: 
             
