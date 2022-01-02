@@ -20,7 +20,7 @@ data = dlmread('./particles.txt');
 % ----------------------------------------------------------------------- %
 %% main code
 
-coords = euler(data(:, 1:3), 0, 3, 0);
+coords = euler(data(:, 1:3), 0, 5, 0);
 mat_fname = 'mstm_output.mat';
 
 % initialize particles and field
