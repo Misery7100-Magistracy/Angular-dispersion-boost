@@ -20,7 +20,8 @@ data = dlmread('./particles.txt');
 % ----------------------------------------------------------------------- %
 %% main code
 
-coords = euler(data(:, 1:3), 0, 8, 0);
+coords = euler(data(:, 1:3), 0, 3, 0);
+mat_fname = 'mstm_output.mat';
 
 % initialize particles and field
 particles = celes_particles('positionArray',        coords, ...
@@ -64,7 +65,7 @@ numerics = celes_numerics('lmax',                       3, ...
 % define a grid of points where the field will be evaulated (need to
 % optimize)
 scale = 1;
-bnd = 5000 / scale;
+bnd = 5500 / scale;
 stp = 4.2 / scale;
 [x, z] = meshgrid(-bnd:stp:bnd, -bnd:stp:bnd); y = zeros(size(x));
 
@@ -119,12 +120,8 @@ particles_xy = [cxdata cydata];
 heatmap = axObjs(2).Children(2).CData;
 grid_max = bnd;
 grid_step = stp;
-filename = 'mstm_output.mat';
 
-save(filename, 'particles_xy', 'heatmap', 'grid_max', 'grid_step');
-
-
-% caxis([0,2])
+save(mat_fname, 'particles_xy', 'heatmap', 'grid_max', 'grid_step');
 
 % ----------------------------------------------------------------------- %
 %% custom functions
