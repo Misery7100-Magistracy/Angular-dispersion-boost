@@ -45,6 +45,14 @@ class MSTM(MatEngine):
 
     CIRCLE_PTS = 181
 
+    TARGET_PLOT = {
+
+        'plot'      : True,
+        'pt_reduce' : 1,
+        'alpha'     : 0.1,
+        'color'     : 'white'
+    }
+
     # ------------------------- #
 
     def __init__(self, fname: str, **kwargs) -> None:
@@ -61,6 +69,7 @@ class MSTM(MatEngine):
             inplace=True
             
         )
+        self.circles.drop_duplicates(['x', 'y'])
     
     # ------------------------- #
 
@@ -69,7 +78,7 @@ class MSTM(MatEngine):
             self, 
             trim: int = 0,
             angles: tuple = tuple(),
-            target: bool = True,
+            target: dict = dict(),
             font_scale: float = 2.0,
             xtick: float = None,
             ytick: float = None, 
@@ -87,16 +96,25 @@ class MSTM(MatEngine):
         field = ax.imshow(pltdata, cmap='hot', extent=extent)
 
         divider = make_axes_locatable(ax)
-        cax = divider.append_axes("right", size="5%", pad=0.1)
+        cax = divider.append_axes("right", size="5%", pad=0.4)
         plt.colorbar(field, cax=cax)
 
-        if target:
+        target = {**self.TARGET_PLOT, **target}
+
+        if target.get('plot'):
 
             for i in range(0, self.circles.shape[0], self.CIRCLE_PTS):
-                x = self.circles.loc[i : i + self.CIRCLE_PTS - 1].x
-                y = self.circles.loc[i : i + self.CIRCLE_PTS - 1].y
+                x = self.circles.loc[i : i + self.CIRCLE_PTS - 1 : target.get('pt_reduce')].x
+                y = self.circles.loc[i : i + self.CIRCLE_PTS - 1 : target.get('pt_reduce')].y
 
-                ax.plot(x, y, linewidth=0.1, color='white')
+                ax.plot(
+                    
+                    x, y, 
+                    linewidth=0.05, 
+                    color=target.get('color'), 
+                    alpha=target.get('alpha')
+                    
+                )
         
         for ang in angles:
 
@@ -139,7 +157,15 @@ class MSTM(MatEngine):
         y = (1 - div % 2) * extval + (div % 2) * oppleg
         x = (div % 2) * extval + (1 - div % 2) * oppleg
 
-        ax.plot([0, x], [0, y], color='white', linestyle='dotted')
+        ax.plot(
+            
+            [0, x], 
+            [0, y], 
+            color='white', 
+            linestyle='dotted', 
+            linewidth=0.5
+        
+        )
 
     # ------------------------- #
 
