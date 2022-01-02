@@ -33,3 +33,31 @@ class SolEngine:
 
     # def get_array(self, name: str) -> object:
     #     return self.data.get(name).astype(np.float64)
+
+# ------------------------- #
+
+class ScattInd(SolEngine):
+
+    def __init__(
+            
+            self, 
+            fname: str, 
+            **kwargs
+            
+        ) -> None:
+
+        super().__init__(fname, **kwargs)
+
+# ------------------------- #
+
+class Field2D(SolEngine):
+
+    def __init__(
+            
+            self, 
+            fname: str, 
+            **kwargs
+            
+        ) -> None:
+
+        super().__init__(fname, **kwargs)
