@@ -6,6 +6,7 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from typing import List, Tuple
 
 # ------------------------- #
 
@@ -68,11 +69,12 @@ class MSTM(MatEngine):
         
             self, 
             trim: int = 0,
-            angles: tuple = tuple(),
+            angles: list = List[Tuple[float]],
             target: dict = dict(),
             font_scale: float = 2.0,
             xtick: float = None,
-            ytick: float = None, 
+            ytick: float = None,
+            reduce : float = 0.8, 
             **kwargs
         
         ) -> tuple:
@@ -109,9 +111,9 @@ class MSTM(MatEngine):
 
                 ax.add_patch(circle)
         
-        for ang in angles:
+        for (ang, shift) in angles:
 
-            self.add_sc_line(ang, ax, extval)
+            self.add_sc_line(ang, ax, extval, reduce=reduce, shift=shift)
         
         ax.set_xlabel(r'$x$, $\rm{nm}$', **self.AXISLABEL)
         ax.set_ylabel(r'$z$, $\rm{nm}$', **self.AXISLABEL)
@@ -133,31 +135,58 @@ class MSTM(MatEngine):
             self, 
             angle: float, 
             ax: object, 
-            extval: float
+            extval: float,
+            reduce: float = 0.8,
+            shift: float = 0.0
         
         ) -> None:
 
-        posangle = 360 - angle if angle < 0 else angle
-        oppleg = np.tan(angle % 45 * np.pi / 180) * extval
+        angle += 90
+        posangle = angle % 360 if angle < 0 else angle
 
-        div = (posangle + 45) // 90
-        sign = 1 if div in [1, 2] else -1
-        extval *= sign
+        radius = extval * reduce
 
-        oppsign = (2 * int((angle - 90 * div) > 0) - 1) * (2 * int(div < 2) - 1)
-        oppleg *= oppsign
+        y = radius * np.sin(posangle * np.pi / 180)
+        x = radius * np.cos(posangle * np.pi / 180)
+
+        # circle = plt.Circle(
+                
+        #             (0, 0), 
+        #             radius, 
+        #             color='white',
+        #             alpha=0.5,
+        #             fill=False
+                
+        #         )
+
+        # ax.add_patch(circle)
+
+        sc = abs(shift * extval)
+
+        if y != 0:
+            sqrtdc = np.sqrt(sc ** 2 -  (sc ** 2 - radius ** 2) * (radius / y )** 2)
+            y1 = y ** 2 * (-sc + sqrtdc) / radius ** 2
+            y2 = y ** 2 * (-sc - sqrtdc) / radius ** 2
+            print(y1, y2)
+            yc = max(y1, y2)
+
+        else:
+            yc = 0
         
-        y = (1 - div % 2) * extval + (div % 2) * oppleg
-        x = (div % 2) * extval + (1 - div % 2) * oppleg
 
-        ax.plot(
-            
-            [0, x], 
-            [0, y], 
+        xc = np.sign(x) * np.sqrt(radius ** 2 - (yc + sc) ** 2)
+
+        ax.arrow(
+
+            0, shift * extval, 
+            xc, yc * np.sign(y), 
             color='white', 
+            head_width=radius*0.048, 
+            overhang=0.5, 
+            linewidth=0.8, 
             linestyle='dotted', 
-            linewidth=0.5
-        
+            length_includes_head=True
+            
         )
 
     # ------------------------- #
