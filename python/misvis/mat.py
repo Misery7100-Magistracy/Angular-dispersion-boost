@@ -164,13 +164,14 @@ class MSTM(MatEngine):
         sc = abs(shift * extval)
 
         if y != 0:
-            sqrtdc = np.sqrt(sc ** 2 -  (sc ** 2 - radius ** 2) * (radius / y )** 2)
+
+            sqrtdc = np.sqrt(sc ** 2 -  (sc ** 2 - radius ** 2) * (radius / y ) ** 2)
             y1 = y ** 2 * (-sc + sqrtdc) / radius ** 2
             y2 = y ** 2 * (-sc - sqrtdc) / radius ** 2
-            print(y1, y2)
             yc = max(y1, y2)
 
         else:
+
             yc = 0
         
 
