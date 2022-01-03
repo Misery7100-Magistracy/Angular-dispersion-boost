@@ -3,7 +3,7 @@ from .engine import Engine
 from .utils import configure_mpl
 import matplotlib.ticker as ticker
 from mpl_toolkits.axes_grid1 import make_axes_locatable
-import pandas as pd
+import modin.pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from typing import List, Tuple
@@ -148,6 +148,8 @@ class MSTM(MatEngine):
 
         y = radius * np.sin(posangle * np.pi / 180)
         x = radius * np.cos(posangle * np.pi / 180)
+
+        # debug circle
 
         # circle = plt.Circle(
                 

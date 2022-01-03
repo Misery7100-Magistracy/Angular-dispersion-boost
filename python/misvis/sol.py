@@ -1,4 +1,4 @@
-import pandas as pd
+import modin.pandas as pd
 from .engine import Engine
 from .utils import configure_mpl
 import matplotlib.ticker as ticker
