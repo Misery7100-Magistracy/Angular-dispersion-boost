@@ -3,7 +3,7 @@ from .engine import Engine
 from .utils import configure_mpl
 import matplotlib.ticker as ticker
 from mpl_toolkits.axes_grid1 import make_axes_locatable
-import modin.pandas as pd
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from typing import List, Tuple
@@ -69,12 +69,13 @@ class MSTM(MatEngine):
         
             self, 
             trim: int = 0,
-            angles: list = List[Tuple[float]],
+            angles: List[Tuple[float]] = [],
             target: dict = dict(),
             font_scale: float = 2.0,
             xtick: float = None,
             ytick: float = None,
-            reduce : float = 0.8, 
+            reduce : float = 0.8,
+            bartick: float = 0.1, 
             **kwargs
         
         ) -> tuple:
@@ -87,10 +88,13 @@ class MSTM(MatEngine):
 
         fig, ax = plt.subplots(**kwargs)
         field = ax.imshow(pltdata, cmap=self.GLOBCMAP, extent=extent)
+        bbea = []
 
         divider = make_axes_locatable(ax)
         cax = divider.append_axes(**self.CBARPROPS)
-        plt.colorbar(field, cax=cax)
+        bar = plt.colorbar(field, cax=cax)
+        bar.locator = ticker.MultipleLocator(bartick)
+        bar.update_ticks()
 
         target = {**self.TARGET_PLOT, **target}
 
@@ -113,10 +117,14 @@ class MSTM(MatEngine):
         
         for (ang, shift) in angles:
 
-            self.add_sc_line(ang, ax, extval, reduce=reduce, shift=shift)
+            arrow = self.add_sc_line(ang, ax, extval, reduce=reduce, shift=shift)
+            bbea.append(arrow)
         
-        ax.set_xlabel(r'$x$, $\rm{nm}$', **self.AXISLABEL)
-        ax.set_ylabel(r'$z$, $\rm{nm}$', **self.AXISLABEL)
+        xl = ax.set_xlabel(r'$x$, $\rm{nm}$', **self.AXISLABEL)
+        yl = ax.set_ylabel(r'$z$, $\rm{nm}$', **self.AXISLABEL)
+        
+        bbea.append(xl)
+        bbea.append(yl)
 
         if xtick: 
             
@@ -126,7 +134,7 @@ class MSTM(MatEngine):
             
             ax.yaxis.set_major_locator(ticker.MultipleLocator(ytick))
         
-        return fig, ax
+        return fig, ax, bbea
     
     # ------------------------- #
 
@@ -179,7 +187,7 @@ class MSTM(MatEngine):
 
         xc = np.sign(x) * np.sqrt(radius ** 2 - (yc + sc) ** 2)
 
-        ax.arrow(
+        return ax.arrow(
 
             0, shift * extval, 
             xc, yc * np.sign(y), 
