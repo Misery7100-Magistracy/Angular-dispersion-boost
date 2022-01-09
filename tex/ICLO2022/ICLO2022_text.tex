@@ -61,7 +61,7 @@ Limited size targets interacting with high-intensity coherent radiation is well-
 
 In micrometer wavelengths photon crystals and lattices can be used for direction or diffraction electromagnetic waves~\cite{lin_zhang}, while for x-ray radiation it is possible to use real crystals with regularly placed scattering centers (atoms) with distance of few nanometers~\cite{batterman_cole}. At the same time, large interval between these wavelength orders named XUV (extreme-ultraviolet) is hard to manipulate.
 
-Within the present work we consider the possibility of directed scattering of short wavelength radiation in the XUV range by scattering on suitable spherical clusters. Similar case with cylindrical symmetry (arrays of nanocylinders as scatterers) was researched earlier~\cite{andreev_lecz}. Of course, nanocylinders are more suitable regarding the control of size an distance parameters at the target manufacturing stage, but arrays of spherical clusters can make possible to manipulate with light direction in three-dimensional space and give a more optimal spatial configuration.
+Within the present work we consider the possibility of directed scattering of short wavelength radiation in the XUV range by scattering on suitable spherical clusters. Similar case with cylindrical symmetry (arrays of nanocylinders as scatters) was researched earlier~\cite{andreev_lecz}. Of course, nanocylinders are more suitable regarding the control of size an distance parameters at the target manufacturing stage, but arrays of spherical clusters can make possible to manipulate with light direction in three-dimensional space and give a more optimal spatial configuration.
 
 \section{Base model}
 
@@ -119,8 +119,7 @@ Coefficients in \autoref{E_s_sph} have the following form~\cite{boren_huffman}:
 
 \subsection{Resonance conditions}
 
-To investigate the conditions under which resonant ﬁeld enhancement occur the determination of the desired coeﬃcients (\Autoref{an_bessel, bn_bessel}) is necessary in general. Since we are only interested in particle sizes which are smaller than the incident wavelength we use the limiting forms of the respective Bessel functions. In this asymptotic limit the coeﬃcients are of a much
-simpler form:
+To investigate the conditions under which resonant ﬁeld enhancement occur the determination of the desired coeﬃcients (\Autoref{an_bessel, bn_bessel}) is necessary in general. Since we are only interested in particle sizes which are smaller than the incident wavelength we use the limiting forms of the respective Bessel functions. In this asymptotic limit the coeﬃcients are of a much simpler form:
 
 	\eq
 		a_n\left( x \to 0,\:m \right) = \left( 1 + i C_n \frac{\left(m^2 + \frac{n + 1}{n} \right)}{(m^2 - 1)} \frac{1}{x^{2n+1}} \right)^{-1},
@@ -141,7 +140,7 @@ In this case amplitude of the scattered field is maximum for $m^2 = - (n+ 1) / n
 		n_e = \frac{2n + 1}{n}n_c.
 	\cqe
 
-\autoref{ab_asymp} can be used instead of (\Autoref{an_bessel, bn_bessel}) for scatterers with quite small radius, but for $ka \sim 1$ the approximation ceases to be reasonable already, particularly for large $n$. In this case the first-order approximation, that can be obtained including first term in polynomial expansion of Bessel functions, is better suited \cite{abra_steg}. Moreover, in first-order approximation dependency of coefficients on the scatterer size occurs, which lead to corresponding dependency of resonance electron density (\autoref{nenc_123:image}).
+\autoref{ab_asymp} can be used instead of \Autoref{an_bessel, bn_bessel} for scatters with quite small radius, but for $ka \sim 1$ the approximation ceases to be reasonable already, particularly for large $n$. In this case the first-order approximation, that can be obtained including first term in polynomial expansion of Bessel functions, is better suited \cite{abra_steg}. Moreover, in first-order approximation dependency of coefficients on the scatter size occurs, which lead to corresponding dependency of resonance electron density (\autoref{nenc_123:image}).
 
 	\begin{figure}[htbp]
 		\centerline{\includegraphics[width=\columnwidth]{../components/img/sph_base/nenc_123.pdf}}
@@ -149,7 +148,7 @@ In this case amplitude of the scattered field is maximum for $m^2 = - (n+ 1) / n
 		\label{nenc_123:image}
 	\end{figure}
 
-Such approximations allow us to estimate the resonance cases for a material with pre-defined refractive index $m$ as well as estimate refractive index corresponding to the required wavelength. As we consider XUV range radiation (20-120 nm), radiuses of spherical scatterers should be about few nanometers, that causes $ka \sim 1$. Obviously, for such $ ka $ the resonance values of the electron density can be large in considering $n = 1$ as term with the largest contribution to the scattered field. Staying within high-temperature plasma we should use only $n_e < 10^{24}$ $\textrm{cm}^{-3}$.
+Such approximations allow us to estimate the resonance cases for a material with pre-defined refractive index $m$ as well as estimate refractive index corresponding to the required wavelength. As we consider XUV range radiation (20-120 nm), radiuses of spherical scatters should be about few nanometers, that causes $ka \sim 1$. Obviously, for such $ ka $ the resonance values of the electron density can be large in considering $n = 1$ as term with the largest contribution to the scattered field. Staying within high-temperature plasma we should use only $n_e < 10^{24}$ $\textrm{cm}^{-3}$.
 
 In first-order approximation with wavelength $\lambda_{10} = \lambda_{L} / 10 = 83$ nm, we have $n_e \approx 5.7 \cdot 10^{23}$ $\textrm{cm}^{-3}$ for $ka = 0.7$ ($a \approx 8.91$ nm) to reach efficient scattering.
 
@@ -170,7 +169,7 @@ Diffraction orders can be obtained with Bragg's law \cite{kress_bernard}:
 
 \noindent where $d$ --- the fringe spacing of the grating, $\theta$ --- the angle between the incident beam and the normal to the entrance surface, $\phi$ --- the angle between the normal and the grating vector, $n$ --- the order of diffraction, $\lambda$ --- diffracted wavelength. As we choose cubic lattice, $\varphi = 0$ due to the symmetry, that lead to planar Wolfe–Bragg's condition.
 
-According to \autoref{bragg_wulfe} we obtain $\theta_{2\lambda} = \arcsin\frac{1}{4}$ for grating with $d = 2\lambda$ and $\theta_{3\lambda} = \arcsin\frac{1}{6}$ for grating with $d = 2\lambda$ in $1$-st diffraction order. Using these values we numerically compute the scattered field of 10-th laser harmonic with wavelength $\lambda_{10} = 83$ nm, using CELES package, based on T-matrix calculations~\cite{t_matrix, celes}.
+According to \autoref{bragg_wulfe} we obtain $\theta = \arcsin\frac{1}{4}$ for grating with $d = 2\lambda$ and $\theta = \arcsin\frac{1}{6}$ for grating with $d = 3\lambda$ in $1$-st diffraction order. Using these values we numerically compute the scattered field of 10-th laser harmonic with wavelength $\lambda_{10} = 83$ nm, using CELES package, based on T-matrix calculations~\cite{t_matrix, celes}.
 
 We can see directions corresponding to the angular boost of the incident beam, in particular, for $d = 2\lambda_{10}$ there are two fairly clear directions (\autoref{14.324deg:image}), while for $d = 3\lambda_{10}$ there are three less clear ones with wider spread of the scattered field in general (\autoref{9.594deg:image}).
 
