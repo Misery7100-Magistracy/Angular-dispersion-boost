@@ -75,7 +75,8 @@ class MSTM(MatEngine):
             xtick: float = None,
             ytick: float = None,
             reduce : float = 0.8,
-            bartick: float = 0.1, 
+            bartick: float = 0.1,
+            external_circles: object = None, 
             **kwargs
         
         ) -> tuple:
@@ -100,20 +101,39 @@ class MSTM(MatEngine):
 
         if target.get('plot'):
 
-            for i in range(self.circles.shape[0]):
+            if not external_circles is None:
 
-                x, _, y, r = self.circles.loc[i]
-                circle = plt.Circle(
-                
-                    (x, y), 
-                    r, 
-                    color=target.get('color'),
-                    alpha=target.get('alpha'),
-                    fill=False
-                
-                )
+                for i in range(external_circles.shape[0]):
 
-                ax.add_patch(circle)
+                    x, _, y, r = external_circles.loc[i]
+                    circle = plt.Circle(
+                    
+                        (x, y), 
+                        r, 
+                        color=target.get('color'),
+                        alpha=target.get('alpha'),
+                        fill=False
+                    
+                    )
+
+                    ax.add_patch(circle)
+
+            else:
+
+                for i in range(self.circles.shape[0]):
+
+                    x, _, y, r = self.circles.loc[i]
+                    circle = plt.Circle(
+                    
+                        (x, y), 
+                        r, 
+                        color=target.get('color'),
+                        alpha=target.get('alpha'),
+                        fill=False
+                    
+                    )
+
+                    ax.add_patch(circle)
         
         for (ang, shift) in angles:
 
