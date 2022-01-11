@@ -38,9 +38,6 @@ class MeshGenerator:
             coords = np.array(list(map(list, product(coords, repeat=2))))
             output = list(map(lambda x: list(x) + [0, radius, 0, m], coords))
         
-<<<<<<< HEAD
-        self.coords = output
-=======
         self.data = output
 
     # ------------------------- #
@@ -86,7 +83,6 @@ class MeshGenerator:
         output = list(map(lambda x: list(x) + [radius], coords))
 
         return np.array(output)
->>>>>>> origin/dev-eng
     
     # ------------------------- #
 
