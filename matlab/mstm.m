@@ -20,15 +20,16 @@ data = dlmread('./particles.txt');
 % ----------------------------------------------------------------------- %
 %% main code
 
-polarization = ["TE", "TM"];
-target_angles = linspace(0, 20, 11);
+polarization = ["TE"];
+target_angles = [14.324];
+%target_angles = target_angles(2:length(target_angles) - 1); % exclude start and end vals
 
 for pol = polarization
     for ang = target_angles
         
         coords = euler(data(:, 1:3), 0, ang, 0);
-        mat_fname = './output/12edge_8.9a_1.851m_' + string(ang) + ...
-                    'deg_' + pol + '_300width.mat';
+        mat_fname = './output/15edge_8.9a_1.851m_' + string(ang) + ...
+                    'deg_' + pol + '_800width.mat';
         
         % initialize particles and field
         particles = celes_particles('positionArray',        coords, ...
@@ -39,7 +40,7 @@ for pol = polarization
         initialField = celes_initialField('polarAngle',     0, ...
                                           'azimuthalAngle', 0, ...
                                           'polarization',   char(pol), ...
-                                          'beamWidth',      300, ...
+                                          'beamWidth',      800, ...
                                           'focalPoint',     [0, 0, 0] ...
                                           );
         
@@ -71,9 +72,9 @@ for pol = polarization
         
         % define a grid of points where the field will be evaulated (need to
         % optimize)
-        scale = 1;
+        scale = 0.7;
         bnd = 5500 / scale;
-        stp = 4.2 / scale;
+        stp = 4.0 / scale;
         [x, z] = meshgrid(-bnd:stp:bnd, -bnd:stp:bnd); y = zeros(size(x));
         
         output = celes_output('fieldPoints',                [x(:),y(:),z(:)], ...

@@ -38,7 +38,7 @@ class MeshGenerator:
             coords = np.array(list(map(list, product(coords, repeat=2))))
             output = list(map(lambda x: list(x) + [0, radius, 0, m], coords))
         
-        self.data = output
+        self.coords = output
     
     # ------------------------- #
 
@@ -47,7 +47,7 @@ class MeshGenerator:
         path = os.path.join('../matlab', fname)
 
         with open(path, 'w') as f:
-            for l in self.data:
+            for l in self.coords:
                 f.write(','.join(map(str, l)) + '\n')
 
         f.close()
