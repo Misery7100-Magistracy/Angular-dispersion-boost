@@ -76,19 +76,31 @@ class MSTM(MatEngine):
             ytick: float = None,
             reduce : float = 0.8,
             bartick: float = 0.1,
-            external_circles: object = None, 
+            external_circles: object = None,
+            vmax = 1.,
+            vmin = 0., 
             **kwargs
         
         ) -> tuple:
 
         pltdata = self.field[trim:-trim, trim:-trim] if trim > 0 else self.field
+        pltdata = pltdata / np.amax(self.field)
         extval = self.grid_max - self.grid_step * trim
         extent = [-extval, extval] * 2
 
         configure_mpl(font_scale=font_scale)
 
         fig, ax = plt.subplots(**kwargs)
-        field = ax.imshow(pltdata, cmap=self.GLOBCMAP, extent=extent)
+        field = ax.imshow(
+                
+                pltdata,
+                vmax=vmax,
+                vmin=vmin, 
+                cmap=self.GLOBCMAP, 
+                extent=extent
+            
+            )
+
         bbea = []
 
         divider = make_axes_locatable(ax)
@@ -112,6 +124,7 @@ class MSTM(MatEngine):
                         r, 
                         color=target.get('color'),
                         alpha=target.get('alpha'),
+                        linewidth=target.get('linewidth'),
                         fill=False
                     
                     )

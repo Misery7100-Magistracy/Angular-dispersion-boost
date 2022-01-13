@@ -6,9 +6,9 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
-\usepackage{fourier}
-%\usepackage{libertinust1math} % - cool one
-\usepackage{MnSymbol}
+%\usepackage{fourier} % fuck, but I like that font :(
+\usepackage{libertinust1math} % - cool one
+%\usepackage{MnSymbol}
 \usepackage[english]{babel}
 \usepackage[fixlanguage]{babelbib}
 \usepackage[unicode=true,hidelinks]{hyperref}
@@ -23,15 +23,14 @@
 \input{../custom/autoref_multiple.tex}
 \input{../custom/figure.tex}
 
-\title{Angular dispersion boost of high order laser harmonics interacting with dense
-plasma clusters}
+\title{Angular dispersion boost of high order laser harmonics interacting with dense plasma clusters}
 % {\footnotesize \textsuperscript{*}\textit{Note: Sub-titles are not captured in Xplore and
 % should not be used (this footnote should be deleted)}}
 % \thanks{Identify applicable funding agency here. If none, delete this.}
 % }
 
 \author{
-	\IEEEauthorblockN{L.A. Litvinov\textsuperscript{1}, A.A. Andreev\textsuperscript{1, 2}}
+	\IEEEauthorblockN{L.\,A. Litvinov\textsuperscript{1}, A.\,A. Andreev\textsuperscript{1, 2}}
 	\IEEEauthorblockA{\textsuperscript{1}Saint Petersburg State University, Saint Petersburg, Russia}
 	\IEEEauthorblockA{\textsuperscript{2}Ioffe Physico-Technical Institute, Saint Petersburg, Russia}
 }
@@ -39,83 +38,33 @@ plasma clusters}
 
 \maketitle
 
-\begin{abstract}
-	 We propose a nanosphere array target in the plasma phase as an efficient dispersive medium for the intense XUV light which is originated from laser-plasma interactions where various high harmonic generation processes take place. The scattering process is studied with the help of numerical simulations using resonance conditions obtained from the analytical model. We show that the angular distribution of different harmonics after scattering can be good described by a simple interference, in particular for the rectangle symmetry the angular distribution corresponds to the Bragg-Wolfe diffraction theory.
+\begin{abstract}% which is 
+	 We propose a nanosphere array target in the plasma phase as an efficient dispersive medium for the intense XUV light originated from laser-plasma interactions where various high harmonic generation processes take place. The scattering process is studied with the help of numerical simulations using resonance conditions obtained from the analytical model. We show that the angular distribution of different harmonics after scattering can be good described by a simple interference, in particular for the rectangle symmetry the angular distribution corresponds to the Bragg-Wolfe diffraction theory.
 \end{abstract}
 
-% \begin{IEEEkeywords}
-% 	component, formatting, style, styling, insert
-% \end{IEEEkeywords}
+\begin{IEEEkeywords}
+	XUV light diffraction, ionized cluster gas, femtosecond laser plasma
+\end{IEEEkeywords}
 
 %\section{Introduction}
-~\\
 
-% Periodic surface gratings or photonic crystals are excellent tools for diffracting light and to collect information about the spectral intensity, if the target structure is known, or about the diffracting object, if the light source is well defined. However, this method is less effective in the case of extreme ultraviolet (XUV) light due to the high absorption coefficient of any material in this frequency range.
+Limited size targets interacting with intense coherent light is well-studied phenomenon of linear excited surface plasmonic oscillations. Exciting of surface plasmons can lead to significant boost internal and external field on cluster eigenfrequency, that can cause enhancement of scattered field at large angles relative to the direction of incident wave.
 
-Limited size targets interacting with high-intensity coherent radiation is well-studied phenomenon of linear excited surface plasmonic oscillations. Absorption and scattering of incident light in this case good described with Mie theory predicting exist of resonance corresponding to multipole oscillations of part of the target free electrons relative to positive charged ions. Exciting of surface plasmons can lead to significant boost internal and external field on cluster eigenfrequency. In turn, this can cause enhancement of field scattered on large angles relative to the direction of incident wave.
-
-% Unlike microwave and X-ray range, it is difficult to control XUV radiation due to the high absorption coefficient of any material in this range. 
-
-Within the present work we consider the possibility of directed scattering of short wavelength radiation in the XUV range by scattering on suitable spherical clusters.
+Periodic surface gratings or photonic crystals are excellent tools for light diffraction and direction. However, this method is less effective in the case of extreme ultraviolet (XUV) light due to the high absorption of any material in this frequency range. Within the present work we research the possibility of angluar boost of a radiation in the XUV range by scattering on suitable spherical clusters.
 
 %\section{Base model}
 
-Similar to the work~\cite{andreev_lecz} we develop analytical model for a single cluster based on the Drude dielectic function of the plasma and the Mie scattering theory. To investigate the conditions under which resonant ﬁeld enhancement occur the determination of the scattering coeﬃcients is necessary in general. Since we are only interested in particle sizes which are smaller than the incident wavelength we use the limiting forms of the respective Bessel functions~\cite{boren_huffman}.
+Similar to the work~\cite{andreev_lecz} we develop analytical model for a single cluster based on the Drude dielectric function of the plasma and the Mie scattering theory. The model was constructed in the quasi-static approximation since the ionization time is shorter than the pulse duration, which is much shorter than the plasma expansion time: femtosecond pulse of Ti:Sa laser with wavelength $\lambda_{L} = 830$ nm is in considering, the high harmonics beam generated by a nonlinear medium and the 10th harmonic filtered.
 
-%In the spherical coordinate system the solution of the scalar Helmholtz Equation can be written using spherical Bessel functions and spherical harmonics including the associated Legendre polynomial. %We can expand the incident field into series of spherical vector harmonics using generalized Fourier expantions, that allows to describe the solution with scattering coefficients~\cite{boren_huffman}.
+To investigate the resonance conditions the determination of the scattering coefficients is necessary in general. Since we are only interested in particle sizes smaller than the incident wavelength we use the limiting forms of the Bessel functions~\cite{boren_huffman}. Such approximations allow us to estimate the resonance parameters for a target with pre-defined wavelength, in particular the resonance electron density and the radius. In first-order approximation with wavelength $\lambda_{10} = \lambda_{L} / 10 = 83$ nm we need $n_e \approx 5.7 \cdot 10^{23}$ $\textrm{cm}^{-3}$ for $ka = 0.7$ ($a \approx 8.91$ nm) to reach efficient scattering.
 
-% In the case of linear interaction Mie theory can be used for the description of elastic electromagnetic waves scattering by arbitrary sized particles and beyond that, it allows the description of the electric and magnetic ﬁeld distribution inside and outside the scatter \cite{boren_huffman}. A main step is to solve the scalar Helmholtz Equation in suitable coordinate system and gain the vector solutions. For spherical cluster the solution of corresponding equation can be written in a spherical Bessel function of the $l$-th kind and $n$-th order the spherical harmonic including the associated Legendre polynomial~\cite{boren_huffman}.
-
-% Assume an incident plane wave propagating along $z$ axis of cartesian coordinate system and polarized along $x$ axis.
-
-% Now we can expand the plane wave into series using generalized Fourier expantions. Assuming our media is isotropic we obtain following form of scattered field~\cite{boren_huffman}:
-
-%     \eq
-% 		\vectbf{E}{s} = \sum_{n = 1}^{\infty}E_n \left[ i a_n\left(ka, m\right) \vectbf{N}{}^{(3)}_{e1n} - b_n\left(ka, m\right) \vectbf{M}{}^{(3)}_{o1n} \right]
-%         \label{E_s_sph}
-% 	\qe
-% 	\eqc
-% 		E_n = i^{n} E_0 \frac{2n + 1}{n \left(n + 1\right)}
-% 	\cqe
-
-% $n$ --- vector harmonic number after cartesian-spherical coordinate system transformation, $m = \sqrt{\varepsilon\left(\w\right)}$ --- refractive index of the target.
-
-% Coefficients in \autoref{E_s_sph} can be described with Riccati-Bessel functions~\cite{boren_huffman}.
-
-    % \eq
-	% 	a_n(x,\:m) = \frac{m \func{\psi}{n}{\prime}{x} \func{\psi}{n}{}{mx} - \func{\psi}{n}{\prime}{mx} \func{\psi}{n}{}{x}}{m \func{\xi}{n}{\prime}{x} \func{\psi}{n}{}{mx} - \func{\psi}{n}{\prime}{mx} \func{\xi}{n}{}{x}},
-	% 	\label{an_bessel}
-	% \qe
-
-    % \eq
-    %     b_n(x,\:m) = \frac{\func{\psi}{n}{\prime}{x} \func{\psi}{n}{}{mx} - m \func{\psi}{n}{\prime}{mx} \func{\psi}{n}{}{x}}{\func{\xi}{n}{\prime}{x} \func{\psi}{n}{}{mx} - m \func{\psi}{n}{\prime}{mx} \func{\xi}{n}{}{x}},
-    %     \label{bn_bessel}
-    % \qe
-	% \eqc % artificial indent after the equation
-    % \cqe %
-
-% \noindent where $\func{\psi}{n}{}{z} = z \func{j}{n}{}{z}$, $\func{\xi}{n}{}{z} = z \func{h}{n}{}{z}$ --- Riccati-Bessel functions, $h_n = j_n + i \gamma_n$ --- spherical Hankel functions of the first kind.
-
-%\subsection{Resonance conditions}
-
-% In zero-order Bessel functions approximation amplitude of the scattered field is maximum for $m^2 = - (n+ 1) / n$ when $ka \ll 1$, that gain corresponding set of resonance densities in collision-less case. For $ka \sim 1$ this approximation ceases to be reasonable already, so the first-order approximation is better suited \cite{abra_steg}. Moreover, in this approximation dependency of coefficients on the scatter size occurs, which lead to corresponding dependency of resonance electron density.
-
-Such approximations allow us to estimate the resonance parameters for a target, in particular resonance electron density and radius, for pre-defined wavelength.
-
-As we consider XUV range radiation (20-120 nm), radiuses of spherical scatters should be about few nanometers, that causes $ka \sim 1$. In first-order approximation with wavelength $\lambda_{10} = \lambda_{L} / 10 = 83$ nm, we have $n_e \approx 5.7 \cdot 10^{23}$ $\textrm{cm}^{-3}$ for $ka = 0.7$ ($a \approx 8.91$ nm) to reach efficient scattering.
-
-%Obviously, for such $ ka $ the resonance values of the electron density can be large in considering $n = 1$ as term with the largest contribution to the scattered field. Staying within high-temperature plasma we should use only $n_e < 10^{24}$ $\textrm{cm}^{-3}$.
-
-
-
-With these parameters of the single cluster target we consider the resonance and non-resonance case, corresponding to the 1st and 10th harmonic. We found a good scattered field enhancement (about 5 times) in the resonance case in comparison with the non-resonance case.
+With these parameters of single cluster target we consider the resonance and non-resonance case, corresponding to the 1st and 10th harmonic. We found a good scattered field enhancement (about 5 times) in the resonance case in comparison with the non-resonance case.
 
 %\section{Simulations}
 
 %\subsection{Scattering by an array}
 
-Using the same resonance conditions for a single plasma cluster, we simulate diffraction by arrays of such clusters in the same cases, described by the laser and 10th harmonic, using code CELES~\cite{celes}. 
-% Simple cubic lattice with different grating constant $d$ is considered spatial configuration of a volume grating.
+Using the same resonance conditions for a single cluster, we simulate diffraction by an array of such clusters using code CELES~\cite{celes}.
 
 
 % ------------------------
@@ -127,14 +76,15 @@ Using the same resonance conditions for a single plasma cluster, we simulate dif
 % We can see directions corresponding to the angular boost of the incident beam, in particular, for $d = 2\lambda_{10}$ there are two fairly clear directions.
 
 \begin{figure}[htbp]
-	\centerline{\includegraphics[width=0.84\columnwidth]{../components/img/celes/TE_14.324deg_check.pdf}}
-	\caption{Scattered electric field normalized by the incident beam amplitude. The incident field represented by the gaussian beam with width $w = 300$ nm, $x$-polarized, propagating along positive direction of $z$ axis; the incident angle $\theta = 14.324^{\circ}$, the distance between clusters $d = 2\lambda_{10}$.}
+	\centerline{\includegraphics[width=0.71\columnwidth, trim={0 0.15cm 0 0.2cm},clip]{../components/img/celes/TE_14.324deg_check.pdf}}
+	\caption{Scattered electric field normalized by the incident beam amplitude. The incident field represented by the gaussian beam with width $w = 850$ nm, $x$-polarized, propagating along positive direction of $z$ axis; the incident angle $\theta = 14.324^{\circ}$, the distance between clusters $d = 2\lambda_{10}$.}
 	\label{14.324deg:image}
 \end{figure}
 
-%\section*{Conclusion}
+At \autoref{14.324deg:image} zero and first diffraction order can be
+observed, also there is weak second and minus first order of the reflected light. From the amplitude of the electric field in the first-order diffraction it can be assumed about 30\% of the radiation volume is directed. A configuration with a random deviation of the cluster positions within 20\% of the radius $a$ was also calculated. The direction of the first diffraction maximum changed slightly.
 
-Obtained results show a significant boost of the scattered field in the resonance case for large angles, which corresponds to the Bragg-Wolfe diffraction theory~\cite{boren_huffman}, --- the ability to control high harmonics of laser radiation (XUV range) using an ionized cluster gas.
+Obtained results show a significant boost of the scattered field in the resonance case for large angles, which corresponds to the Bragg-Wolfe diffraction theory~\cite{boren_huffman}, --- the ability to control high harmonics of laser radiation in XUV range using an ionized cluster gas.
 
 \selectbiblanguage{english}
 \bibliographystyle{ieeetr}

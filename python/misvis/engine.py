@@ -24,7 +24,8 @@ class Engine:
         'plot'      : True,
         'radius'    : 8.9,
         'color'     : 'white',
-        'alpha'     : 0.1
+        'alpha'     : 0.1,
+        'linewidth' : 1.
 
     }
 
