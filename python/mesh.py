@@ -91,7 +91,7 @@ class MeshGenerator:
         path = os.path.join('../matlab', fname)
 
         with open(path, 'w') as f:
-            for l in self.data:
+            for l in self.coords:
                 f.write(','.join(map(str, l)) + '\n')
 
         f.close()
