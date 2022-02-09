@@ -78,13 +78,18 @@ class MSTM(MatEngine):
             bartick: float = 0.1,
             external_circles: object = None,
             vmax = 1.,
-            vmin = 0., 
+            vmin = 0.,
+            normalize = True, 
             **kwargs
         
         ) -> tuple:
 
         pltdata = self.field[trim:-trim, trim:-trim] if trim > 0 else self.field
-        pltdata = pltdata / np.amax(self.field)
+
+        if normalize: 
+            
+            pltdata = pltdata / np.amax(self.field)
+
         extval = self.grid_max - self.grid_step * trim
         extent = [-extval, extval] * 2
 

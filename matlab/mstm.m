@@ -22,13 +22,14 @@ data = dlmread('./particles.txt');
 
 polarization = ["TE"];
 target_angles = [14.324];
+
 %target_angles = target_angles(2:length(target_angles) - 1); % exclude start and end vals
 
 for pol = polarization
     for ang = target_angles
         
         coords = euler(data(:, 1:3), 0, ang, 0);
-        mat_fname = './output/15edge_8.9a_1.851m_' + string(ang) + ...
+        mat_fname = './output/1harm_random3_15edge_8.9a_1.851m_' + string(ang) + ...
                     'deg_' + pol + '_800width.mat';
         
         % initialize particles and field
@@ -45,7 +46,7 @@ for pol = polarization
                                           );
         
         % celes input and preconditioner setup
-        input = celes_input('wavelength',                   83, ...
+        input = celes_input('wavelength',                   830, ...
                             'mediumRefractiveIndex',        1, ...
                             'particles',                    particles, ...
                             'initialField',                 initialField ...
