@@ -7,9 +7,9 @@
 \def\@set@refname#1{%    % set \@refname to autoefname+s using \getrefbykeydefault
     \edef\@tmp{\getrefbykeydefault{#1}{anchor}{}}%
     \xdef\@tmp{\expandafter\@throw@dot\@tmp.@}%
-    \ltx@IfUndefined{\@tmp autorefnameplural}%
-        {\def\@refname{\@nameuse{\@tmp autorefname}}}%
-        {\def\@refname{\@nameuse{\@tmp autorefnameplural}}}%
+    \ltx@IfUndefined{\@tmp{}autorefnameplural}%
+        {\def\@refname{\@nameuse{\@tmp{}autorefname}}}%
+        {\def\@refname{\@nameuse{\@tmp{}autorefnameplural}}}%
 }
 \def\@first@ref#1,#2{%
     \ifx#2@\autoref{#1}\let\@nextref\@gobble% only one ref, revert to normal \autoref
@@ -21,8 +21,8 @@
     \@nextref#2%
 }
 \def\@next@ref#1,#2{%
-    \ifx#2@, \ref{#1}\let\@nextref\@gobble% at end: print and+\ref and stop
-    \else, \ref{#1}% print  ,+\ref and continue
+    \ifx#2@,~\ref{#1}\let\@nextref\@gobble% at end: print and+\ref and stop
+    \else,~\ref{#1}% print  ,+\ref and continue
     \fi%
     \@nextref#2%
 }

@@ -44,7 +44,7 @@
 % ------------------------- %
 
 \newcommand{\pd}[3][empty]{
-    \frac{\partial {#2}}{\partial {#3}}
+    \frac{\partial{#2}}{\partial{#3}}
 }
 
 % ------------------------- %
@@ -57,6 +57,6 @@
 
 \newcommand{\underrel}[3][]{
     \mathrel{\mathop{#3}\limits_{
-        \ifx c#1\relax\mathclap{#2}\else#2\fi
+        \if x c#1\relax\mathclap{#2}\else#2\fi
     }}
 }
