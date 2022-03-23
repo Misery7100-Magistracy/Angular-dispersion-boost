@@ -5,6 +5,7 @@
 \documentclass[10pt]{article}
 \linespread{0.99}
 \setlength{\parskip}{0.3em}
+\hfuzz=5002pt
 
 % ------------------------- %
 %  Packages
@@ -64,10 +65,11 @@
 	\floatsetup[figure]{style=plain,subcapbesideposition=top}
 	\captionsetup[subfigure]{margin=0.05\textwidth}
 
-	% renew or new autoreferences
+	% renew or new commands
 
 	% \renewcommand{\equationautorefname}{}
 	\newcommand{\subfigureautorefname}{\figureautorefname}
+	\renewcommand{\thesubfigure}{\asbuk{subfigure}}
 
 	% add components
 
@@ -75,13 +77,18 @@
 	\author{}
 	\maketitle
 
-	\input{components/introduction.tex}
-	\input{components/base_model.tex}
-	\input{components/single_sphere.tex}
+	%\input{components/introduction.tex}
+	\section{Введение}
+	%\input{components/base_model.tex}
+	\section{Базовая модель}
+	%\input{components/single_sphere.tex}
+	\section{Одиночный кластер}
 	\input{components/multiple_spheres.tex}
+	\input{components/pic.tex}
+	\input{components/appendix.tex}
 
 	% add bibliography
-
+	\newpage
 	\selectbiblanguage{english}
 	\bibliographystyle{ieeetr}
 	\bibliography{components/bibliography.bib}

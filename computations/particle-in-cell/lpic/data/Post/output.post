@@ -1,0 +1,34 @@
+postprocessor parameters:
+
+Input File Path
+--------------------------------------------------
+input file path: ./data/
+
+Output File Path
+--------------------------------------------------
+output path:     ./data//Post
+
+spacetime
+------------------------------------------------------------------
+t_start      : 0
+t_stop       : 20
+periods_t    : 20
+steps_pp     : 83
+x_start      : 0
+x_stop       : 332
+periods_x    : 332
+cells_per_wl : 83
+x_offset     : 0
+average      : 1
+size         : 500
+contour_1    : 0
+contour_2    : 0
+contour_3    : 0
+
+   kw    kt    de    di    jx    jy    jz    ex    ey    ez    ed
+Q  :0    :0    :1    :0    :0    :0    :0    :0    :0    :0    :0    :0    :0    :1    :0    
+C  :0    :0    :5    :0    :0    :0    :0    :0    :0    :0    :0    :0    :0    :0    :0    
+
+K_cut : 0
+W_cut : 0
+
