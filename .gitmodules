@@ -1,0 +1,3 @@
+[submodule "computations/celes"]
+	path = computations/celes
+	url = git@github.com:disordered-photonics/celes

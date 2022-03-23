@@ -2,22 +2,6 @@ import matplotlib as mpl
 import seaborn as sns
 
 import matplotlib.pyplot as plt
-# from matplotlib.backends.backend_pgf import FigureCanvasPgf
-
-# mpl.use('pgf')
-
-# pgf_options = {
-#     "text.usetex": True,
-#     "pgf.texsystem": "xelatex",
-#     "pgf.rcfonts": True,
-#     "pgf.preamble": [
-#         r"\usepackage{amsmath,amssymb}",
-#         r"\usepackage{fontspec}",
-#         r"\usepackage{newtxtext,newtxmath}"
-#     ]
-#     }
-
-# mpl.rcParams.update(pgf_options)
 
 # ------------------------- #
 
