@@ -1,0 +1,42 @@
+palette:
+  - "#4078c0"
+  - "#6cc644"
+  - "#bd2c00"
+  - "#c9510c"
+  - "#6e5494"
+
+rcdict:
+  grid.linewidth:   1
+  xtick.major.size: 0
+  ytick.major.size: 0
+  xtick.minor.size: 0
+  ytick.minor.size: 0
+
+font_scale: 2.0
+
+texrc:
+  mathtext.fontset: custom
+  font.family:      New Century Schoolbook
+  font.serif:       New Century Schoolbook
+  font.family:      New Century Schoolbook
+  font.cursive:     New Century Schoolbook
+  mathtext.rm:      New Century Schoolbook
+  mathtext.it:      New Century Schoolbook:italic
+  mathtext.bf:      New Century Schoolbook
+
+colorbarprops:
+  position: right
+  size:     5% 
+  pad:      0.4
+
+globalcmap: hot
+
+axislabel:
+  labelpad: 15
+
+celes_target:
+  plot:       true
+  radius:     8.9
+  color:      white
+  alpha:      0.1
+  linewidth:  1

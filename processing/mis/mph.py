@@ -1,5 +1,5 @@
 import pandas as pd
-from .engine import Engine
+from .engine import Engine as Eng
 from .utils import configure_mpl
 import matplotlib.ticker as ticker
 from mpl_toolkits.axes_grid1 import make_axes_locatable
@@ -7,60 +7,32 @@ import matplotlib.pyplot as plt
 
 # ------------------------- #
 
-class SolEngine(Engine):
+class Engine(Eng):
 
-    # ------------------------- #
-
-    def __init__(
-            
-            self,
-            fname: str, 
-            **kwargs
-        
-        ) -> None:
+    def __init__(self, fname: str, **kwargs):
 
         super().__init__(
-
             fname=fname,
             loadmethod=pd.read_csv,  
             **kwargs
-        
         )
-
-    # ------------------------- #
-
-    # def get_value(self, name: str) -> object:
-    #     return float(self.data.get(name)[0, 0])
-
-    # # ------------------------- #
-
-    # def get_array(self, name: str) -> object:
-    #     return self.data.get(name).astype(np.float64)
 
 # ------------------------- #
 
-class ScattInd(SolEngine):
+class ScattInd(Engine):
 
-    def __init__(
-            
-            self, 
-            fname: str,
-            **kwargs
-            
-        ) -> None:
+    def __init__(self, fname: str, **kwargs):
 
         super().__init__(
-            
             fname, 
             comment='%', 
             header=None,
             **kwargs
-            
         )
 
 # ------------------------- #
 
-class Field2D(SolEngine):
+class Field2D(Engine):
 
     COLUMNS = {
 
@@ -70,7 +42,7 @@ class Field2D(SolEngine):
 
     }
 
-    # ------------------------- #
+    # ......................... #
 
     def __init__(
             
@@ -80,15 +52,13 @@ class Field2D(SolEngine):
             normal: str = 'y',
             **kwargs
             
-        ) -> None:
+        ):
 
-        super().__init__(
-                        
+        super().__init__(       
             fname, 
             comment='%', 
             header=None,
             **kwargs
-            
         )
 
         rename = {
@@ -100,6 +70,7 @@ class Field2D(SolEngine):
                 )
             
         }
+
         self.data.rename(columns=rename, inplace=True)
         self.data.drop(normal, axis=1, inplace=True)
 
@@ -114,17 +85,15 @@ class Field2D(SolEngine):
         for v in vars:
 
             transformed_data[v] = (self.data[v]
-                    
-                    .to_numpy()
-                    .reshape(int(length ** 0.5), int(length ** 0.5))
-                    [::-1, :]
-                
-                )
+                                    .to_numpy()
+                                    .reshape(int(length ** 0.5), int(length ** 0.5))
+                                    [::-1, :]
+                                )
         
         self.data = transformed_data
         self.vars = vars
     
-    # ------------------------- #
+    # ......................... #
 
     def plot_var(
         
@@ -159,15 +128,12 @@ class Field2D(SolEngine):
         target = {**self.TARGET_PLOT, **target}
 
         if target.get('plot'):
-
             circle = plt.Circle(
-                
                     (0, 0), 
                     target.get('radius'), 
                     color=target.get('color'),
                     alpha=target.get('alpha'), 
                     fill=False
-                
                 )
             ax.add_patch(circle)
 
@@ -175,11 +141,11 @@ class Field2D(SolEngine):
         ax.set_ylabel(r'$' + self.inplane[1] + r'$, $\rm{nm}$', **self.AXISLABEL)
 
         if xtick: 
-            
             ax.xaxis.set_major_locator(ticker.MultipleLocator(xtick))
 
         if ytick: 
-            
             ax.yaxis.set_major_locator(ticker.MultipleLocator(ytick))
         
         return fig, ax
+
+# ------------------------- #
