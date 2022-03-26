@@ -1,7 +1,7 @@
 #!/bin/sh
 
 PIC=.
-DATA=${PIC}/data/
+DATA=${PIC}/output/
 #DATA=~/local/data/data_harm_matching_alpha30.2/
 POST=${DATA}/Post
 IDL=${PIC}/idl

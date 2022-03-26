@@ -440,6 +440,7 @@ cython_debug/
 
 computations/*/input/**
 computations/*/output/**
-computations/lpic/data/**
+computations/*/data/**
+computations/**/*.ipynb
 
 !computations/**/.gitkeep

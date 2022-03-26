@@ -14,7 +14,7 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-rm -rf ./data
-mkdir -p ./data
+rm -rf ./output
+mkdir -p ./output
 lpic ${INPUT}
 bash lpic.post
