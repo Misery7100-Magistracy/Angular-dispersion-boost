@@ -438,9 +438,7 @@ cython_debug/
 
 # Specific
 
-computations/matlab/input
-computations/matlab/output
+computations/matlab/input/**
+computations/matlab/output/**
 
-
-!computations/matlab/input/.gitkeep
-!computations/matlab/output/.gitkeep
+!computations/matlab/**/.gitkeep
