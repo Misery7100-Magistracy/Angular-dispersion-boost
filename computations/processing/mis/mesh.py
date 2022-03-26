@@ -1,6 +1,7 @@
 import numpy as np
 import os
 from itertools import product
+from typing import Any, List, Dict
 
 # ------------------------- #
 
@@ -10,7 +11,7 @@ class MeshGenerator:
 
         self.coords = list()
     
-    # ------------------------- #
+    # ......................... #
 
     def build_mesh(
             
@@ -42,7 +43,7 @@ class MeshGenerator:
 
     # ------------------------- #
 
-    def random_shift(self, max_shift):
+    def random_shift(self, max_shift: float) -> None:
         
         for k in range(len(self.data)):
             xyz = self.data[k][:3]
@@ -54,7 +55,8 @@ class MeshGenerator:
     # ------------------------- #
 
     @staticmethod
-    def gen_with_predef_dist(a, dist):
+    def gen_with_predef_dist(a, dist) -> List[List[float]]:
+
         x_shift = np.random.uniform(-dist, dist)
         dist = np.sqrt(dist ** 2 - x_shift ** 2)
         y_shift = np.random.uniform(-dist, dist)
@@ -66,15 +68,10 @@ class MeshGenerator:
 
         return [a[i] + shifts[i] for i in range(len(a))]
 
-    # ------------------------- #
+    # ......................... #
 
     @staticmethod
-    def rotate(
-
-            data,
-            a=0
-
-        ):
+    def rotate(data, a=0) -> np.ndarray:
 
         return data.dot(np.array([
 
@@ -84,7 +81,7 @@ class MeshGenerator:
                 
             ]))
 
-    # ------------------------- #
+    # ......................... #
 
     def project_2d(
 
@@ -96,7 +93,7 @@ class MeshGenerator:
             angle=0,
             thin=True
 
-        ):
+        ) -> np.ndarray:
 
         angle *= (np.pi / 180)
 
@@ -118,7 +115,7 @@ class MeshGenerator:
 
         return np.array(output)
     
-    # ------------------------- #
+    # ......................... #
 
     def save(self, fname: str = 'particles.txt') -> None:
 
