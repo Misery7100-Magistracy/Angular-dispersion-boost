@@ -14,7 +14,9 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-rm -rf ./output
+#rm -rf ./output
 mkdir -p ./output
+cd ./output && !(.gitkeep) && cd ..
+#touch ./output/.gitkeep
 lpic ${INPUT}
 bash lpic.post
