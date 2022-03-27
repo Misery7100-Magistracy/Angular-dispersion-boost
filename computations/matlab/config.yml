@@ -1,10 +1,18 @@
+# directory with input .txt files
+inputDir: input
+outputDir: output
+
+# initial field
 initialBeamWidth: 800
 initialWavelength: 83 830
 initialPolarization: TE
 initialAngles: 10.0 14.324 20.0
+
+# numeric solver
 gpu: true
 lmax: 3
+
+# solution grid
 GridScale: 0.7
 GridSize: 5500
 GridStep: 4.0
-datafiles: input/test_particles.txt

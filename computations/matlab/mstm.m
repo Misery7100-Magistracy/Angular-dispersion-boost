@@ -2,26 +2,34 @@
 addpath(genpath('../celes/src'))
 addpath(genpath('./yaml'))
 
+% read and display config
 config = ReadYaml('./config.yml');
 disp(config);
 
-% ----------------------------------------------------------------------- %
+% filter input files
+filePattern = fullfile(config.inputDir, "*.txt");
+dataFiles = dir(filePattern);
 
-for datafile = split(config.datafiles, ' ')
+% evaluate for all datafiles, angles and wavelengths passed
+for k = 1:length(dataFiles)
     for ang = config.initialAngles
         for wav = config.initialWavelength
             
-            df = char(datafile);
-            data = dlmread(df);
+            % extract mesh and rotate as specified
+            df = fullfile(config.inputDir, dataFiles(k).name);
+            data = readmatrix(df);
             coords = euler(data(:, 1:3), 0, ang, 0);
-
-            basename = split(df, ".");
+            
+            % build output fname according to config
+            basename = split(dataFiles(k).name, ".");
             basename = basename(1, 1);
-            mat_fname = './output/' + string(basename) + '_' +...
+            out_fname = string(basename) + '_' +...
                         string(ang) + 'deg_' + ...
                         config.initialPolarization +'pol_' + ...
                         string(wav) + 'wav_' + ...
                         string(config.initialBeamWidth) + 'bw.mat';
+
+            mat_fname = fullfile(config.outputDir, out_fname);
             
             % initialize particles and field
             particles = celes_particles('positionArray',        coords, ...
@@ -54,7 +62,6 @@ for datafile = split(config.datafiles, ' ')
                                   'restart',                    200, ...
                                   'preconditioner',             precnd);
             
-            %
             numerics = celes_numerics('lmax',                       config.lmax, ...
                                       'polarAnglesArray',           0:pi/5e3:pi, ...
                                       'azimuthalAnglesArray',       0:pi/1e2:2*pi, ...
@@ -62,6 +69,7 @@ for datafile = split(config.datafiles, ' ')
                                       'particleDistanceResolution', 1, ...
                                       'solver',                     solver);
             
+            % build solution mesh
             scale = config.GridScale;
             bnd = config.GridSize / scale;
             stp = config.GridStep / scale;
@@ -81,8 +89,6 @@ for datafile = split(config.datafiles, ' ')
             
             % evaluate field at output.fieldPoints
             simul.evaluateFields;
-            
-            % ----------------------------------------------------------------------- %
             
             % plot near field
             h1 = figure('Name', 'Near-field cross-cut', 'NumberTitle', 'off');
