@@ -49,8 +49,6 @@ class MeshGenerator:
             xyz = self.data[k][:3]
             dist = np.random.uniform(low=0, high=max_shift)
             self.data[k][:3] = self.gen_with_predef_dist(xyz, dist)
-        
-        print('modified!')
 
     # ------------------------- #
 
@@ -117,10 +115,7 @@ class MeshGenerator:
     
     # ......................... #
 
-    def save(self, fname: str = 'particles.txt') -> None:
-
-        path = os.path.join('../matlab', fname)
-
+    def save(self, path: str = 'particles.txt') -> None:
         with open(path, 'w') as f:
             for l in self.data:
                 f.write(','.join(map(str, l)) + '\n')

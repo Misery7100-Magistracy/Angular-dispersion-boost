@@ -5,3 +5,4 @@ from .matlab import Engine as MatlabEngine
 from .matlab import MSTM as MstmEngine
 from .lpic import Engine as LpicEngine
 from .mesh import MeshGenerator
+from .eqs import resonance_m_squared
