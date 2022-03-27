@@ -1,24 +1,10 @@
-# configuration file for celes (mstm)
-
-initialParameters:
-  beamWidth: 800
-  wavelength: 
-    - 83
-    - 830
-  polarization: TE
-  angles: 
-    - 10.0
-    - 14.324
-    - 20.0
-
-numerics:
-  gpu: true
-  lmax: 3
-
-solGrid:
-  scale: 0.7
-  size: 5500
-  step: 4.0
-
-dataFiles:
-  - abc.txt
+initialBeamWidth: 800
+initialWavelength: 83 830
+initialPolarization: TE
+initialAngles: 10.0 14.324 20.0
+gpu: true
+lmax: 3
+GridScale: 0.7
+GridSize: 5500
+GridStep: 4.0
+datafiles: input/test_particles.txt
