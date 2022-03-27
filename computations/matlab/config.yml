@@ -4,9 +4,9 @@ outputDir: output
 
 # initial field
 initialBeamWidth: 800
-initialWavelength: 83 830
+initialWavelength: 83
 initialPolarization: TE
-initialAngles: 10.0 14.324 20.0
+initialAngles: 5.0 10.0 15.0 20.0
 
 # numeric solver
 gpu: true
@@ -15,4 +15,4 @@ lmax: 3
 # solution grid
 GridScale: 0.7
 GridSize: 5500
-GridStep: 4.0
+GridStep: 8.0 # 4.0 previously
