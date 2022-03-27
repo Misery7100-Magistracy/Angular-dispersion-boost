@@ -1,20 +1,11 @@
-%% requirements
-
-% safely add current folder to the python search
-% if count(py.sys.path, '') == 0
-%     insert(py.sys.path,int32(0), '');
-% end
-
-% % reload custom module and generate particle set
-% clear classes
-% mod = py.importlib.import_module('python.mstm_particles');
-% py.importlib.reload(mod);
-% py.python.mstm_particles.test(0, 1)
-
-% import CELES
 addpath(genpath('../celes/src'))
+addpath(genpath('./yaml'))
 
-% import generated file with particles data
+config = ReadYaml('./config.yml');
+
+% parse configuration file
+
+
 data = dlmread('./particles.txt');
 
 % ----------------------------------------------------------------------- %
