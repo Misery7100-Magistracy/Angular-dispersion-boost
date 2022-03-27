@@ -444,3 +444,5 @@ computations/*/data/**
 computations/**/*.ipynb
 
 !computations/**/.gitkeep
+
+*.asv
