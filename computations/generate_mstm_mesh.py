@@ -32,7 +32,7 @@ if __name__ == "__main__":
     fname = f"{config['edge']}edge_" + \
             f"{config['gap']}gap_" + \
             f"{config['radius']}radius_" + \
-            f"{config['nonregularity']}nonreg" + \
+            f"{config['nonregularity']}nonreg_" + \
             f"{m:.4f}m" + ".txt"
 
     mg.random_shift(max_shift=config['gap']*config['nonregularity'])

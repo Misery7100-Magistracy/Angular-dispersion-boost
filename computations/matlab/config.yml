@@ -6,7 +6,7 @@ outputDir: output
 initialBeamWidth: 800
 initialWavelength: 83
 initialPolarization: TE
-initialAngles: 5.0 10.0 15.0 20.0
+initialAngles: 5.0 14.0 19.0
 
 # numeric solver
 gpu: true

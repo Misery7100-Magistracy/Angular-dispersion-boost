@@ -21,7 +21,7 @@ for k = 1:length(dataFiles)
             coords = euler(data(:, 1:3), 0, ang, 0);
             
             % build output fname according to config
-            basename = split(dataFiles(k).name, ".");
+            basename = split(dataFiles(k).name, ".txt");
             basename = basename(1, 1);
             out_fname = string(basename) + '_' +...
                         string(ang) + 'deg_' + ...
