@@ -11,7 +11,7 @@ period_start  = 5
 period_stop   = 20
 period_screen = 1
  
-ex = 1,   ey = 1,   ez = 0,   by = 0,   bz = 0,   
+ex = 0,   ey = 0,   ez = 0,   by = 0,   bz = 0,   
 fp = 1,   fm = 1,   gp = 1,   gm = 1,   
 Pi = 1,   Pr = 1,   Sr = 0,   Si = 0,   
 de = 0,   di = 0,   jx = 0,   jy = 0,   jz = 0,
@@ -22,10 +22,10 @@ de = 0,   di = 0,   jx = 0,   jy = 0,   jz = 0,
 t_start      = 0
 t_stop       = 20
 x_start      = 0
-x_stop       = 332
+x_stop       = 166
 
-imagesize    = 500
-smooth       = 1
+imagesize    = 340
+smooth       = 0
 
 Q_de    = 1,   C_de    = 5
 Q_di    = 0,   C_di    = 0
@@ -37,18 +37,18 @@ Q_ey    = 0,   C_ey    = 0
 Q_ez    = 0,   C_ez    = 0
 Q_by    = 0,   C_by    = 0
 Q_bz    = 0,   C_bz    = 0
-Q_edens = 0,   C_edens = 0.0000
-Q_de_fi=1, Q_de_ii=0
+Q_edens = 1,   C_edens = 0.0004
+Q_de_fi=0, Q_de_ii=0
 C_de_fi=0, C_de_ii=0
 
-Q_kt    = 0,   C_kt    = 0
-Q_kw    = 0,   C_kw    = 0
-K_cut   = 0,  W_cut   = 0,
+Q_kt    = 0,   C_kt    = 1e-3
+Q_kw    = 0,   C_kw    = 1e-3
+K_cut   = 10,  W_cut   = 10,
 
 x_offset     = 0
-contour_1    = 00
-contour_2    = 00
-contour_3    = 00
+contour_1    = 0
+contour_2    = 0
+contour_3    = 0
 
 
 &phasespace

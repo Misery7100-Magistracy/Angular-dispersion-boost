@@ -57,7 +57,6 @@ class MSTM(Engine):
             trim: int = 0,
             angles: List[Tuple[float]] = [],
             target: dict = dict(),
-            font_scale: float = 2.0,
             xtick: float = None,
             ytick: float = None,
             reduce : float = 0.8,
@@ -78,7 +77,7 @@ class MSTM(Engine):
         extval = self.grid_max - self.grid_step * trim
         extent = [-extval, extval] * 2
 
-        configure_mpl(font_scale=font_scale)
+        configure_mpl()
 
         fig, ax = plt.subplots(**kwargs)
         field = ax.imshow(

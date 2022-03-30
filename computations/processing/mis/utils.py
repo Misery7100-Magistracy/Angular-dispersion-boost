@@ -4,9 +4,13 @@ import matplotlib.pyplot as plt
 import yaml
 import os
 
+srcpath = os.path.realpath(__file__)
+workdir, _ = os.path.split(srcpath)
+cfgpath = os.path.join(workdir, 'conf', 'plotting.yml')
+
 # ------------------------- #
 
-def configure_mpl(config: str = './mis/conf/plotting.yml') -> None:
+def configure_mpl(config: str = cfgpath) -> None:
 
     with open(os.path.relpath(config), 'r') as f:
         conf = yaml.load(f, Loader=yaml.FullLoader)
