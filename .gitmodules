@@ -1,6 +1,6 @@
 [submodule "computations/celes"]
 	path = computations/celes
-	url = git@github.com:disordered-photonics/celes
+	url = https://github.com/disordered-photonics/celes
 [submodule "computations/matlab/yaml"]
 	path = computations/matlab/yaml
 	url = https://github.com/llerussell/ReadYAML
