@@ -22,9 +22,9 @@ de = 0,   di = 0,   jx = 0,   jy = 0,   jz = 0,
 t_start      = 0
 t_stop       = 20
 x_start      = 0
-x_stop       = 166
+x_stop       = 1660
 
-imagesize    = 340
+imagesize    = 1600
 smooth       = 0
 
 Q_de    = 1,   C_de    = 5
