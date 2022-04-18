@@ -2,60 +2,132 @@
 
 В рамках в рамках стационарной теории рассеяния Ми было рассмотрено множество кластеров в виде протяженного газового слоя с регулярной и квазирегулярной пространственной конфигурацией для исследования возможности рассеяния такими структурами на большие углы жёсткого ультрафиолетового излучения, в частности соответствующего гармоникам высокого порядка.
 
-В качестве регулярного распределения была выбрана примитивная кубическая решетка c расстоянием между соседними кластерами $d$. Квазирегулярное распределение было построено при помощи внесения случайных сдвигов координат центров кластеров с произвольной нормой сдвига в диапазоне $0 \leq |\Delta d| \leq \eta d$, где $0 \leq \eta < 0.5$ --- степень нерегулярности. При $d = 2\lambda_{10}$ расстояние между соседними кластерами:
+В качестве регулярного распределения была выбрана примитивная кубическая решетка c расстоянием между соседними узлами $d$. Квазирегулярное распределение было построено при помощи внесения случайных сдвигов координат узлов с произвольной нормой сдвига в диапазоне $0 \leq |\Delta d| \leq \eta d$, где $0 \leq \eta < 0.5$ --- степень нерегулярности. При $d = 2\lambda$:
 
     \begin{equation}
-        2\left(1 - \eta\right)\lambda_{10} \le d_{\textrm{irreg}} \le 2\left(1 + \eta\right)\lambda_{10}
+        2\left(1 - \eta\right)\lambda \le d_{\textrm{irreg}} \le 2\left(1 + \eta\right)\lambda
     \end{equation}
 
 В квазирегулярном случае моделирование было проведено несколько раз с целью усреднения и получения обобщенной картины рассеянного поля. Для вычислений был использован программный код CELES~\cite{celes}.
 
-\subsubsection{Условие дифракции Брэгга-Вульфа}
+\subsubsection{Условие дифракции для решетки в пространстве}
 
 %! move to single cluster section
 % Наиболее интенсивное излучения ожидается в направлении распространения падающего поля, так как в данном случае моды находятся в фазе и происходит конструктивная интерференция, как и в случае одиночного кластера~\cite{boren_huffman}. Конечно, если плотность такова, чтобы быть достаточно близко к резонансному значению для гармоник высокого порядка, то рассеяние на большие углы также возможно.
 
-Условие дифракции в случае регулярной решетки:
+Условие дифракции в случае трехмерной регулярной решетки при упругом рассеянии принимает вид~\cite{Kittel86}:
 
     \begin{equation}
-        2 d \sin(\theta+\varphi) = 4 \lambda_{10} \sin(\theta+\varphi) = n \lambda, \qquad n = \frac{4 \lambda_{10}}{\lambda} \sin(\theta+\varphi),
+        \begin{cases}
+        \begin{aligned}
+            \left( \vectbf{D}{x},\: \vectbf{e}{\textrm{out}} - \vectbf{e}{\textrm{in}}\right) &= h \lambda
+            \\
+            \left( \vectbf{D}{y},\: \vectbf{e}{\textrm{out}} - \vectbf{e}{\textrm{in}}\right) &= k \lambda
+            \\
+            \left( \vectbf{D}{z},\: \vectbf{e}{\textrm{out}} - \vectbf{e}{\textrm{in}}\right) &= l \lambda
+        \end{aligned}
+        \end{cases}
         \label{bragg_wolf_order}
     \end{equation}
 
-    % \begin{equation}
-    %     2 d_{hkl} \sin(\theta) = \lambda, \qquad d_{hkl} = {\left( \frac{h^2}{d_x} + \frac{h^2}{d_y} + \frac{h^2}{d_z} \right)}^{-\frac{1}{2}}, \qquad n = \frac{4 \lambda_{10}}{\lambda} \sin(\theta+\varphi),
-    %     \label{bragg_wolf_order}
-    % \end{equation}
+\noindentгде $h,\:k,\:l$ --- индексы Миллера представленные целыми числами, $\vectbf{D}{i}$ --- вектор, соединяющий соседние узлы решетки вдоль направления $i$, $\vectbf{e}{\textrm{in}}$ --- единичный вектор направления падающего излучения, $\vectbf{e}{\textrm{out}}$ --- единичный вектор направления прошедшего излучения. Переходя к сферическим координатам, связанными с $\vectbf{e}{\textrm{in}}$ так, что в декартовом представлении $\vectbf{e}{\textrm{in}} = \vectbf{e}{z}$, \autoref{bragg_wolf_order} можно преобразовать следующим образом, учитывая, что $|\vectbf{D}{x}| = |\vectbf{D}{y}| = |\vectbf{D}{z}| = d$ для рассматриваемой кубической решетки:
 
-\noindentгде $\theta$ --- угол между направлением падающего излучения и нормалью к поверхности структуры $\vec{n}$, $\varphi$ --- угол между нормалью к поверхности $\vec{n}$ и вектором решетки структуры $\vec{K}$. Для квазирегулярного распределения в слое вместо точного $d$ использовано усредненное расстояние между кластерами, которое за счет использования равномерного распределения (\autoref{random_shifts}) в построении сдвигов будет примерно равно $d$.
+    \begin{equation}
+        \begin{cases}
+            \cos{\theta_0}\sin{\Delta \theta}\cos{\left( \Delta \varphi - \varphi_0 \right)} - \sin{\theta_0} \left( \cos{\Delta \theta} - 1 \right) = \cfrac{h^{\prime} \lambda}{d}
+            \\
+            \sin{\Delta \theta} \sin{\left( \Delta \varphi - \varphi_0 \right)} = \cfrac{k^{\prime} \lambda}{d}
+            \\
+            \sin{\theta_0}\sin{\Delta \theta}\cos{\Delta \varphi} + \cos{\theta_0} \left( \cos{\Delta \theta} - 1 \right)= \cfrac{l^{\prime} \lambda}{d}
+        \end{cases}
+        \label{bragg_wolf_order_spherical}
+    \end{equation}
 
-    % \img[components/img/thetaphibrwf]{Схема падения излучения на поверхность структуры в трёхмерном пространстве.}{thetaphibrwf:image}{0.4\textwidth}
+\noindentгде $\Delta \theta,\:\Delta \varphi$ --- углы, характеризующие отклонение направления прошедшего излучения относительно падающего, $\theta_0,\:\varphi_0$ --- углы, характеризующие поворот мишени (решётки) в пространстве, $h^\prime,\:k^\prime\:,l^\prime$ --- новые индексы Миллера (\autoref{3ddiffr:image}).
 
-    \img[components/img/celes/20_rad_1st_check.pdf]{.}{20rad_1st_check:image}{0.4\textwidth}
+    \begin{figure}[ht]
+        \subimgtwo[components/img/3ddiffrxz]{Проекция на плоскость $xz$.}{3ddiffr:a}{0.4\textwidth}
+        \hfil
+        \subimgtwo[components/img/3ddiffrxy]{Проекция на плоскость $xy$.}{3ddiffr:b}{0.4\textwidth}
+        \caption{Общая схема взаимодействия падающего излучения с решеткой. $\Delta \theta$ отсчитывается от положительного направления оси $z$, $\Delta \varphi$ --- от положительного направления оси $x$, против часовой стрелки.}\label{3ddiffr:image}
+    \end{figure}
+
+% При этом для отраженного излучения отклонение от исходного направления:
+
+%     \begin{equation}
+%         \begin{cases}
+%             \Delta \theta_r = \pi - \Delta \theta
+%             \\
+%             \Delta \varphi_r = \pi - \Delta \varphi
+%         \end{cases}
+%     \end{equation}
+
+Используя \autoref{bragg_wolf_order_spherical}, можем получить угловое распределение дифрагировавшего излучения. Наиболее интенсивные направления дифракции будут соответствовать минимальным по модулю индексам Миллера, тогда пусть $k^\prime = 0$:
+
+    \begin{equation}
+        \begin{cases}
+            \Delta \varphi_1 = \varphi_0, \quad \Delta \varphi_2 = \pi + \varphi_0,
+            \\
+            \Delta \theta_1 = \theta_0 + \arcsin{\left( \cfrac{h^{\prime} \lambda}{d} - \sin{\theta_0} \right)},
+            \\
+            \Delta \theta_2 = \arcsin{\left( \cfrac{h^{\prime} \lambda}{d} - \sin{\theta_0} \right)} - \theta_0,
+            \\
+            l^{\prime}_{1,2} = \cfrac{\lambda}{d}\:\sin{\theta_0}\sin{\Delta \theta_{1,2}}\cos{\Delta \varphi_{1,2}} + \cos{\theta_0} \left( \cos{\Delta \theta_{1,2}} - 1 \right)
+        \end{cases}
+        \label{bragg_wolf_sol_0}
+    \end{equation}
+
+Используя \autoref{bragg_wolf_sol_0}, можно построить решения, соответствующие целым значениям $l^\prime$, которые отвечают различным прошедшим и отраженным порядкам излучения (\autoref{phi0_theta0_lprime:image}).
+
+    \begin{figure}[ht]
+        \subimgtwo[components/img/celes/phi0_theta0_lprime_d_2l_h_1]{$d = 2\lambda$, $h^\prime = 1$.}{phi0_theta0_lprime:a}{0.4\textwidth}
+        \hfil
+        \subimgtwo[components/img/celes/phi0_theta0_lprime_d_3l_h_1]{$d = 3\lambda$, $h^\prime = 1$.}{phi0_theta0_lprime:b}{0.4\textwidth}
+        % \subimgtwo[components/img/celes/phi0_theta0_lprime_d_2l_h_2]{$d = 2\lambda$, $h^\prime = 2$.}{phi0_theta0_lprime:c}{0.4\textwidth}
+        % \hfil
+        % \subimgtwo[components/img/celes/phi0_theta0_lprime_d_3l_h_2]{$d = 3\lambda$, $h^\prime = 2$.}{phi0_theta0_lprime:d}{0.4\textwidth}
+        \caption{Кривые, отвечающие различным дифракционным порядкам по $l^\prime$ при $k^\prime = 0$, $\Delta \varphi = \varphi_0$.}\label{phi0_theta0_lprime:image}
+    \end{figure}
+
+% Смоделируем стационарное взаимодействие в случае регулярной решётки с радиусом кластеров $a = 20$ нм и $d = 2\lambda_{10}$ при $\Delta \varphi = \varphi_0 = 0^{\circ}$, $\theta_0 = 20^{\circ}$, $\lambda = \lambda_{10} = 83$ нм, ширина гауссова пучка $w = 1700$ нм. Наиболее интенсивные направления дифракции будут соответствовать минимальным по модулю индексам Миллера, тогда по \autoref{bragg_wolf_sol_0} для $l^\prime = 0$ имеем только $\Delta \theta = 0^\circ$, соответствующий $h^\prime = 0$. Это прослеживается на \autoref{20rad_1st_check:image}, что показывает соответствие описанной ранее теории дифракции.
+
+    \img[components/img/celes/20_rad_1st_check]{Рассеяние гауссового пучка ширины $w = 1700$ нм на слое регулярной решетке кластеров размера $a = 20$ нм, $\theta_0 = 20^{\circ}$. Границы газового слоя обозначены пурпурным цветом. Амплитуда $|\vectbf{E}{s}|^2$ построена в плоскости поляризации падающей волны, нормированая на собственный максимум.}{20rad_1st_check:image}{0.4\textwidth}
 
 \subsubsection{Резонансное рассеяние лазерной гармоники}
 
-Для того, чтобы найти оптимальный угол рассеяния при помощи численного моделирования, введена следующая интегральная характеристика:
+%Для того, чтобы найти оптимальный угол рассеяния при помощи численного моделирования, введена следующая интегральная характеристика:
+
+Для того, чтобы найти оптимальные углы рассеяния при помощи численного моделирования, введена следующая интегральная характеристика:
 
     \begin{align}
-        E_{\textrm{int}} \left(\eta,\:\theta,\:w \right) = \int \limits_{S_{\theta, \:w}} dS\:|\vectbf{E}{s}|^2_{\eta \:= \eta}
+        E_{\textrm{int}} \left(\theta,\:\varphi, \:w, \:b, \:\eta\right) = \mathop{\int}\limits_{V\left(\theta,\:\varphi, \:w, \:b\right)} \left( |\vectbf{E}{s}|^2_{\eta \:= \eta} \right) dV,
         \label{e_int}
     \end{align}
-    \begin{equation}
-        S_{\theta, \:w} = \left\{\:x,\,y : x\tan{\theta} - \frac{w}{2\cos{\theta}} \leq y \leq x\tan{\theta} + \frac{w}{2\cos{\theta}},\:\: y > x\tan(\theta + \frac{\pi}{2}) - \frac{F\left(a, d, e\right)}{2\sin{\theta}}\:\right\},
-        \label{S_for_e_int}
-    \end{equation}
-    \begin{align*}
-        F\left(a, d, e\right) = 2a + d(e - 1),
-    \end{align*}
+    % \begin{equation}
+    %     S\left(\Delta\theta,\:\Delta\varphi, \:w\right) = \left\{\:\left(i,\, j,\, k\right) : i\tan{\Delta\theta} - \frac{w}{2\cos{\Delta\theta}} \leq N - j \leq i\tan{\Delta\theta} + \frac{w}{2\cos{\Delta\theta}},\:\: N - j > -i\cot(\Delta\theta) - \frac{F\left(a, d, e\right)}{2\sin{\Delta\theta}}\:\right\},
+    %     \label{S_for_e_int}
+    % \end{equation}
+    \begin{align}
+        \vectbf{C}{} = \vectbf{C}{}\left(x,\:y,\:z,\:\theta,\:\varphi \right) = \begin{pmatrix}C_{x}\\C_{y}\\C_{z}\end{pmatrix} = M_y(\theta)\,M_z(\varphi)\begin{pmatrix}x\\y\\z\end{pmatrix},
+        \label{c_for_e_int}
+    \end{align}
+    \begin{align}
+        V\left(\theta,\:\varphi, \:w, \:b \right) = \left\{\:x,\:y,\:z : C_{x}^2 + C_{y}^2 \leq w, \:\: 0 < z \leq b \right\},
+        \label{V_for_e_int}
+    \end{align}
+    % \begin{align*}
+    %     F\left(a, d, e\right) = 2a + d(e - 1),
+    % \end{align*}
 
-\noindentгде интегрирование по сути представляет собой суммирование значений в указанной области $S_{\theta, \:w}$, $F\left(a, d, e\right)$ --- полная толщина газового слоя, $\theta$ --- угол падения излучения, $w$ --- параметр ширины гауссова пучка. Варьируя $\theta$, был обнаружен оптимальный для резонансного рассения угол $\theta = 14.324^{\circ}$, соответствующий наиболее интенсивному рассеянию в направлении минус первого дифракционного максимума при $d = 2\lambda_{10}$. При этом угол $\varphi = 0^{\circ}$ для простоты, а $w = 1700$ нм (\autoref{energy_vs_theta:image}).
+\noindentгде $M_y(\theta)$ --- матрица поворота вокруг декартовой оси $y$ на угол $\theta$ против часовой стрелки, $M_z(\varphi)$ --- матрица поворота вокруг декартовой оси $z$ на угол $\varphi$ против часовой стрелки, $b$ --- граница области моделирования по $z$, $\eta$ --- коэффициент нерегулярности решетки. В таком случае \autoref{V_for_e_int} представляет собой область внутри цилиндра с радиусом $w$, наклоненного в соответствии с углами $\theta$, $\varphi$ и ограниченного плоскостями $z = 0$, $z = b$, что описывавает дифрагировавший пучок ширины $w$, отклоненный в направлении, заданном углами $\theta$, $\varphi$.
 
-    \img[components/img/celes/energy_vs_theta]{Зависимость относительной характеристики \autoref{integrate_sc_E} от угла падения $\theta$ при $\eta = 0$.}{energy_vs_theta:image}{0.6\textwidth}
+Варьируя $\theta_0$, был обнаружен оптимальный для резонансного рассения угол $\theta_0 = 14.32^{\circ}$, соответствующий наиболее интенсивному рассеянию в направлении дифракционного максимума $100$ по $h^\prime k^\prime l^\prime$ при $d = 2\lambda_{10}$, $w = 1700$ нм (\autoref{energy_vs_theta:image}).
+
+    \img[components/img/celes/energy_vs_theta]{Зависимость относительной характеристики \autoref{integrate_sc_E} от угла падения $\theta_0$ при $\eta = 0$, $w = 1700$ нм.}{energy_vs_theta:image}{0.55\textwidth}
 
 Рассеянные поля, полученные при моделировании, представлены на \autoref{random_ka0.7:image}. В этом случае мишень более реалистична, так как состоит из материала с реалистичной электронной плотностью $n_{el} = 5.7 \cdot 10^{23}\:\,\textrm{см}^{-3} \approx 4.4 n_{c}$ для $\lambda_{10} = 83$ нм. В качестве падающего поля был использован гауссов пучок с той же интенсивностью, что и в случае с одиночным кластером $I_{L} \approx 10^{18}\:\,\textrm{Вт/см}^2$, $I_h = I_{10} \approx 10^{14}\:\,\textrm{Вт/см}^2$, параметром ширины $w = 1700$ нм, направленный вдоль оси $z$ и поляризованный вдоль оси $x$.
 
-На \Autoref{random_ka0.7:a, random_ka0.7:b} видна значительная разница между резонансным и нерезонансным случаем --- рассеяное поле $10$-ой гармоники четко ограничено, хорошо видно рассеяние в двух направлениях, соответствующих минус первому и первому порядкам дифракции (\autoref{bragg_wolf_order}), амплитуда поля превышает таковую в отсутствии резонанса более, чем в 10 раз, что соответствует условию Брэгга-Вульфа при найденном угле.
+На \Autoref{random_ka0.7:a, random_ka0.7:b} видна значительная разница между резонансным и нерезонансным случаем --- рассеяное поле $10$-ой гармоники четко ограничено, хорошо видно рассеяние в двух направлениях, соответствующих порядкам дифракции $000$ и $100$ по $h^\prime k^\prime l^\prime$ (\autoref{bragg_wolf_sol_0}), амплитуда поля превышает таковую в отсутствии резонанса более, чем в 10 раз при найденном угле $\Delta\theta$, что соответствует описанной ранее теории дифракции.
 
     \begin{figure}[ht]
         \subimgtwo[components/img/celes/mean_field_0_42]{Рассеяние $10$-ой гармоники, $\lambda_{10} = 83$ нм, $\eta = 0.43$.}{random_ka0.7:a}{0.4\textwidth}
@@ -64,8 +136,10 @@
         \subimgtwo[components/img/celes/reference_regular_14.324]{Рассеяние $10$-ой гармоники, $\lambda_{10} = 83$ нм, $\eta = 0$.}{random_ka0.7:c}{0.4\textwidth}
         % \hfil
         % \subimgtwo[components/img/celes/check20_rad]{Рассеяние $10$-ой гармоники, $\lambda_{10} = 83$ нм, $|\Delta d|_{\max} = 0$.}{random_ka0.7:c}{0.4\textwidth}
-        \caption{Рассеяние гауссового пучка ширины $w = 1700$ нм на слое квазирегулярно расположенных кластеров размера $ka = 0.7$ ($a \approx 8.9$ нм). Угол падения $\theta = 14.324^{\circ}$. Границы газового слоя обозначены пурпурным цветом. Амплитуда $|\vectbf{E}{s}|^2$ построена в плоскости поляризации падающей волны, нормирована на максимальную амплитуду в случае рассеяния 10 гармоники.}\label{random_ka0.7:image}
+        \caption{Рассеяние гауссового пучка ширины $w = 1700$ нм на слое квазирегулярно расположенных кластеров размера $ka = 0.7$ ($a \approx 8.9$ нм), $\theta_0 = 14.32^{\circ}$. Границы газового слоя обозначены пурпурным цветом. Амплитуда $|\vectbf{E}{s}|^2$ построена в плоскости поляризации падающей волны, нормирована на максимальную амплитуду в случае рассеяния 10 гармоники.}\label{random_ka0.7:image}
     \end{figure}
+
+    \img[components/img/celes/energy_vs_nonreg]{Зависимость относительной характеристики \autoref{integrate_sc_E} от нерегулярности $\eta$ при $w = 1700$ нм, $\theta_0 = 14.32^{\circ}$.}{energy_vs_nonreg:image}{0.55\textwidth}
 
 % \subsubsection{Учет квазимонохроматичности падающего поля}
 
@@ -73,13 +147,9 @@
 
 \subsubsection{Направленная энергия в зависимости от нерегулярности расположения кластеров}
 
-Для того, чтобы определить, как нерегулярность расположения кластеров в слое влияет на количество излучения, отклоненного от направления падения, было смоделировано рассеяние на множествах кластеров с различными диапазонами нормы сдвига $\Delta d$ в соответствии с \autoref{random_shifts}. Для получения энергетической характеристики, квадрат рассеянного поля был проинтегрирован на прямоугольной области с шириной $w$, соответствующей ширине падающего пучка, вне газового слоя в направлении минус первого дифракционного максимума $\theta$ (\autoref{integrate_sc_E}).
+Для того, чтобы определить, как нерегулярность расположения кластеров в слое влияет на количество излучения, отклоненного от направления падения, было смоделировано рассеяние на множествах кластеров с различным показателем нерегулярности $\eta$ в соответствии с \autoref{random_shifts} и посчитана нормированная характеристика \autoref{e_int} на прямоугольной области с шириной $w$, соответствующей ширине падающего пучка, вне газового слоя в направлении дифракционного максимума $\Delta\theta = 2\theta_0$ (\autoref{energy_vs_nonreg:image}):
 
     \begin{equation}
-        E_{\textrm{int}}^{\textrm{norm}} \left(\eta,\:\theta,\:w \right) = \cfrac{E_{\textrm{int}} \left(\eta,\:\theta,\:w \right)}{E_{\textrm{int}} \left(0,\:\theta,\:w \right)}
+        E_{\textrm{int}}^{\textrm{norm}} \left( 2\theta_0,\: 0, \:w, \:\eta\right) = \cfrac{E_{\textrm{int}} \left( 2\theta_0,\: 0, \:w, \:\eta\right)}{E_{\textrm{int}} \left( 2\theta_0,\: 0, \:w, \:0\right)}
         \label{integrate_sc_E}
     \end{equation}
-
-\noindentгде $a$ --- радиус одиночного кластера, $d$ --- среднее расстояние между центрами соседних кластеров, $e$ --- ширина газового слоя (в количестве кластеров). Интегрирование было проведено при помощи подсчета интегральных сумм с единичным шагом, то есть суммированием значений в области интегрирования. Полученный результат был нормирован на соответствующую интегральную характеристику в случае регулярной структуры расположения кластеров (\autoref{random_ka0.7:c}).
-
-    \img[components/img/celes/energy_vs_nonreg]{Зависимость относительной характеристики \autoref{integrate_sc_E} от нерегулярности $\eta$.}{energy_vs_nonreg:image}{0.6\textwidth}
