@@ -5,6 +5,7 @@ import os
 from processing import mis
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib import ticker
 from tqdm.autonotebook import tqdm
 
 srcpath = os.path.realpath(__file__)
@@ -109,3 +110,10 @@ ax.xaxis.set_tick_params(pad=10)
 cbar = plt.colorbar(cax, fraction=0.046, pad=0.1)
 cbar.set_label(r'$E_{\rm{int}}$', labelpad=15)
 ax.set_rmax(90)
+
+cbar.ax.yaxis.set_major_locator(ticker.LinearLocator(8))
+
+rlab = ax.set_ylabel(r'$\Delta \theta$')
+rlab.set_position((5, 0.44))
+rlab.set_rotation(0)
+ax.yaxis.labelpad = -350
