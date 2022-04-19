@@ -91,19 +91,23 @@ for k = 1:length(dataFiles)
             simul.evaluateFields;
             
             % plot near field
-            h1 = figure('Name', 'Near-field cross-cut', 'NumberTitle', 'off');
-            plot_field(gca, simul, 'abs E', 'scattered field');
-            figure(h1)
-            ax = gca; hold on;
-            fig = gcf;
+            %h1 = figure('Name', 'Near-field cross-cut', 'NumberTitle', 'off');
+            %plot_field(gca, simul, 'abs E', 'scattered field');
+            %figure(h1)
+            %ax = gca; hold on;
+            %fig = gcf;
             
-            axObjs = fig.Children;
+            %axObjs = fig.Children;
             particles_xy = [coords data(:, 4)];
-            heatmap = axObjs(2).Children.CData;
+            %heatmap = axObjs(2).Children.CData;
             grid_max = bnd;
             grid_step = stp;
             
-            save(mat_fname, 'particles_xy', 'heatmap', 'grid_max', 'grid_step');
+            eField = simul.output.scatteredField + simul.output.internalField;
+            dims = simul.output.fieldPointsArrayDims;
+            eField3DAbs = reshape(gather(sqrt(sum(abs(eField).^2,2))), dims);
+            
+            save(mat_fname, 'particles_xy', 'eField3DAbs', 'grid_max', 'grid_step');
         end
     end
 end
