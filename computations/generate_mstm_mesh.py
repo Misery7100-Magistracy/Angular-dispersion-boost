@@ -24,12 +24,13 @@ if __name__ == "__main__":
     mg.build_mesh(
         edge=config['edge'], 
         gap=config['gap'], 
-        kind='cube',
+        kind=config['kind'],
         radius=config['radius'],  
         m=m
     )
 
-    fname = f"{config['edge']}edge_" + \
+    fname = f"{config['kind']}_" + \
+            f"{config['edge']}edge_" + \
             f"{config['gap']}gap_" + \
             f"{config['radius']}radius_" + \
             f"{config['nonregularity']}nonreg_" + \

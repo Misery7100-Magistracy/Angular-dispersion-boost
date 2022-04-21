@@ -32,12 +32,14 @@ class MeshGenerator:
             coords = np.array(list(map(list, product(coords, repeat=3))))
             output = list(map(lambda x: list(x) + [radius, 0, m], coords))
         
-        elif kind == 'plate':
+        elif kind == 'cylinder':
 
             rng = (2*radius + gap) * (edge - 1) / 2
-            coords = np.linspace(-rng, rng, edge)
-            coords = np.array(list(map(list, product(coords, repeat=2))))
-            output = list(map(lambda x: list(x) + [0, radius, 0, m], coords))
+            x = np.linspace(-rng, rng, int(edge *  4 / 3.14))
+            yz = np.linspace(-rng, rng, edge)
+            crds = map(list, product(x, yz, yz))
+            crds = np.array(list(filter(lambda x: x[1] ** 2 + x[2] ** 2 <= (rng * 1.02) ** 2, crds)))
+            output = list(map(lambda x: list(x) + [radius, 0, m], crds))
         
         self.data = output
 
