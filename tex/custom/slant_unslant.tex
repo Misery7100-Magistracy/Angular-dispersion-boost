@@ -1,0 +1,16 @@
+\newsavebox{\foobox}
+
+\newcommand{\slantbox}[2][0]{\colorlet{slantcolor}{.}\mbox{%
+        \sbox{\foobox}{\color{slantcolor}#2}%
+        \hskip\wd\foobox
+        \pdfsave
+        \pdfsetmatrix{1 0 #1 1}%
+        \llap{\usebox{\foobox}}%
+        \pdfrestore
+}}
+\newcommand\unslant[2][-.2]{%
+  \mkern1mu%
+  \ThisStyle{\slantbox[#1]{$\SavedStyle#2$}}%
+  \mkern-1mu%
+}
+\newcommand\upmu{\unslant\mu}
