@@ -5,14 +5,6 @@ from .matlab import Engine as MatlabEngine
 from .matlab import MSTM as MstmEngine
 from .lpic import Engine as LpicEngine
 from .mesh import MeshGenerator
-from .eqs import resonance_m_squared
+from .mie import plotting as mie_plot
 
-default_palette = [
-        
-        '#4078c0', 
-        '#6cc644',
-        '#bd2c00',
-        '#c9510c',
-        '#6e5494'
-    
-    ]
+from . import meshgen as mesh_generator

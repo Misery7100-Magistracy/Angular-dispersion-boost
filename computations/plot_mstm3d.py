@@ -2,7 +2,7 @@ from scipy.io import loadmat
 from itertools import product
 import os
 
-from processing import mis
+from processing import mseven
 import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import ticker
@@ -11,7 +11,7 @@ from tqdm.autonotebook import tqdm
 srcpath = os.path.realpath(__file__)
 workdir, _ = os.path.split(srcpath)
 
-mis.configure_mpl()
+mseven.configure_mpl()
 
 # ------------------------- #
 

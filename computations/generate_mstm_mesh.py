@@ -1,5 +1,4 @@
-from processing import mis
-import numpy as np
+from processing.msevn import mesh_generator
 import yaml
 import os
 
@@ -10,31 +9,32 @@ workdir, _ = os.path.split(srcpath)
 
 if __name__ == "__main__":
 
-    with open(os.path.join(workdir, 'yml', 'meshgen.yml'), 'r') as f:
+    with open(os.path.join(workdir, 'yml', 'meshconfig.yml'), 'r') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
-    
-    m = mis.resonance_m_squared(config['radius'], n=1)
 
-    if 1 - m > 4:
-        m = mis.resonance_m_squared(config['radius'], n=2)
-
-    m = np.sqrt(-m)
-
-    mg = mis.MeshGenerator()
-    mg.build_mesh(
-        edge=config['edge'], 
-        gap=config['gap'], 
-        kind=config['kind'],
-        radius=config['radius'],  
-        m=m
+    prms = dict(
+        node_radius=config['radius'],
+        d_relative=config['d_relative'],
+        wavelength=config['wavelength'],
+        edgecount=config['edge']
     )
+
+    delta_d_max = config['nonregularity'] * prms['d_relative'] * prms['wavelength']
+
+    if config['kind'] == 'cubic':
+        mesh = mesh_generator.cubic.build(**prms)
+    
+    elif config['kind'] == 'cylinder':
+        mesh = mesh_generator.cylinder.build(**prms)
 
     fname = f"{config['kind']}_" + \
             f"{config['edge']}edge_" + \
-            f"{config['gap']}gap_" + \
+            f"{config['d_relative']}d_relative_" + \
+            f"{config['wavelength']}wlen_" + \
             f"{config['radius']}radius_" + \
-            f"{config['nonregularity']}nonreg_" + \
-            f"{m:.4f}m" + ".txt"
+            f"{config['nonregularity']}nonreg.txt"
+    
+    mesh = mesh_generator.irreg.apply(mesh, delta_d_max)
+    mesh_generator.save(mesh, path=os.path.join(workdir, 'matlab', 'input', fname))
 
-    mg.random_shift(max_shift=config['gap']*config['nonregularity'])
-    mg.save(path=os.path.join(workdir, 'matlab', 'input', fname))
+# ------------------------- #

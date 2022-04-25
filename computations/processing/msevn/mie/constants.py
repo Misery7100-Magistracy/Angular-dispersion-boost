@@ -1,0 +1,1 @@
+SOLID_LIMIT = 10 / 1.3
