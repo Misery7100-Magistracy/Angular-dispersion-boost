@@ -1,8 +1,8 @@
 \subsection{Множество кластеров}
 
-В рамках в рамках стационарной теории рассеяния Ми было рассмотрено множество кластеров в виде протяженного газового слоя с регулярной и квазирегулярной пространственной конфигурацией для исследования возможности рассеяния такими структурами на большие углы жёсткого ультрафиолетового излучения, в частности соответствующего гармоникам высокого порядка.
+В рамках в рамках стационарной теории рассеяния Ми было рассмотрено множество кластеров в виде протяженной цилиндрической газовой струи (в дальнейшем мишень) с регулярной и квазирегулярной пространственной конфигурацией для исследования возможности рассеяния такими структурами на большие углы жёсткого ультрафиолетового излучения, в частности соответствующего гармоникам высокого порядка.
 
-В качестве регулярного распределения была выбрана примитивная кубическая решетка c расстоянием между соседними узлами $d$. Квазирегулярное распределение было построено при помощи внесения случайных сдвигов координат узлов с произвольной нормой сдвига в диапазоне $0 \leq |\Delta d| \leq \eta d$, где $0 \leq \eta < 0.5$ --- степень нерегулярности. Тогда при кратном $d = b\lambda$, $b \in \mathcal{N}$ расстояние между соседними узлами после внесения сдвигов:
+В качестве регулярного распределения была выбрана примитивная кубическая решетка c расстоянием между соседними узлами $d$. Квазирегулярное распределение было построено при помощи внесения случайных сдвигов координат узлов с произвольной нормой сдвига в диапазоне $0 \leq |\Delta d| \leq \eta d$, где $0 \leq \eta < 0.5$ --- степень нерегулярности. Тогда при кратном $d = b\lambda$, $b \in \EuScript{N}$ расстояние между соседними узлами после внесения сдвигов:
 
     \begin{equation}
         b\left(1 - \eta\right)\lambda \le d_{\textrm{irreg}} \le b\left(1 + \eta\right)\lambda
@@ -43,48 +43,41 @@
         \label{bragg_wolf_order_spherical}
     \end{equation}
 
-\noindentгде $\Delta \theta,\:\Delta \varphi$ --- углы, характеризующие отклонение направления прошедшего излучения относительно падающего, $\theta_0,\:\varphi_0$ --- углы, характеризующие поворот мишени (решётки) в пространстве, $h^\prime,\:k^\prime\:,l^\prime$ --- новые индексы Миллера (\autoref{3ddiffr:image}).
+\noindentгде $\Delta \theta,\:\Delta \varphi$ --- углы, характеризующие отклонение направления дифрагировавшего излучения относительно падающего, $\theta_0,\:\varphi_0$ --- углы, характеризующие поворот мишени (решётки) в пространстве, $h^\prime,\:k^\prime\:,l^\prime$ --- новые индексы Миллера (\autoref{3ddiffr:image}). Используя \autoref{bragg_wolf_order_spherical}, можем получить угловое распределение дифрагировавшего излучения при заданных начальных параметрах $d$, $\lambda$, $\theta_0$, $\varphi_0$. 
 
     \begin{figure}[ht]
-        \subimgtwo[components/img/3ddiffrxz]{Проекция на плоскость $xz$.}{3ddiffr:a}{0.4\textwidth}
+        \subimgtwo[components/img/3ddiffrxzgas]{Проекция на плоскость $xz$.}{3ddiffr:a}{0.4\textwidth}
         \hfil
-        \subimgtwo[components/img/3ddiffrxy]{Проекция на плоскость $xy$.}{3ddiffr:b}{0.4\textwidth}
-        \caption{Общая схема взаимодействия падающего излучения с решеткой. $\Delta \theta$ отсчитывается вокруг $y$ против часовой стрелки, $\Delta \varphi$ --- вокруг $z$ против часовой стрелки.}\label{3ddiffr:image}
+        \subimgtwo[components/img/3ddiffrxygas]{Проекция на плоскость $xy$.}{3ddiffr:b}{0.4\textwidth}
+        \caption{Общая схема взаимодействия падающего излучения с решеткой. $\theta_0$, $\varphi_0$ --- характеризуют углы покорота мишени в пространстве, $\Delta \theta$, $\Delta \varphi$ --- углы отклонения направления дифрагировавшего излучения относительно падающего, $r_{\textrm{gas}}$ --- радиус газовой струи, представляюшей мишень, $w$ --- диаметр гауссова пучка падающего излучения. $\Delta \theta$ отсчитывается вокруг $y$ против часовой стрелки, $\Delta \varphi$ --- вокруг $z$ против часовой стрелки.}\label{3ddiffr:image}
     \end{figure}
 
-% При этом для отраженного излучения отклонение от исходного направления:
+
+    \img[components/img/eint_scheme]{Схематическое изображение области $V$ (\autoref{V_for_e_int}).}{eint_scheme:image}{0.45\textwidth}
+
+% Наиболее интенсивные направления дифракции будут соответствовать минимальным по модулю индексам Миллера, тогда пусть $k^\prime = 0$:
 
 %     \begin{equation}
 %         \begin{cases}
-%             \Delta \theta_r = \pi - \Delta \theta
+%             \Delta \varphi = \varphi_0
 %             \\
-%             \Delta \varphi_r = \pi - \Delta \varphi
+%             \Delta \theta = \theta_0 + \arcsin{\left( \cfrac{h^{\prime} \lambda}{d} - \sin{\theta_0} \right)},
+%             \\
+%             l^{\prime} = \cfrac{\lambda}{d}\left(\sin{\theta_0}\sin{\Delta \theta}\cos{\Delta \varphi} + \cos{\theta_0} \left( \cos{\Delta \theta} - 1 \right)\right)
 %         \end{cases}
+%         \label{bragg_wolf_sol_0}
 %     \end{equation}
 
-Используя \autoref{bragg_wolf_order_spherical}, можем получить угловое распределение дифрагировавшего излучения. Наиболее интенсивные направления дифракции будут соответствовать минимальным по модулю индексам Миллера, тогда пусть $k^\prime = 0$:
-
-    \begin{equation}
-        \begin{cases}
-            \Delta \varphi = \varphi_0
-            \\
-            \Delta \theta = \theta_0 + \arcsin{\left( \cfrac{h^{\prime} \lambda}{d} - \sin{\theta_0} \right)},
-            \\
-            l^{\prime} = \cfrac{\lambda}{d}\left(\sin{\theta_0}\sin{\Delta \theta}\cos{\Delta \varphi} + \cos{\theta_0} \left( \cos{\Delta \theta} - 1 \right)\right)
-        \end{cases}
-        \label{bragg_wolf_sol_0}
-    \end{equation}
-
-Используя \autoref{bragg_wolf_sol_0}, можно построить решения, соответствующие целым значениям $l^\prime$, которые отвечают различным порядкам прошедшего и отраженного излучения (\autoref{phi0_theta0_lprime:image}).
+% Используя \autoref{bragg_wolf_sol_0}, можно построить решения, соответствующие целым значениям $l^\prime$, которые отвечают различным порядкам прошедшего и отраженного излучения (\autoref{phi0_theta0_lprime:image}).
 
     \begin{figure}[ht]
-        \subimgtwo[components/img/celes/dphi_dtheta_kprime_d_2l_phi0_0_theta0_15]{$\Delta \theta \in \left[ 0,\:\cfrac{\pi}{2} \right]$.}{1st_check_diffrth:a}{0.4\textwidth}
+        \subimgtwo[components/img/celes/dphi_dtheta_kprime_d_2l_phi0_0_theta0_15]{$\Delta \theta \in \left[ 0,\:\cfrac{\pi}{2} \right]$.}{1st_check_diffrth:a}{0.35\textwidth}
         \hfil
-        \subimgtwo[components/img/celes/e_int_cylinder_15edge_theta0_15_phi0_0_166gap]{$\Delta \theta \in \left[ 0,\:\cfrac{\pi}{2} \right]$.}{1st_check_diffrth:b}{0.5\textwidth}
-        \subimgtwo[components/img/celes/dphi_dtheta_kprime_d_2l_phi0_0_theta0_15_refr]{$\Delta \theta \in \left[ \cfrac{\pi}{2},\:\pi \right]$.}{1st_check_diffrth:c}{0.4\textwidth}
+        \subimgtwo[components/img/celes/e_int_cylinder_15edge_theta0_15_phi0_0_166gap]{$\Delta \theta \in \left[ 0,\:\cfrac{\pi}{2} \right]$.}{1st_check_diffrth:b}{0.45\textwidth}
+        \subimgtwo[components/img/celes/dphi_dtheta_kprime_d_2l_phi0_0_theta0_15_refr]{$\Delta \theta \in \left[ \cfrac{\pi}{2},\:\pi \right]$.}{1st_check_diffrth:c}{0.35\textwidth}
         \hfil
-        \subimgtwo[components/img/celes/e_int_cylinder_15edge_theta0_15_phi0_0_166gap_refr]{$\Delta \theta \in \left[ \cfrac{\pi}{2},\:\pi \right]$.}{1st_check_diffrth:d}{0.5\textwidth}
-        \caption{Вычисление $E_{\textrm{int}}$ по \autoref{e_int} и решение \autoref{bragg_wolf_order_spherical} в целых индексах Миллера для $a = 20$ nm и $d = 2\lambda_{10}$ при $\varphi_0 = 0^{\circ}$, $\theta_0 = 14.78^{\circ}$, $\lambda = \lambda_{10} = 83$ nm, ширина гауссова пучка $w = 1700$ nm. Для наглядности построение было поделено на две проекции полусферических областей по $\Delta \theta$ с полюсами в $0$ и $\pi$ соответственно.}\label{1st_check_diffrth:image}
+        \subimgtwo[components/img/celes/e_int_cylinder_15edge_theta0_15_phi0_0_166gap_refr]{$\Delta \theta \in \left[ \cfrac{\pi}{2},\:\pi \right]$.}{1st_check_diffrth:d}{0.45\textwidth}
+        \caption{Вычисление $E_{\textrm{int}}$ по \autoref{e_int} (а, в) и решение \autoref{bragg_wolf_order_spherical} в целых индексах Миллера для $a = 20$ nm и $d = 2\lambda_{10}$ при $\varphi_0 = 0^{\circ}$, $\theta_0 = 15^{\circ}$, $\lambda = \lambda_{10} = 83$ nm, радиус цилиндрической области $\rho = 200$ nm (б, г). Для наглядности построение было поделено на две проекции полусферических областей по $\Delta \theta$ с полюсами в $0$ и $\pi$ соответственно.}\label{1st_check_diffrth:image}
     \end{figure}
 
     % \begin{figure}[ht]
@@ -94,22 +87,29 @@
     %     \caption{Кривые, отвечающие различным дифракционным порядкам по $l^\prime$ при $k^\prime = 0$, $\Delta \varphi = \varphi_0$.}\label{phi0_theta0_lprime:image}
     % \end{figure}
 
-Для того, чтобы проверить достоверность полученной теории, смоделируем стационарное взаимодействие в случае регулярной решётки с радиусом кластеров $a = 20$ nm и $d = 2\lambda_{10}$ при $\varphi_0 = 0^{\circ}$, $\theta_0 = 14.78^{\circ}$, $\lambda = \lambda_{10} = 83$ нм, ширина гауссова пучка $w = 1700$ nm. Определим наиболее интенсивные направления рассеяния при помощи следующей интегральной характеристики \autoref{1st_check_diffrth:b}:
+Для того, чтобы проверить достоверность полученной теории, смоделируем стационарное взаимодействие в случае регулярной решётки с радиусом кластеров $a = 20$ nm и $d = 2\lambda_{10}$ при $\varphi_0 = 0^{\circ}$, $\theta_0 = 15^{\circ}$, $\lambda = \lambda_{10} = 83$ нм, ширина гауссова пучка $w = 800$ nm, радиус цилиндра, ограничивающего решетку (радиус газовой струи) $r_{\textrm{gas}} = a + 12d \approx 2$ $\upmu\textrm{m}$, где множитель при $d$ --- количество узлов решетки между центральной осью и границей цилиндра. Несмотря на то, что в реальных условиях гауссов пучок $10$-ой гармоники Ti:Sa лазера с шириной 800 nm получить практически невозможно, в силу стационарности вычислений отношение $w\:/\:r_{\textrm{gas}}$ может быть корректно масштабировано при $w \ll 2r_{\textrm{gas}}$. Использованное малое значение $w$ в таком случае ускоряет вычисления, но принципиально не изменяет их результат.
+
+Определим наиболее интенсивные направления рассеяния при помощи следующей интегральной характеристики: %\autoref{1st_check_diffrth:b}:
+
+    \begin{equation}
+        E_{\textrm{int}} \left(V, \:\eta\right) = \int\limits_{V} \left( |\vectbf{E}{s}|^2_{\eta \:= \eta} \right) dV,
+        \label{e_int}
+    \end{equation}
+
+В данном случае \autoref{e_int} представляет собой интегрирование интенсивности рассеянного поля, вычисленного как квадрат модуля напряженности рассеянного поля (без учета нормирующего множителя) в области пространства $V$ для решётки, обладающей нерегулярностью $\eta$, то есть является энергией, рассеянной решёткой в область $V$. Эта область должна быть задана так, чтобы характеризовать некоторое направление в пространстве, и, как правило, для этой цели используется область в виде конуса, образованного некоторым раствором телесного угла $\delta \Omega$ и направлением при помощи углов $\Delta \theta$, $\Delta \varphi$. Для рассматриваемой задачи необходимо исключить из вычисления ближнее поле, ввиду чего накладывается дополнительное ограничение $V$ внутренностью сферического слоя пространства с границами $b_1$ и $b_2$, где $b_2$ --- граница области численного моделирования, $b_1$ --- больше радиуса сферы, описанной вокруг мишени. Хотя газовая струя является протяженным объектом, в моделировании используется только её сегмент, так как падающий пучок ограничен и рассеяное поле слабо зависит от частей струи, удаленных от области падения пучка, что позволяет описать вокруг такого сегмента соответствующую окружность.
+
+Пересечение конической области и сферического слоя вдали от мишени можно приблизить цилиндром, считая $\rho \approx 0.5\,b_2\cdot\delta \Omega$, где $\rho$ --- радиус цилиндра. В таком случае, при помощи вспомогательного вектора $\vectbf{c}{}$ (\autoref{c_for_e_int}) получаем область $V$ (\autoref{eint_scheme:image}):
 
     \begin{align}
-        E_{\textrm{int}} \left(\theta,\:\varphi, \:w, \:a, \:b, \:\eta\right) = \mathop{\int}\limits_{V\left(\theta,\:\varphi, \:w, \:a, \:b \right)} \left( |\vectbf{E}{s}|^2_{\eta \:= \eta} \right) dV,
-        \label{e_int}
-    \end{align}
-    \begin{align}
-        \vectbf{C}{} = \vectbf{C}{}\left(x,\:y,\:z,\:\theta,\:\varphi \right) = \begin{pmatrix}C_{x}\\C_{y}\\C_{z}\end{pmatrix} = M_y(\theta)\,M_z(\varphi)\begin{pmatrix}x\\y\\z\end{pmatrix},
+        \vectbf{c}{} = \vectbf{c}{}\left(x,\:y,\:z,\:\Delta \theta,\:\Delta \varphi \right) = \begin{pmatrix}c_{x}\\c_{y}\\c_{z}\end{pmatrix} = M_y(\Delta \theta)\,M_z(\Delta \varphi)\begin{pmatrix}x\\y\\z\end{pmatrix},
         \label{c_for_e_int}
     \end{align}
     \begin{align}
-        V\left(\theta,\:\varphi, \:w, \:a, \:b \right) = \left\{\:x,\:y,\:z : C_{x}^2 + C_{y}^2 \leq w, \:\: a^2 \leq x^2 + y^2 + z^2 \leq b^2 \right\},
+        V\left(\:\rho, \:b_1, \:b_2, \:\vectbf{c}{} \right) = \left\{\:x,\:y,\:z : c_{x}^2 + c_{y}^2 \leq \rho^2, \:\: b_1^2 \leq x^2 + y^2 + z^2 \leq b_2^2 \right\},
         \label{V_for_e_int}
     \end{align}
 
-\noindentгде $M_y(\theta)$ --- матрица поворота вокруг декартовой оси $y$ на угол $\theta$ против часовой стрелки, $M_z(\varphi)$ --- матрица поворота вокруг декартовой оси $z$ на угол $\varphi$ против часовой стрелки, $a$ и $b$ --- задают глобальный сферический слой для подсчета вдали от мишени, $\eta$ --- коэффициент нерегулярности решетки. В таком случае \autoref{V_for_e_int} представляет собой область внутри цилиндра с радиусом $w$, наклоненного в соответствии с углами $\theta$, $\varphi$ и ограниченного сферическим слоем, что описывавает дифрагировавший пучок ширины $w$, отклоненный в направлении, заданном углами $\theta$, $\varphi$.
+\noindentгде $M_y(\Delta \theta)$ --- матрица поворота вокруг декартовой оси $y$ на угол $\Delta\theta$ против часовой стрелки, $M_z(\Delta\varphi)$ --- матрица поворота вокруг декартовой оси $z$ на угол $\Delta\varphi$ против часовой стрелки. В дальнейшем взяты значения $\rho = w\:/\:4$, $b_1 = 4r_{\textrm{gas}}$ где $w$ --- ширина гауссова пучка падающего поля, $r_{\textrm{gas}}$ --- радиус газовой струи, формирующей мишень.
 
 Также построим пересечения целочисленных решений для $h^\prime,\:k^\prime,\:l^\prime$ с заданными $\theta_0$, $\varphi_0$ в осях $\Delta \varphi$, $\Delta \theta$ при помощи \autoref{bragg_wolf_order_spherical} (\Autoref{1st_check_diffrth:a, 1st_check_diffrth:c}). Сравнивая полученные результаты можно заметить, что наиболее интенсивные направления дифракции по $E_{\textrm{int}}$ отвечают наиболее близкому раположению кривых, соответствующих целочисленным значениям индексов Миллера. 
 

@@ -32,12 +32,14 @@
 \usepackage[fixlanguage]{babelbib}
 \usepackage[oldsyntax]{stackengine}
 \usepackage[labelformat=simple, labelsep=colon]{subfig}
-\usepackage{MnSymbol}
+%\usepackage{MnSymbol}
 \usepackage{titling}
 
 % \usepackage{tikz}
 \usepackage{scalerel}
 %\usepackage{siunitx}
+
+\usepackage{euscript}
 
 % ------------------------- %
 %  Custom components
@@ -88,13 +90,13 @@
 	\maketitle
 
 	\input{components/abstract.tex}
-	%\section{Введение}
-	\input{components/introduction.tex}
-	%\section{Аналитическая модель}
-	\input{components/base_model.tex}
-	%\section{Стационарные вычисления}
-	%\subsection{Одиночный кластер}
-	\input{components/single_sphere.tex}
+	\section{Введение}
+	%\input{components/introduction.tex}
+	\section{Аналитическая модель}
+	%\input{components/base_model.tex}
+	\section{Стационарные вычисления}
+	\subsection{Одиночный кластер}
+	%\input{components/single_sphere.tex}
 	\input{components/pic.tex}
 	
 	\input{components/multiple_spheres.tex}
