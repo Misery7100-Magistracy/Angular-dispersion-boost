@@ -9,3 +9,5 @@ from .mie import plotting as mie_plot
 from .lpic import plotting as lpic_plot
 from .lpic import estimation as lpic_est
 from . import meshgen as mesh_generator
+from .mstm import estimation as mstm_est
+from .mstm.plotting import polar as mstm_polar_plot

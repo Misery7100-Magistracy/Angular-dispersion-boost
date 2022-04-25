@@ -73,7 +73,7 @@ def squared_refractive_index(
         ka: np.ndarray = np.linspace(0.01, 5, 20000),
         beta: float = 0,
         orders: list = list(range(1, 4)),
-        nenc: bool = False,
+        as_density: bool = False,
         config: dict = config
 
     ):
@@ -92,7 +92,7 @@ def squared_refractive_index(
         
         vals = resonance_m_squared(ka, o)
         
-        if nenc:
+        if as_density:
             vals = np.abs((1 - vals) * complex(1, beta))
             
         sns.lineplot(
@@ -108,7 +108,7 @@ def squared_refractive_index(
     
     ax.set_xlabel(r'$ka$', labelpad=15)
     
-    if nenc:
+    if as_density:
         ax.set_ylabel(r'$n_e\:/\:n_c$', labelpad=15)
     else:
         ax.set_ylabel(r'$m^2$', labelpad=15)
