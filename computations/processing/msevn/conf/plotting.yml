@@ -28,6 +28,7 @@ colorbarprops:
   position: right
   size:     5% 
   pad:      0.4
+  ticker.linear: 7
 
 globalcmap: hot
 

@@ -9,7 +9,7 @@ workdir, _ = os.path.split(srcpath)
 
 if __name__ == "__main__":
 
-    with open(os.path.join(workdir, 'yml', 'meshconfig.yml'), 'r') as f:
+    with open(os.path.join(workdir, 'yml', 'mesh.yml'), 'r') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
 
     prms = dict(

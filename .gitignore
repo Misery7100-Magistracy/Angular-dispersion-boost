@@ -441,7 +441,8 @@ cython_debug/
 computations/*/input/**
 computations/*/output/**
 computations/*/data/**
-computations/**/*.ipynb
+computations/processing/**/*.ipynb
+# computations/**/*.ipynb
 
 !computations/**/.gitkeep
 

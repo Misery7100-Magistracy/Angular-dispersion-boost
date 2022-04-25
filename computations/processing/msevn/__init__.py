@@ -3,8 +3,9 @@ from .mph import Engine as MphEngine
 from .mph import Field2D as Field2DEngine
 from .matlab import Engine as MatlabEngine
 from .matlab import MSTM as MstmEngine
-from .lpic import Engine as LpicEngine
-from .mesh import MeshGenerator
-from .mie import plotting as mie_plot
 
+# updated
+from .mie import plotting as mie_plot
+from .lpic import plotting as lpic_plot
+from .lpic import estimation as lpic_est
 from . import meshgen as mesh_generator
