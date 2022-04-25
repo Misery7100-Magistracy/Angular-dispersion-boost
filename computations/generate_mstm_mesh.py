@@ -13,10 +13,14 @@ if __name__ == "__main__":
     with open(os.path.join(workdir, 'yml', 'meshgen.yml'), 'r') as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
     
-    m = mis.resonance_m_squared(config['radius'], n=1)
+    radius = config['radius']
+    k = 2 * np.pi / config['wavelength']
+    x = k * radius
+    
+    m = mis.resonance_m_squared(x, n=1)
 
-    if 1 - m > 4:
-        m = mis.resonance_m_squared(config['radius'], n=2)
+    if 1 - m > 10 / 1.3:
+        m = mis.resonance_m_squared(x, n=2)
 
     m = np.sqrt(-m)
 

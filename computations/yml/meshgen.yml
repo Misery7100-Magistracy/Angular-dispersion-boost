@@ -1,5 +1,6 @@
-edge: 15
+edge: 16
 gap: 166
-radius: 20
+radius: 50 # in nm
 nonregularity: 0.0
 kind: cylinder
+wavelength: 83 # in nm
