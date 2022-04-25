@@ -71,13 +71,13 @@
 % Используя \autoref{bragg_wolf_sol_0}, можно построить решения, соответствующие целым значениям $l^\prime$, которые отвечают различным порядкам прошедшего и отраженного излучения (\autoref{phi0_theta0_lprime:image}).
 
     \begin{figure}[ht]
-        \subimgtwo[components/img/celes/dphi_dtheta_kprime_d_2l_phi0_0_theta0_15]{$\Delta \theta \in \left[ 0,\:\cfrac{\pi}{2} \right]$.}{1st_check_diffrth:a}{0.35\textwidth}
+        \subimgtwo[components/img/celes/dphi_dtheta_kprime_d_3l_phi0_0_theta0_15]{$\Delta \theta \in \left[ 0,\:\cfrac{\pi}{2} \right]$.}{1st_check_diffrth:a}{0.35\textwidth}
         \hfil
         \subimgtwo[components/img/celes/e_int_cylinder_15edge_theta0_15_phi0_0_166gap]{$\Delta \theta \in \left[ 0,\:\cfrac{\pi}{2} \right]$.}{1st_check_diffrth:b}{0.45\textwidth}
-        \subimgtwo[components/img/celes/dphi_dtheta_kprime_d_2l_phi0_0_theta0_15_refr]{$\Delta \theta \in \left[ \cfrac{\pi}{2},\:\pi \right]$.}{1st_check_diffrth:c}{0.35\textwidth}
+        \subimgtwo[components/img/celes/dphi_dtheta_kprime_d_3l_phi0_0_theta0_15_refr]{$\Delta \theta \in \left[ \cfrac{\pi}{2},\:\pi \right]$.}{1st_check_diffrth:c}{0.35\textwidth}
         \hfil
         \subimgtwo[components/img/celes/e_int_cylinder_15edge_theta0_15_phi0_0_166gap_refr]{$\Delta \theta \in \left[ \cfrac{\pi}{2},\:\pi \right]$.}{1st_check_diffrth:d}{0.45\textwidth}
-        \caption{Вычисление $E_{\textrm{int}}$ по \autoref{e_int} (а, в) и решение \autoref{bragg_wolf_order_spherical} в целых индексах Миллера для $a = 20$ nm и $d = 2\lambda_{10}$ при $\varphi_0 = 0^{\circ}$, $\theta_0 = 15^{\circ}$, $\lambda = \lambda_{10} = 83$ nm, радиус цилиндрической области $\rho = 200$ nm (б, г). Для наглядности построение было поделено на две проекции полусферических областей по $\Delta \theta$ с полюсами в $0$ и $\pi$ соответственно.}\label{1st_check_diffrth:image}
+        \caption{Вычисление $E_{\textrm{int}}$ по \autoref{e_int} (а, в) и решение \autoref{bragg_wolf_order_spherical} в целых индексах Миллера для $a = 20$ nm и $d = 3\lambda_{10}$ при $\varphi_0 = 0^{\circ}$, $\theta_0 = 15^{\circ}$, $\lambda = \lambda_{10} = 83$ nm, радиус цилиндрической области $\rho = 200$ nm (б, г). Для наглядности построение было поделено на две проекции полусферических областей по $\Delta \theta$ с полюсами в $0$ и $\pi$ соответственно.}\label{1st_check_diffrth:image}
     \end{figure}
 
     % \begin{figure}[ht]
@@ -87,7 +87,7 @@
     %     \caption{Кривые, отвечающие различным дифракционным порядкам по $l^\prime$ при $k^\prime = 0$, $\Delta \varphi = \varphi_0$.}\label{phi0_theta0_lprime:image}
     % \end{figure}
 
-Для того, чтобы проверить достоверность полученной теории, смоделируем стационарное взаимодействие в случае регулярной решётки с радиусом кластеров $a = 20$ nm и $d = 2\lambda_{10}$ при $\varphi_0 = 0^{\circ}$, $\theta_0 = 15^{\circ}$, $\lambda = \lambda_{10} = 83$ нм, ширина гауссова пучка $w = 800$ nm, радиус цилиндра, ограничивающего решетку (радиус газовой струи) $r_{\textrm{gas}} = a + 12d \approx 2$ $\upmu\textrm{m}$, где множитель при $d$ --- количество узлов решетки между центральной осью и границей цилиндра. Несмотря на то, что в реальных условиях гауссов пучок $10$-ой гармоники Ti:Sa лазера с шириной 800 nm получить практически невозможно, в силу стационарности вычислений отношение $w\:/\:r_{\textrm{gas}}$ может быть корректно масштабировано при $w \ll 2r_{\textrm{gas}}$. Использованное малое значение $w$ в таком случае ускоряет вычисления, но принципиально не изменяет их результат.
+Для того, чтобы проверить достоверность полученной теории, смоделируем стационарное взаимодействие в случае регулярной решётки с радиусом кластеров $a = 50$ nm и $d = 3\lambda_{10}$ при $\varphi_0 = 0^{\circ}$, $\theta_0 = 15^{\circ}$, $\lambda = \lambda_{10} = 83$ нм, ширина гауссова пучка $w = 800$ nm, радиус цилиндра, ограничивающего решетку (радиус газовой струи) $r_{\textrm{gas}} = a + 12d \approx 2$ $\upmu\textrm{m}$, где множитель при $d$ --- количество узлов решетки между центральной осью и границей цилиндра. Несмотря на то, что в реальных условиях гауссов пучок $10$-ой гармоники Ti:Sa лазера с шириной 800 nm получить практически невозможно, в силу стационарности вычислений отношение $w\:/\:r_{\textrm{gas}}$ может быть корректно масштабировано при $w \ll 2r_{\textrm{gas}}$. Использованное малое значение $w$ в таком случае ускоряет вычисления, но принципиально не изменяет их результат.
 
 Определим наиболее интенсивные направления рассеяния при помощи следующей интегральной характеристики: %\autoref{1st_check_diffrth:b}:
 
