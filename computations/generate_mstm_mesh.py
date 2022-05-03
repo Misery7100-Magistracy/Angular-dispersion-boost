@@ -16,7 +16,8 @@ if __name__ == "__main__":
         node_radius=config['radius'],
         d_relative=config['d_relative'],
         wavelength=config['wavelength'],
-        edgecount=config['edge']
+        edgecount=config['edge'],
+        number_ions=1 # idk is it right variant
     )
 
     delta_d_max = config['nonregularity'] * prms['d_relative'] * prms['wavelength']

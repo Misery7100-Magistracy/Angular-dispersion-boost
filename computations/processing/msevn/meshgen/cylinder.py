@@ -11,7 +11,8 @@ def build(
         node_radius : float = 20., # in nanometers
         d_relative: float = 2,
         wavelength: float = 83, # in nanometers
-        edgecount: int = 16
+        edgecount: int = 16,
+        number_ions: int = 1
 
     ):
 
@@ -40,7 +41,7 @@ def build(
         else:
             order += 1
     
-    m_im = np.sqrt(-m)
+    m_im = np.sqrt(-m * number_ions)
 
 
 
