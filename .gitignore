@@ -447,3 +447,4 @@ computations/processing/**/*.ipynb
 !computations/**/.gitkeep
 
 *.asv
+*.npy

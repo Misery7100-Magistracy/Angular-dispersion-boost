@@ -24,6 +24,11 @@ texrc:
   mathtext.it:      New Century Schoolbook:italic
   mathtext.bf:      New Century Schoolbook
 
+postrc:
+  axes.grid: true
+  grid.alpha: 0.4
+  contour.negative_linestyle: solid
+
 colorbarprops:
   position: right
   size:     5% 
