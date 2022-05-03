@@ -4,9 +4,10 @@ outputDir: output
 
 # initial field
 initialBeamWidth: 800
-initialWavelength: 103.75 92.2 83 75.45 69.16 # 8 9 10 11 12 harmonics
+initialWavelength: 83 #103.75 92.2 83 75.45 69.16
 initialPolarization: TE
-initialAngles: 15
+theta0: 63.3
+phi0: 45
 
 # numeric solver
 gpu: true
