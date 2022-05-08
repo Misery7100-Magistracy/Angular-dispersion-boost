@@ -12,6 +12,9 @@ def e_int(
         dphi: np.ndarray,
         dtheta: np.ndarray,
         kind: str = 't',
+        max_hardcoded: float = None,
+        no_colorbar: bool = False,
+        cbarlabel: str = r'$E_{\rm{int}}$'
     ):
 
     p = np.append(dphi, 180 + dphi)
@@ -34,13 +37,22 @@ def e_int(
     ax = fig.add_subplot(111, polar='True')
     ax.grid(True, alpha=0.2, color='black')
 
-    cax = ax.contourf(
-            pmesh, tmesh, 
-            np.concatenate([values, values[:, ::-1]], axis=1), 
-            cmap='turbo', 
-            levels=np.linspace(0, values.max(), 150), 
-            zorder=-1
-        )
+    if max_hardcoded is None:
+        cax = ax.contourf(
+                pmesh, tmesh, 
+                np.concatenate([values, values[:, ::-1]], axis=1), 
+                cmap='turbo', 
+                levels=np.linspace(0, values.max(), 150), 
+                zorder=-1
+            )
+    else:
+        cax = ax.contourf(
+                pmesh, tmesh, 
+                np.concatenate([values, values[:, ::-1]], axis=1), 
+                cmap='turbo', 
+                levels=np.linspace(0, max_hardcoded, 150), 
+                zorder=-1
+            )
 
     ax.set_xlabel(r'$\Delta \varphi$', labelpad=15)
     ax.set_xticklabels([r'$' + str(i) + r'^{\circ}$' for i in range(0, 360, 45)])
@@ -48,10 +60,11 @@ def e_int(
     ax.set_yticklabels([r'$' + str(i) + r'^{\circ}$' for i in ticklabs], color='white')
     ax.xaxis.set_tick_params(pad=10)
 
-    cbar = plt.colorbar(cax, fraction=0.046, pad=0.1)
-    cbar.set_label(r'$E_{\rm{int}}$', labelpad=15)
+    if not no_colorbar:
+        cbar = plt.colorbar(cax, fraction=0.046, pad=0.1)
+        cbar.set_label(cbarlabel, labelpad=15)
 
-    cbar.ax.yaxis.set_major_locator(ticker.LinearLocator(config['colorbarprops']['ticker.linear']))
+        cbar.ax.yaxis.set_major_locator(ticker.LinearLocator(config['colorbarprops']['ticker.linear']))
 
     rlab = ax.set_ylabel(r'$\Delta \theta$', color='white')
     rlab.set_position((5, 0.6))

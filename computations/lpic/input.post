@@ -32,9 +32,9 @@ Q_di    = 0,   C_di    = 0
 Q_jx    = 0,   C_jx    = 0
 Q_jy    = 0,   C_jy    = 0
 Q_jz    = 0,   C_jz    = 0
-Q_ex    = 0,   C_ex    = 0
-Q_ey    = 0,   C_ey    = 0
-Q_ez    = 0,   C_ez    = 0
+Q_ex    = 1,   C_ex    = 5
+Q_ey    = 1,   C_ey    = 5
+Q_ez    = 1,   C_ez    = 5
 Q_by    = 0,   C_by    = 0
 Q_bz    = 0,   C_bz    = 0
 Q_edens = 1,   C_edens = 0.0004
