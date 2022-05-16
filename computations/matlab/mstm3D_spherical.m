@@ -30,7 +30,7 @@ for k = 1:length(dataFiles)
                         string(phi0) + 'deg_phi0_' + ...
                         config.initialPolarization +'pol_' + ...
                         string(wav) + 'wav_' + ...
-                        string(config.initialBeamWidth) + 'bw.mat';
+                        string(config.initialBeamWidth) + 'bw_spherical.mat';
 
             mat_fname = fullfile(config.outputDir, out_fname);
             
@@ -72,35 +72,46 @@ for k = 1:length(dataFiles)
                                         'particleDistanceResolution', 1, ...
                                         'solver',                     solver);
             
-            % build solution mesh
-            scale = config.GridScale;
-            bnd = config.GridSize / scale;
-            stp = config.GridStep / scale;
 
-            [x, y, z] = meshgrid(-bnd:stp:bnd, -bnd:stp:bnd, -bnd:stp:bnd);
+
+            % spherical meshg
+            rMax = config.radMax;
+            rMin = config.radMin;
+            rStep = config.radStep;
+            angleStep = pi/180;
+
+            r = rMin:rStep:rMax;
+            phi = 0:angleStep:2*pi-angleStep;
+            theta = 0:angleStep:pi-angleStep;
+
+            [R, Phi, Theta] = meshgrid(r, phi, theta);
+
+            x = R .* cos(Phi) .* sin(Theta);
+            y = R .* sin(Phi) .* sin(Theta);
+            z = R .* cos(Theta);
+
+            coordinates = [x(:), y(:), z(:)];
+            unique_coord = unique(coordinates, 'rows');
+            fieldDims = size(unique_coord);
             
-            output = celes_output('fieldPoints',                [x(:), y(:), z(:)], ...
-                                    'fieldPointsArrayDims',       size(x));
+            output = celes_output('fieldPoints',                unique_coord, ...
+                                  'fieldPointsArrayDims',       fieldDims);
             
             % initialize simulation class instance
             simul = celes_simulation('input',                   input, ...
-                                        'numerics',                numerics, ...
-                                        'output',                  output);
+                                     'numerics',                numerics, ...
+                                     'output',                  output);
             
-            % run simulation
+            % run simulation and evaluate field at output.fieldPoints
             simul.run;
-            
-            % evaluate field at output.fieldPoints
             simul.evaluateFields;
-            particles_xy = [coords data(:, 4)];
-            grid_max = bnd;
-            grid_step = stp;
+            
+            particles = [coords data(:, 4)];
             
             eField = simul.output.scatteredField + simul.output.internalField;
-            dims = simul.output.fieldPointsArrayDims;
-            eField3DAbs = reshape(gather(sqrt(sum(abs(eField).^2,2))), dims);
+            eField3DAbs = gather(sqrt(sum(abs(eField).^2, 2)));
             
-            save(mat_fname, 'particles_xy', 'eField3DAbs', 'grid_max', 'grid_step');
+            save(mat_fname, 'particles', 'eField3DAbs', 'unique_coord');
             
         end
     end

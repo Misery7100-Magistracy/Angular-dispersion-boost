@@ -1,6 +1,6 @@
-edge: 15
+edge: 16
 d_relative: 2
 wavelength: 83
-radius: 20
-nonregularity: 0.0
+radius: 60
+nonregularity: 0
 kind: cylinder

@@ -6,8 +6,8 @@ outputDir: output
 initialBeamWidth: 800
 initialWavelength: 83 #103.75 92.2 83 75.45 69.16
 initialPolarization: TE
-theta0: 63.3
-phi0: 45
+theta0: 15
+phi0: 0.0
 
 # numeric solver
 gpu: true
@@ -15,5 +15,10 @@ lmax: 3
 
 # solution grid
 GridScale: 1.0
-GridSize: 8000
-GridStep: 80.0 # 4.0 previously
+GridSize: 10000
+GridStep: 110.0 # 4.0 previously
+
+# spherical grid parameters
+radMin: 8000 # radMin should be larger than edge * gap / 2 (e.g. 21 * 169 / 2 = 1775)
+radMax: 8800
+radStep: 10
