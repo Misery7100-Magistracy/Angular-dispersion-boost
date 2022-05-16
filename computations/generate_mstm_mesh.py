@@ -17,6 +17,7 @@ if __name__ == "__main__":
         d_relative=config['d_relative'],
         wavelength=config['wavelength'],
         edgecount=config['edge'],
+        cylinder_edge=config['cylinder_edge'],
         number_ions=1 # idk is it right variant
     )
 

@@ -112,7 +112,7 @@ end
 function grid = euler(xyz, a, b, y)
     s = xyz;
     for i = 1:length(s)
-        s(i, :) = s(i, :) * rotz(y) * roty(b) * rotx(a);
+        s(i, :) = rotx(a) * (roty(b) * (rotz(y) * s(i, :).')); % R * s.T, with transpose !!!
     end
     grid = s;
 end

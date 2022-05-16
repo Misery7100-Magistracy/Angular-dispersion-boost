@@ -12,22 +12,25 @@ dataFiles = dir(filePattern);
 
 % evaluate for all datafiles, angles and wavelengths passed
 for k = 1:length(dataFiles)
-    for ang = config.initialAngles
-        for wav = config.initialWavelength
+    for wav = config.initialWavelength
+        for theta0 = config.theta0
+
+            phi0 = config.phi0;
             
             % extract mesh and rotate as specified
             df = fullfile(config.inputDir, dataFiles(k).name);
             data = readmatrix(df);
-            coords = euler(data(:, 1:3), 0, ang, 0);
+            coords = euler(data(:, 1:3), 0, theta0, phi0);
             
             % build output fname according to config
             basename = split(dataFiles(k).name, ".txt");
             basename = basename(1, 1);
             out_fname = string(basename) + '_' +...
-                        string(ang) + 'deg_' + ...
+                        string(theta0) + 'deg_theta0_' + ...
+                        string(phi0) + 'deg_phi0_' + ...
                         config.initialPolarization +'pol_' + ...
                         string(wav) + 'wav_' + ...
-                        string(config.initialBeamWidth) + 'bw.mat';
+                        string(config.initialBeamWidth) + 'bw_xz_only.mat';
 
             mat_fname = fullfile(config.outputDir, out_fname);
             
@@ -74,7 +77,8 @@ for k = 1:length(dataFiles)
             bnd = config.GridSize / scale;
             stp = config.GridStep / scale;
     
-            [x, y, z] = meshgrid(-bnd:stp:bnd, -bnd:stp:bnd, -bnd:stp:bnd);
+            [x, z] = meshgrid(-bnd:stp:bnd, -bnd:stp:bnd);
+            y = zeros(size(x));
             
             output = celes_output('fieldPoints',                [x(:),y(:),z(:)], ...
                                   'fieldPointsArrayDims',       size(x));
@@ -114,7 +118,7 @@ end
 function grid = euler(xyz, a, b, y)
     s = xyz;
     for i = 1:length(s)
-        s(i, :) = s(i, :) * rotz(y) * roty(b) * rotx(a);
+        s(i, :) = rotx(a) * (roty(b) * (rotz(y) * s(i, :).')); % R * s.T, with transpose !!!
     end
     grid = s;
 end

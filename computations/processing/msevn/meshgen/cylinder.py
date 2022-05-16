@@ -12,6 +12,7 @@ def build(
         d_relative: float = 2,
         wavelength: float = 83, # in nanometers
         edgecount: int = 16,
+        cylinder_edge: int = 16,
         number_ions: int = 1
 
     ):
@@ -19,9 +20,10 @@ def build(
     gap = d_relative * wavelength
 
 
-    rng = node_radius + gap * (edgecount - 1) / 2
+    rng = gap * (edgecount - 1) / 2
+    rng_cyl = gap * (cylinder_edge - 1) / 2
 
-    x = np.linspace(-rng, rng, int(edgecount * 4 / np.pi))
+    x = np.linspace(-rng_cyl, rng_cyl, cylinder_edge)
     yz = np.linspace(-rng, rng, edgecount)
     xyz = map(list, product(x, yz, yz))
     xyz = np.array(list(filter(lambda x: x[1] ** 2 + x[2] ** 2 <= (rng * 1.02) ** 2, xyz)))
