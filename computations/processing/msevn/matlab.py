@@ -64,7 +64,8 @@ class MSTM(Engine):
             external_circles: object = None,
             vmax = 1.,
             vmin = 0.,
-            normalize = True, 
+            normalize = True,
+            factor: float = 1, 
             **kwargs
         
         ) -> tuple:
@@ -73,6 +74,8 @@ class MSTM(Engine):
 
         if normalize: 
             pltdata = pltdata / np.amax(self.field)
+        
+        pltdata *= factor
 
         extval = self.grid_max - self.grid_step * trim
         extent = [-extval, extval] * 2
@@ -94,6 +97,7 @@ class MSTM(Engine):
         cax = divider.append_axes(**self.CBARPROPS)
         bar = plt.colorbar(field, cax=cax)
         bar.locator = ticker.MultipleLocator(bartick)
+        #bar.locator = ticker.LinearLocator(7)
         bar.update_ticks()
 
         target = {**self.TARGET_PLOT, **target}
