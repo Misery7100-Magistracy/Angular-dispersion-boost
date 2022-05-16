@@ -61,7 +61,7 @@
 
         \subimgtwo[components/img/celes/e_int_20nm_15deg_0.1nonreg.pdf]{$\eta = 0.1$.}{nonreg_ka0.7:b}{0.42\textwidth}
         \hfil
-        \subimgtwo[components/img/celes/e_int_rad_20nm_20deg_nonreg0.3]{$\eta = 0.3$.}{nonreg_ka0.7:c}{0.42\textwidth}
+        \subimgtwo[components/img/celes/e_int_20nm_15deg_0.3nonreg]{$\eta = 0.3$.}{nonreg_ka0.7:c}{0.42\textwidth}
         \\
         \subimgtwo[components/img/celes/Es_20nm_15deg_10harm_0.1nonreg.pdf]{$|\vectbf{E}{s}|^2$  в плоскости поляризации, сечение $\Delta \varphi = 0$, $\eta = 0.1$.}{nonreg_ka0.7:a}{0.42\textwidth}
         \caption{Рассеяние гауссового пучка на слое квазирегулярно расположенных кластеров радиуса $a = 20$ nm, $\theta_0 = 15^{\circ}$, $\varphi_0 = 0^{\circ}$.}\label{nonreg_ka0.7:image}
@@ -77,7 +77,7 @@
     %     \caption{Рассеяние гауссового пучка ширины $w = 1700$ нм на слое квазирегулярно расположенных кластеров размера $ka = 0.7$ ($a \approx 8.9$ нм), $\theta_0 = 14.32^{\circ}$. Границы газового слоя обозначены пурпурным цветом. Амплитуда $|\vectbf{E}{s}|^2$ построена в плоскости поляризации падающей волны, нормирована на максимальную амплитуду в случае рассеяния 10 гармоники.}\label{random_ka0.7:image}
     % \end{figure}
 
-При помощи нормированного варианта $E_{\textrm{int}}$ (\autoref{e_int_norm}) была построена зависимость изменения рассеяния от нерегулярности решетки (\autoref{energy_vs_nonreg:image}).
+При помощи нормированного варианта $E_{\textrm{int}}$ (\autoref{e_int_norm}) была построена зависимость изменения рассеяния от нерегулярности решетки (\autoref{energy_vs_nonreg:image}). C ростом нерегулярности решётки наиболее интенсивные направления, кроме нулевого, значительно ослабляются, при этом общая картина рассеяния в различных направлениях выравнивается вплоть до практически однородной при $\eta \to 0.5$ (\autoref{nonreg_ka0.7:image}).
 
     \begin{equation}
         E_{\textrm{int}}^{\textrm{norm}} \left( \eta,\:\lambda, \:V, \:E_0 \right) = \frac{E_{\textrm{int}} \left( \eta,\:\lambda, \:V, \:E_0 \right)}{E_{\textrm{int}} \left( 0,\:\lambda, \:V, \:E_0 \right)}\label{e_int_norm}
@@ -88,9 +88,9 @@
 Также выявлено ослабление интенсивных направлений рассеяния в зависимости от радиуса кластеров в решётке (\Autoref{radius_wawa:image, energy_vs_radius:image}). При увеличении радиуса кластеров происходит распредление энергии между большим числом направлений (\Autoref{radius_wawa:image}) в соответствии с расположением пересечений кривых, соответствующих целочисленным индексам Миллера (\autoref{1st_check_diffrth:a}), то есть перераспределение в более высокие порядки дифракции по $h^\prime,\:k^\prime,\:l^\prime$. Это связано с уменьшением свободного пространства между узлами решётки при неизменном периоде $d$ --- количество прошедшего излучения уменьшается, расходимость прошедшего через решётку излучения увеличивается, ввиду чего дифракционная картина расплывается, а дифракционные максимумы ослабляются~\cite{born_wolf}.
 
     \begin{figure}[H]
-        \subimgtwo[components/img/celes/e_int_30nm_15deg.pdf]{$a = 30$ nm.}{radius_wawa:b}{0.42\textwidth}
+        \subimgtwo[components/img/celes/e_int_30nm_15deg.pdf]{$a = 30$ nm.}{radius_wawa:a}{0.42\textwidth}
         \hfil
-        \subimgtwo[components/img/celes/e_int_60nm_15deg.pdf]{$a = 60$ nm.}{radius_wawa:c}{0.42\textwidth}
+        \subimgtwo[components/img/celes/e_int_60nm_15deg.pdf]{$a = 60$ nm.}{radius_wawa:b}{0.42\textwidth}
         \caption{Характеристика \autoref{e_int} при радиусе кластеров $a = 30$ и $60$ nm, $d = 2\lambda_{10}$, $\varphi_0 = 0^{\circ}$, $\theta_0 = 15^{\circ}$, $\lambda = \lambda_{10} = 83$ nm, диапазон построения $\Delta \theta \in \left[ 0,\:\pi\,/\,2 \right]$.}\label{radius_wawa:image}
     \end{figure}
 
@@ -98,8 +98,18 @@
 
 Была рассмотрена завивимость интенсивных направлений рассеяния по $\Delta \theta$ в зависимости от $\theta_0$ в сечении $\Delta \varphi = 0$. При этом было взято значение $\varphi_0 = 0$, так как любое ненулевое значение этого угла в сути поворачивает угловое распределение на тот же угол, что следует из \autoref{bragg_wolf_order_spherical}.
 
-    \img[components/img/celes/theta0_dtheta_dphi_phi0_0.pdf]{Характеристика \autoref{e_int} при различном угле $\theta_0$, $\varphi_0 = 0$, $\Delta \varphi = 0$, $a = 20$ nm, $d = 2\lambda_{10}$.}{dtheta_vs_theta0_eint:image}{0.54\textwidth}
+\begin{comment}
+    
+
+% components/img/celes/theta0_dtheta_dphi_phi0_0_miller
+    % \img[components/img/celes/theta0_dtheta_dphi_phi0_0.pdf]{Характеристика \autoref{e_int} при различном угле $\theta_0$, $\varphi_0 = 0$, $\Delta \varphi = 0$, $a = 20$ nm, $d = 2\lambda_{10}$.}{dtheta_vs_theta0_eint:image}{0.54\textwidth}
+
+    \begin{figure}[H]
+        \subimgtwo[components/img/celes/theta0_dtheta_dphi_phi0_0_miller]{Решение \autoref{bragg_wolf_order_spherical} в целых индексах Миллера.}{theta0_dphi:a}{0.397\textwidth}
+        \hfil
+        \subimgtwo[components/img/celes/theta0_dtheta_dphi_phi0_0]{$E_{\textrm{int}}$ по \autoref{e_int}.}{theta0_dphi:b}{0.45\textwidth}
+        \caption{Рассеяние 10-ой гармоники при различном угле $\theta_0$, $\varphi_0 = 0$, $\Delta \varphi = 0$, $a = 20$ nm, $d = 2\lambda_{10}$. На (а) $k^\prime = 0$ для любых $\theta_0$ и $\Delta \theta$.}\label{theta0_dphi:image}
+    \end{figure}
 
     %\img[components/img/celes/20_rad_1st_check]{Рассеяние гауссового пучка ширины $w = 1700$ нм на слое регулярной решетке кластеров размера $a = 20$ нм, $\theta_0 = 20^{\circ}$. Границы газового слоя обозначены пурпурным цветом. Амплитуда $|\vectbf{E}{s}|^2$ построена в плоскости поляризации падающей волны, нормированая на собственный максимум.}{20rad_1st_check:image}{0.4\textwidth}
-
-Полученные результаты показывает, что с ростом нерегулярности решётки наиболее интенсивные направления, кроме нулевого, ослабляются, при этом общая картина рассеяния в различных направлениях выравнивается вплоть до практически однородной при $\eta \to 0.5$ (\autoref{nonreg_ka0.7:image}).
+\end{comment}

@@ -96,6 +96,7 @@ class MSTM(Engine):
         divider = make_axes_locatable(ax)
         cax = divider.append_axes(**self.CBARPROPS)
         bar = plt.colorbar(field, cax=cax)
+        bar.set_label(r'$|\mathbf{E}_{\it{s}}|^2$', labelpad=15)
         bar.locator = ticker.MultipleLocator(bartick)
         #bar.locator = ticker.LinearLocator(7)
         bar.update_ticks()

@@ -76,7 +76,8 @@ def e_int(
         dphi: np.ndarray,
         dtheta: np.ndarray,
         thickness: float,
-        mean_mode: bool = False
+        mean_mode: bool = False,
+        hardlim: float = None
 
     ):
 
@@ -87,12 +88,20 @@ def e_int(
     #field = mat['eField3DAbs']
     field = np.nan_to_num(field)
 
-    dim = field.shape[0]
+    dim = field.shape[-1]
     grid_max = int(mat['grid_max'][0][0])
-    coord = np.linspace(-grid_max, grid_max, dim)
+    grid_step = int(mat['grid_step'][0][0])
+    coordz = np.arange(-grid_max, grid_max, grid_step)
 
-    idxs = list(product(range(dim), repeat=3))
-    coords = np.array(list(product(coord, repeat=3)))
+    if hardlim is None:
+        idxs = list(product(range(dim), repeat=3))
+        coords = np.array(list(product(coordz, repeat=3)))
+    
+    else:
+        coordx = np.arange(-hardlim, grid_max, grid_step)
+        coordy = np.arange(-hardlim, hardlim, grid_step)
+        idxs = list(product(range(coordx.size), range(coordy.size), range(coordz.size)))
+        coords = np.array(list(product(coordx, coordy, coordz)))
 
     result = _calc_e_int(
         field=field,
