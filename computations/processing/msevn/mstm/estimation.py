@@ -18,7 +18,8 @@ def _calc_e_int(
         dthetas: np.ndarray, # arrs args
         coords: np.ndarray,
         thickness: float = thickness(),
-        cylw: int = 400
+        cylw: int = 400,
+        mean_mode: bool = False
 
     ):
 
@@ -54,8 +55,12 @@ def _calc_e_int(
 
             stbl = list(set(cylidx).intersection(set(cylzb0)))
             stbl = gl[stbl]
-
+            
             val = np.sum([field[idxs[i]] for i in stbl])
+
+            if mean_mode and len(stbl) > 0:
+                val /= len(stbl)
+
             row.append(val)
         
         output.append(row)
@@ -70,7 +75,8 @@ def e_int(
         matpath: str,
         dphi: np.ndarray,
         dtheta: np.ndarray,
-        thickness: float
+        thickness: float,
+        mean_mode: bool = False
 
     ):
 
@@ -92,7 +98,8 @@ def e_int(
         coords=coords,
         thickness=thickness,
         dphis=dphi,
-        dthetas=dtheta
+        dthetas=dtheta,
+        mean_mode=mean_mode
     )
 
     return result
