@@ -83,6 +83,8 @@ def e_int(
     mat = loadmat(matpath)
 
     field = np.transpose(mat['eField3DAbs'], (1, 0, 2))
+    field = field[::-1, :, :]
+    #field = mat['eField3DAbs']
     field = np.nan_to_num(field)
 
     dim = field.shape[0]
