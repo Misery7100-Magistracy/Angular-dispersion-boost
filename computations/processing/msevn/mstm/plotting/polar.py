@@ -14,10 +14,15 @@ def e_int(
         kind: str = 't',
         max_hardcoded: float = None,
         no_colorbar: bool = False,
-        cbarlabel: str = r'$E_{\rm{int}}$'
+        cbarlabel: str = r'$E_{\rm{int}}$',
+        symmertry: bool = True
     ):
 
-    p = np.append(dphi, 180 + dphi)
+    if symmertry:
+        p = np.append(dphi, 180 + dphi)
+    
+    else:
+        p = dphi
 
     if kind == 't':
         t = dtheta
@@ -32,6 +37,12 @@ def e_int(
         rticks = list(range(100, 170, 20))
         ticklabs = rticks[::-1]
         pmesh, tmesh = np.meshgrid(p * np.pi / 180, 270 - t)
+    
+    if symmertry:
+        plot_vals = np.concatenate([values, values[:, ::-1]], axis=1)
+    
+    else:
+        plot_vals = values
 
     fig = plt.figure(figsize=(10, 10))
     ax = fig.add_subplot(111, polar='True')
@@ -40,7 +51,7 @@ def e_int(
     if max_hardcoded is None:
         cax = ax.contourf(
                 pmesh, tmesh, 
-                np.concatenate([values, values[:, ::-1]], axis=1), 
+                plot_vals, 
                 cmap='turbo', 
                 levels=np.linspace(0, values.max(), 150), 
                 zorder=-1
@@ -48,7 +59,7 @@ def e_int(
     else:
         cax = ax.contourf(
                 pmesh, tmesh, 
-                np.concatenate([values, values[:, ::-1]], axis=1), 
+                plot_vals, 
                 cmap='turbo', 
                 levels=np.linspace(0, max_hardcoded, 150), 
                 zorder=-1
