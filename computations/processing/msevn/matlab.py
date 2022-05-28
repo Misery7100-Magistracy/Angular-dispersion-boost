@@ -72,6 +72,9 @@ class MSTM(Engine):
 
         pltdata = self.field[trim:-trim, trim:-trim] if trim > 0 else self.field
 
+        # |E|^2
+        pltdata = pltdata ** 2
+
         if normalize: 
             pltdata = pltdata / np.amax(self.field)
         

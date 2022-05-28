@@ -88,6 +88,9 @@ def e_int(
     #field = mat['eField3DAbs']
     field = np.nan_to_num(field)
 
+    # |E|^2
+    field = field ** 2
+
     dim = field.shape[-1]
     grid_max = int(mat['grid_max'][0][0])
     grid_step = int(mat['grid_step'][0][0])
