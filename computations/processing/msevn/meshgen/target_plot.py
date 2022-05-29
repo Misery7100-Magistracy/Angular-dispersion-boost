@@ -24,14 +24,21 @@ def project_2d(
         edge=10.,
         mult=4,
         angle=0,
-        thin=True
+        thin=True,
+        onedim=False
 
     ) -> np.ndarray:
 
     angle *= (np.pi / 180)
 
     rng = radius + gap * (edge - 1) / 2
-    coords1 = np.linspace(-rng, rng, edge)
+
+    if onedim:
+        coords1 = np.zeros(1)
+
+    else:
+        coords1 = np.linspace(-rng, rng, edge)
+        
     coords2 = np.linspace(-rng*mult, rng*mult, edge*mult)
     coords = np.array(list(map(list, product(coords2, coords1))))
     coords = np.concatenate([coords, np.zeros((coords.shape[0], 1))], axis=1)
@@ -41,7 +48,7 @@ def project_2d(
         
         coords = np.array(list(filter(lambda x: abs(x[2]) == rng, coords)))
     
-    #print(coords)
+    print(coords)
 
     coords = rotate(coords, angle)
     output = list(map(lambda x: list(x) + [radius], coords))

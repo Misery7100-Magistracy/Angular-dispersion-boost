@@ -65,7 +65,8 @@ class MSTM(Engine):
             vmax = 1.,
             vmin = 0.,
             normalize = True,
-            factor: float = 1, 
+            factor: float = 1,
+            squared: bool = True, 
             **kwargs
         
         ) -> tuple:
@@ -73,7 +74,8 @@ class MSTM(Engine):
         pltdata = self.field[trim:-trim, trim:-trim] if trim > 0 else self.field
 
         # |E|^2
-        pltdata = pltdata ** 2
+        if squared:
+            pltdata = pltdata ** 2
 
         if normalize: 
             pltdata = pltdata / np.amax(self.field)
