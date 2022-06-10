@@ -6,7 +6,8 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from typing import List, Tuple
+from typing import List, Tuple, Callable, Any
+from matplotlib import transforms
 
 # ------------------------- #
 
@@ -66,7 +67,13 @@ class MSTM(Engine):
             vmin = 0.,
             normalize = True,
             factor: float = 1,
-            squared: bool = True, 
+            squared: bool = True,
+            custom_func: Callable = None,
+            angle_compensation: float = 0,
+            custom_label: str = r'$|\mathbf{E}_{\it{s}}|^2$',
+            custom_x: str = r'$x$, $\rm{nm}$',
+            custom_y: str = r'$z$, $\rm{nm}$',
+            fix_limits: dict = None, 
             **kwargs
         
         ) -> tuple:
@@ -74,7 +81,11 @@ class MSTM(Engine):
         pltdata = self.field[trim:-trim, trim:-trim] if trim > 0 else self.field
 
         # |E|^2
-        if squared:
+
+        if custom_func:
+            pltdata = custom_func(pltdata)
+
+        elif squared:
             pltdata = pltdata ** 2
 
         if normalize: 
@@ -87,13 +98,16 @@ class MSTM(Engine):
 
         configure_mpl()
 
+        tr = transforms.Affine2D().rotate_deg(angle_compensation)
+
         fig, ax = plt.subplots(**kwargs)
         field = ax.imshow(
                 pltdata,
                 vmax=vmax,
                 vmin=vmin, 
                 cmap=self.GLOBCMAP, 
-                extent=extent
+                extent=extent,
+                transform=tr + ax.transData
             )
 
         bbea = []
@@ -101,7 +115,7 @@ class MSTM(Engine):
         divider = make_axes_locatable(ax)
         cax = divider.append_axes(**self.CBARPROPS)
         bar = plt.colorbar(field, cax=cax)
-        bar.set_label(r'$|\mathbf{E}_{\it{s}}|^2$', labelpad=15)
+        bar.set_label(custom_label, labelpad=15)
         bar.locator = ticker.MultipleLocator(bartick)
         #bar.locator = ticker.LinearLocator(7)
         bar.update_ticks()
@@ -141,8 +155,8 @@ class MSTM(Engine):
             arrow = self.add_sc_line(ang, ax, extval, reduce=reduce, shift=shift)
             bbea.append(arrow)
         
-        xl = ax.set_xlabel(r'$x$, $\rm{nm}$', **self.AXISLABEL)
-        yl = ax.set_ylabel(r'$z$, $\rm{nm}$', **self.AXISLABEL)
+        xl = ax.set_xlabel(custom_x, **self.AXISLABEL)
+        yl = ax.set_ylabel(custom_y, **self.AXISLABEL)
         
         bbea.append(xl)
         bbea.append(yl)
@@ -152,6 +166,10 @@ class MSTM(Engine):
 
         if ytick: 
             ax.yaxis.set_major_locator(ticker.MultipleLocator(ytick))
+        
+        if fix_limits:
+            ax.set_xlim(fix_limits.get('x'))
+            ax.set_ylim(fix_limits.get('y'))
         
         return fig, ax, bbea
     

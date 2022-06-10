@@ -47,8 +47,6 @@ def project_2d(
     if thin: 
         
         coords = np.array(list(filter(lambda x: abs(x[2]) == rng, coords)))
-    
-    print(coords)
 
     coords = rotate(coords, angle)
     output = list(map(lambda x: list(x) + [radius], coords))
