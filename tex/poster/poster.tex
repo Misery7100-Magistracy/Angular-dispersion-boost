@@ -1,0 +1,125 @@
+\documentclass[14pt, margin=1in, innermargin=-2.5in, blockverticalspace=-0.25in]{tikzposter}
+\geometry{paperwidth=33.11in,paperheight=46.81in} %A0
+
+\linespread{1.05}
+\setlength{\parskip}{0.3em}
+
+% \geometry{paperheight=33.11in,paperwidth=23.4in} %A1
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage[export]{adjustbox}
+\usepackage{enumitem}
+\usepackage[backend=biber,style=numeric]{biblatex}
+
+\usepackage{xcolor}
+\usepackage[font=normal, labelfont=bf, width=1.3\linewidth]{caption}
+
+\usepackage[skip=0cm, list=true, labelfont=bf]{subcaption}
+%\usepackage{floatrow}
+\usepackage{fouriernc}
+\usepackage{tempora}
+\usepackage{mathtools}
+%\usepackage[unicode=true,hidelinks]{hyperref}
+%\usepackage[fixlanguage]{babelbib}
+\usepackage[oldsyntax]{stackengine}
+\usepackage{scalerel}
+\usepackage{euscript}
+
+\setlength{\abovecaptionskip}{6pt plus 2pt minus 2pt}
+\setlength{\belowcaptionskip}{16pt plus 4pt minus 4pt}
+
+
+\renewcommand{\figurename}{Fig}
+
+\input{components/theme.tex}
+\input{../custom/equation.tex}
+
+%\usepackage[scaled]{helvet}
+%\renewcommand\familydefault{\sfdefault} 
+%\renewcommand{\vec}[1]{\bm{#1}}
+%\newcommand{\Tr}{\text{Tr}}
+
+\addbibresource{refs.bib}
+
+\title{\parbox{0.8\linewidth}{Angular dispersion boost of high order laser harmonics interacting with dense plasma clusters}}
+\author{\textbf{L.A. Litvinov}\textsuperscript{1}, \textbf{A.A. Andreev}\textsuperscript{1, 2}}
+\institute{\textsuperscript{1}Saint Petersburg State University, Saint Petersburg, Russia \\ \textsuperscript{2}Ioffe Physico-Technical Institute, Saint Petersburg, Russia}
+
+\titlegraphic{\includegraphics[width=0.06\linewidth]{../components/img/spbu_logo2.png}}
+
+% begin document
+\begin{document}
+    \maketitle
+    \centering
+    \begin{columns}
+        \column{0.33}
+
+        \block{}{
+            \input{components/abstract.tex}
+        }
+
+        \block{Introduction}{
+            \setlength{\parindent}{1em}
+            \input{components/introduction.tex}
+        }
+
+        \block{Analytical model}{
+            \setlength{\parindent}{1em}
+            \input{components/base_model.tex}
+        }
+
+        \column{0.33}
+
+        \block{}{
+            \setlength{\parindent}{1em}
+            \input{components/base_model2.tex}
+        }
+
+        \block{Single cluster}{
+            \setlength{\parindent}{1em}
+            \input{components/single_cluster.tex}
+        }
+
+        \block{Multiple clusters}{
+            \setlength{\parindent}{1em}
+            \input{components/multiple_clusters.tex}
+        }
+
+        \block{Diffraction theory}{
+            \setlength{\parindent}{1em}
+            \input{components/diffraction_th.tex}
+        }
+
+        \block{Monochromatic radiation scattering}{
+            \setlength{\parindent}{1em}
+        }
+
+        \block{Wavepacket scattering}{
+            \setlength{\parindent}{1em}
+        }
+
+        \column{0.33}
+
+        \block{Conclusions}{
+            \setlength{\parindent}{1em}
+            \input{components/conclusion.tex}
+        }
+
+        \block{References}{
+            \begin{center}
+                \mbox{}\vspace{-1\baselineskip}
+                \printbibliography[heading=none] 
+            \end{center}
+        }
+
+\end{columns}
+\end{document}

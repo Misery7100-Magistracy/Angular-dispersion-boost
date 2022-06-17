@@ -1,9 +1,11 @@
 import pandas as pd
 from .engine import Engine as Eng
-from .utils import configure_mpl
 import matplotlib.ticker as ticker
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 import matplotlib.pyplot as plt
+import numpy as np
+from typing import Callable
+from matplotlib import transforms
 
 # ------------------------- #
 
@@ -55,7 +57,7 @@ class Field2D(Engine):
         ):
 
         super().__init__(       
-            fname, 
+            fname,
             comment='%', 
             header=None,
             **kwargs
@@ -100,10 +102,20 @@ class Field2D(Engine):
             self, 
             var: str = 'normE',
             trim: int = 0,
-            font_scale: float = 2.0,
             xtick: float = None,
             ytick: float = None,
             target: dict = dict(),
+            vmax = 1.,
+            vmin = 0.,
+            normalize = True,
+            bartick: float = 0.1,
+            custom_func: Callable = None,
+            custom_label: str = r'$|\mathbf{E}_{\it{s}}|^2$',
+            custom_x: str = r'$x$, $\rm{nm}$',
+            custom_y: str = r'$z$, $\rm{nm}$',
+            angle_compensation: float = 0,
+            inversion: bool = False,
+            factor: float = 1,
             **kwargs
         
         ) -> tuple:
@@ -113,17 +125,39 @@ class Field2D(Engine):
             raise ValueError(f'{var} is not in the data')
         
         pltdata = self.data[var][trim:-trim, trim:-trim] if trim > 0 else self.data[var]
+
+        if inversion:
+            pltdata = pltdata.T
+
+        if custom_func:
+            pltdata = custom_func(pltdata)
+
+        if normalize: 
+            pltdata = pltdata / np.amax(pltdata)
+
         extval = self.grid_max - self.grid_step * trim
         extent = [-extval, extval] * 2
 
-        configure_mpl(font_scale=font_scale)
+
+        tr = transforms.Affine2D().rotate_deg(angle_compensation)
 
         fig, ax = plt.subplots(**kwargs)
-        field = ax.imshow(pltdata, cmap=self.GLOBCMAP, extent=extent)
+        field = ax.imshow(
+            pltdata * factor, 
+            vmax=vmax,
+            vmin=vmin, 
+            cmap=self.GLOBCMAP, 
+            extent=extent,
+            transform=tr + ax.transData
+        )
 
         divider = make_axes_locatable(ax)
         cax = divider.append_axes(**self.CBARPROPS)
-        plt.colorbar(field, cax=cax)
+        bar = plt.colorbar(field, cax=cax)
+        bar.set_label(custom_label, labelpad=15)
+        bar.locator = ticker.MultipleLocator(bartick)
+        #bar.locator = ticker.LinearLocator(7)
+        bar.update_ticks()
 
         target = {**self.TARGET_PLOT, **target}
 
@@ -137,14 +171,17 @@ class Field2D(Engine):
                 )
             ax.add_patch(circle)
 
-        ax.set_xlabel(r'$' + self.inplane[0] + r'$, $\rm{nm}$', **self.AXISLABEL)
-        ax.set_ylabel(r'$' + self.inplane[1] + r'$, $\rm{nm}$', **self.AXISLABEL)
+        ax.set_xlabel(custom_x, **self.AXISLABEL)
+        ax.set_ylabel(custom_y, **self.AXISLABEL)
 
         if xtick: 
             ax.xaxis.set_major_locator(ticker.MultipleLocator(xtick))
 
         if ytick: 
             ax.yaxis.set_major_locator(ticker.MultipleLocator(ytick))
+
+        if inversion:
+            ax.invert_xaxis()
         
         return fig, ax
 

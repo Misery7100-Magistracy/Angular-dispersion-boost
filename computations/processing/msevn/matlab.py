@@ -89,7 +89,7 @@ class MSTM(Engine):
             pltdata = pltdata ** 2
 
         if normalize: 
-            pltdata = pltdata / np.amax(self.field)
+            pltdata = pltdata / np.amax(self.field) # or pltdata ??
         
         pltdata *= factor
 
