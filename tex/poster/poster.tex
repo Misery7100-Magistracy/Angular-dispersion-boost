@@ -1,4 +1,4 @@
-\documentclass[14pt, margin=1in, innermargin=-2.5in, blockverticalspace=-0.25in]{tikzposter}
+\documentclass[17pt, margin=1in, innermargin=-2.5in, blockverticalspace=-0.27in]{tikzposter}
 \geometry{paperwidth=33.11in,paperheight=46.81in} %A0
 
 \linespread{1.05}
@@ -18,7 +18,7 @@
 \usepackage{lipsum}
 \usepackage[export]{adjustbox}
 \usepackage{enumitem}
-\usepackage[backend=biber,style=numeric]{biblatex}
+\usepackage[backend=biber, style=ieee]{biblatex}
 
 \usepackage{xcolor}
 \usepackage[font=normal, labelfont=bf, width=1.3\linewidth]{caption}
@@ -52,9 +52,9 @@
 
 \title{\parbox{0.8\linewidth}{Angular dispersion boost of high order laser harmonics interacting with dense plasma clusters}}
 \author{\textbf{L.A. Litvinov}\textsuperscript{1}, \textbf{A.A. Andreev}\textsuperscript{1, 2}}
-\institute{\textsuperscript{1}Saint Petersburg State University, Saint Petersburg, Russia \\ \textsuperscript{2}Ioffe Physico-Technical Institute, Saint Petersburg, Russia}
+\institute{\textsuperscript{1}\textit{Saint Petersburg State University, Saint Petersburg, Russia} \\ \textsuperscript{2}\textit{Ioffe Physico-Technical Institute, Saint Petersburg, Russia}}
 
-\titlegraphic{\includegraphics[width=0.06\linewidth]{../components/img/spbu_logo2.png}}
+%\titlegraphic{\includegraphics[width=0.06\linewidth]{../components/img/spbu_logo2.png}}
 
 % begin document
 \begin{document}
@@ -67,54 +67,61 @@
             \input{components/abstract.tex}
         }
 
-        \block{Introduction}{
+        \block[bodyoffsety=0.7cm]{Introduction}{
             \setlength{\parindent}{1em}
             \input{components/introduction.tex}
         }
 
-        \block{Analytical model}{
+        \block[bodyoffsety=0.7cm]{Analytical model}{
             \setlength{\parindent}{1em}
             \input{components/base_model.tex}
         }
 
         \column{0.33}
 
-        \block{}{
+        \block[bodyoffsety=0.7cm]{}{
             \setlength{\parindent}{1em}
             \input{components/base_model2.tex}
         }
 
-        \block{Single cluster}{
+        \block[bodyoffsety=0.7cm]{Single cluster}{
             \setlength{\parindent}{1em}
             \input{components/single_cluster.tex}
         }
 
-        \block{Multiple clusters}{
+        \block[bodyoffsety=0.7cm]{Stationary model justification}{
             \setlength{\parindent}{1em}
-            \input{components/multiple_clusters.tex}
+            \input{components/pic.tex}
         }
 
-        \block{Diffraction theory}{
+        \block[bodyoffsety=1.4cm, titleoffsety=0.7cm]{Diffraction theory}{
             \setlength{\parindent}{1em}
             \input{components/diffraction_th.tex}
         }
 
-        \block{Monochromatic radiation scattering}{
+        \block[bodyoffsety=1.4cm, titleoffsety=0.7cm]{Monochromatic radiation scattering}{
             \setlength{\parindent}{1em}
-        }
-
-        \block{Wavepacket scattering}{
-            \setlength{\parindent}{1em}
+            \input{components/monochr0.tex}
         }
 
         \column{0.33}
 
-        \block{Conclusions}{
+        \block{}{
+            \setlength{\parindent}{1em}
+            \input{components/monochr.tex}
+        }
+
+        \block[bodyoffsety=0.7cm]{Wavepacket scattering}{
+            \setlength{\parindent}{1em}
+            \input{components/wavepacket.tex}
+        }
+
+        \block[bodyoffsety=0.7cm]{Conclusions}{
             \setlength{\parindent}{1em}
             \input{components/conclusion.tex}
         }
 
-        \block{References}{
+        \block[bodyoffsety=0.7cm]{References}{
             \begin{center}
                 \mbox{}\vspace{-1\baselineskip}
                 \printbibliography[heading=none] 

@@ -55,6 +55,12 @@
 
 % ------------------------- %
 
+\newcommand{\funccomp}[5][empty]{
+    {#2}_{#3}^{#4} ({#5})
+}
+
+% ------------------------- %
+
 \newcommand{\underrel}[3][]{
     \mathrel{\mathop{#3}\limits_{
         \if x c#1\relax\mathclap{#2}\else#2\fi

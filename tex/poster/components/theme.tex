@@ -120,7 +120,7 @@
 \makeatletter
 \renewcommand\TP@maketitle{%
 %   \centering
-   \begin{minipage}[b]{0.8\linewidth}
+   \begin{minipage}[b]{0.95\linewidth}
         % \centering
         \color{titlefgcolor}
         {\bfseries \Huge \sc \@title \par}
@@ -130,7 +130,7 @@
         {\LARGE \@institute}
     \end{minipage}%
     \hfill
-    \tikz[remember picture,overlay]\node[anchor=south east,xshift=0.42\linewidth,yshift=1cm,inner sep=0pt] {%
+    \tikz[remember picture,overlay]\node[anchor=south east,xshift=0.42\linewidth,yshift=0.5cm,inner sep=0pt] {%
         \@titlegraphic
     };
 }

@@ -1,0 +1,14 @@
+Within the framework of the stationary Mie scattering theory, many clusters were considered in the form of an extended cylindrical gas jet with regular and quasi-regular spatial configuration. The quasi-regular distribution was constructed by introducing random shifts of the coordinates of nodes with an arbitrary shift norm in the range $0 \leq |\Delta d| \leq \eta d$, where $0 \leq \eta < 0.5$ is the degree of irregularity. The program code CELES~\cite{celes} was used for calculations.
+
+\begin{equation}
+    E_{\textrm{int}} \left( \eta,\:\lambda, \:V\left(\:\Delta \theta,\:\Delta \varphi \right), \:E_0,\:\varphi_0,\:\theta_0 \right) = \int\limits_{V\left(\:\Delta \theta,\:\Delta \varphi \right)}  |\vectbf{E}{s}\left(\eta,\:\lambda,\:E_0,\:\varphi_0,\:\theta_0\right)|^2 dV,
+    \label{e_int}
+\end{equation}
+\begin{align}
+    \vectbf{c}{} = \vectbf{c}{}\left(\vectbf{x}{},\:\Delta \theta,\:\Delta \varphi \right) = M_y(\Delta \theta)\,M_z(\Delta \varphi)\:\vectbf{x}{}, \quad \vectbf{x}{} = \begin{pmatrix}x & y & z\end{pmatrix}^T,
+    \label{c_for_e_int}
+\end{align}
+\begin{align}
+    V\left(\:\Delta \theta,\:\Delta \varphi \right) = \left\{\vectbf{x}{} : c_{x}^2 + c_{y}^2 \leq \rho^2, \:\: b_1^2 \leq |\vectbf{x}{}|^2 \leq b_2^2 \right\}.
+    \label{V_for_e_int}
+\end{align}
