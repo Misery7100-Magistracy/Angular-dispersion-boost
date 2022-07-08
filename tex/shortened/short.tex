@@ -1,0 +1,105 @@
+% ------------------------- %
+%  Layout
+% ------------------------- %
+
+\documentclass[10pt]{article}
+\linespread{0.99}
+\setlength{\parskip}{0.3em}
+\hfuzz=5002pt
+
+% ------------------------- %
+%  Packages
+% ------------------------- %
+
+\usepackage{comment}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian, english]{babel}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[margin=0.9in, headsep=0.3in]{geometry}
+\usepackage{xspace}
+\usepackage{graphicx}
+\usepackage[font=small, labelfont=bf, width=0.9\linewidth]{caption}
+\usepackage{floatrow}
+\usepackage{amsmath}
+\usepackage{fouriernc}
+\usepackage{tempora}
+\usepackage{mathtools}
+\usepackage[unicode=true,hidelinks]{hyperref}
+\usepackage[fixlanguage]{babelbib}
+\usepackage[oldsyntax]{stackengine}
+\usepackage[labelformat=simple, labelsep=colon]{subfig}
+%\usepackage{MnSymbol}
+\usepackage{titling}
+
+% \usepackage{tikz}
+\usepackage{scalerel}
+%\usepackage{siunitx}
+
+\usepackage{euscript}
+
+% ------------------------- %
+%  Custom components
+% ------------------------- %
+
+\input{../custom/equation.tex}
+\input{../custom/autoref_multiple.tex}
+\input{../custom/figure.tex}
+\input{../custom/slant_unslant.tex}
+
+% ------------------------- %
+%  Document
+% ------------------------- %
+
+\begin{document}
+
+	% declare specific options
+
+	\selectlanguage{russian}
+
+	\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+	\pagestyle{fancy}
+	\fancyhf{}
+	\fancyhead[L]{\textit{\nouppercase{\leftmark}}}
+	\fancyfoot[C]{\thepage}
+
+	\thinmuskip=1mu
+	\thickmuskip=6mu
+	\def\stacktype{S}\Sstackgap=-4.3pt
+	\floatsetup[figure]{style=plain,subcapbesideposition=top}
+	\captionsetup[subfigure]{margin=0.05\textwidth}
+
+	% renew or new commands
+
+	\newcommand{\subfigureautorefname}{\figureautorefname}
+	\renewcommand{\thesubfigure}{\asbuk{subfigure}}
+
+	% add components
+
+	\title{Усиление угловой дисперсии лазерных гармоник высокого порядка при взаимодействии с плотными плазменными кластерами}
+	\author{
+		Л.А. Литвинов\textsuperscript{1}, А.А. Андреев\textsuperscript{1, 2}
+	}
+	\date{
+		\normalsize{\textit{\textsuperscript{1}Санкт-Петербургский государственный университет, Санкт-Петербург \\ \textsuperscript{2}Физико-технический институт имени А.Ф.Иоффе, Санкт-Петербург}}
+	}
+	\maketitle
+
+	\input{components/abstract.tex}
+
+	\input{components/introduction.tex}
+	\input{components/base_model.tex}
+	\input{components/stationary_comp.tex}
+	\input{components/conclusion.tex}
+
+	% add bibliography
+	%\clearpage
+	\selectbiblanguage{english}
+	\bibliographystyle{ieeetr}
+	\bibliography{../bibliography/bibliography.bib}
+
+\end{document}

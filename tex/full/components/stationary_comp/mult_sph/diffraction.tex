@@ -1,0 +1,63 @@
+\subsubsection{Условие дифракции для решетки в пространстве}
+
+%! move to single cluster section
+% Наиболее интенсивное излучения ожидается в направлении распространения падающего поля, так как в данном случае моды находятся в фазе и происходит конструктивная интерференция, как и в случае одиночного кластера~\cite{boren_huffman}. Конечно, если плотность такова, чтобы быть достаточно близко к резонансному значению для гармоник высокого порядка, то рассеяние на большие углы также возможно.
+
+Условие дифракции в случае трехмерной регулярной решетки при упругом рассеянии принимает вид~\cite{Kittel86}:
+
+    \begin{equation}
+        \begin{cases}
+        \begin{aligned}
+            \left( \vectbf{D}{x},\: \vectbf{e}{\textrm{out}} - \vectbf{e}{\textrm{in}}\right) &= h \lambda
+            \\
+            \left( \vectbf{D}{y},\: \vectbf{e}{\textrm{out}} - \vectbf{e}{\textrm{in}}\right) &= k \lambda
+            \\
+            \left( \vectbf{D}{z},\: \vectbf{e}{\textrm{out}} - \vectbf{e}{\textrm{in}}\right) &= l \lambda
+        \end{aligned}
+        \end{cases}
+        \label{bragg_wolf_order}
+    \end{equation}
+
+\noindentгде $h,\:k,\:l$ --- индексы Миллера представленные целыми числами, $\vectbf{D}{i}$ --- вектор, соединяющий соседние узлы решетки вдоль направления $i$, $\vectbf{e}{\textrm{in}}$ --- единичный вектор направления падающего излучения, $\vectbf{e}{\textrm{out}}$ --- единичный вектор направления прошедшего излучения. Переходя к сферическим координатам, связанными с $\vectbf{e}{\textrm{in}}$ так, что в декартовом представлении $\vectbf{e}{\textrm{in}} = \vectbf{e}{z}$, \autoref{bragg_wolf_order} можно преобразовать следующим образом, учитывая, что $|\vectbf{D}{x}| = |\vectbf{D}{y}| = |\vectbf{D}{z}| = d$ для рассматриваемой кубической решетки:
+
+    \begin{equation}
+        \begin{cases}
+            \cos{\theta_0}\sin{\Delta \theta}\cos{\left( \Delta \varphi - \varphi_0 \right)} - \sin{\theta_0} \left( \cos{\Delta \theta} - 1 \right) = \cfrac{h^{\prime} \lambda}{d}
+            \\
+            \sin{\Delta \theta} \sin{\left( \Delta \varphi - \varphi_0 \right)} = \cfrac{k^{\prime} \lambda}{d}
+            \\
+            \sin{\theta_0}\sin{\Delta \theta}\cos{\left( \Delta \varphi - \varphi_0 \right)} + \cos{\theta_0} \left( \cos{\Delta \theta} - 1 \right)= \cfrac{l^{\prime} \lambda}{d}
+        \end{cases}
+        \label{bragg_wolf_order_spherical}
+    \end{equation}
+
+\noindentгде $\Delta \theta,\:\Delta \varphi$ --- углы, характеризующие отклонение направления дифрагировавшего излучения относительно падающего, $\theta_0,\:\varphi_0$ --- углы, характеризующие поворот мишени (решётки) в пространстве, $h^\prime,\:k^\prime,\:l^\prime$ --- новые индексы Миллера (\autoref{3ddiffr:image}). Используя \autoref{bragg_wolf_order_spherical}, можем получить угловое распределение дифрагировавшего излучения при заданных начальных параметрах $d$, $\lambda$, $\theta_0$, $\varphi_0$. 
+
+    \begin{figure}[H]
+        \subimgtwo[../img/3ddiffrxzgas]{Проекция на плоскость $xz$.}{3ddiffr:a}{0.4\textwidth}
+        \hfil
+        \subimgtwo[../img/3ddiffrxygas]{Проекция на плоскость $xy$.}{3ddiffr:b}{0.4\textwidth}
+        \caption{Общая схема взаимодействия падающего излучения с решеткой. $\theta_0$, $\varphi_0$ --- характеризуют углы покорота мишени в пространстве, $\Delta \theta$, $\Delta \varphi$ --- углы отклонения направления дифрагировавшего излучения относительно падающего, $r_{\textrm{gas}}$ --- радиус газовой струи, представляюшей мишень, $w$ --- диаметр гауссова пучка падающего излучения. $\Delta \theta$ отсчитывается вокруг $y$ против часовой стрелки, $\Delta \varphi$ --- вокруг $z$ против часовой стрелки.}\label{3ddiffr:image}
+    \end{figure}
+
+% Наиболее интенсивные направления дифракции будут соответствовать минимальным по модулю индексам Миллера, тогда пусть $k^\prime = 0$:
+
+%     \begin{equation}
+%         \begin{cases}
+%             \Delta \varphi = \varphi_0
+%             \\
+%             \Delta \theta = \theta_0 + \arcsin{\left( \cfrac{h^{\prime} \lambda}{d} - \sin{\theta_0} \right)},
+%             \\
+%             l^{\prime} = \cfrac{\lambda}{d}\left(\sin{\theta_0}\sin{\Delta \theta}\cos{\Delta \varphi} + \cos{\theta_0} \left( \cos{\Delta \theta} - 1 \right)\right)
+%         \end{cases}
+%         \label{bragg_wolf_sol_0}
+%     \end{equation}
+
+% Используя \autoref{bragg_wolf_sol_0}, можно построить решения, соответствующие целым значениям $l^\prime$, которые отвечают различным порядкам прошедшего и отраженного излучения (\autoref{phi0_theta0_lprime:image}).
+
+    % \begin{figure}[ht]
+    %     \subimgtwo[components/img/celes/phi0_theta0_lprime_d_2l_h_1]{$d = 2\lambda$, $h^\prime = 1$.}{phi0_theta0_lprime:a}{0.4\textwidth}
+    %     \hfil
+    %     \subimgtwo[components/img/celes/phi0_theta0_lprime_d_3l_h_1]{$d = 3\lambda$, $h^\prime = 1$.}{phi0_theta0_lprime:b}{0.4\textwidth}
+    %     \caption{Кривые, отвечающие различным дифракционным порядкам по $l^\prime$ при $k^\prime = 0$, $\Delta \varphi = \varphi_0$.}\label{phi0_theta0_lprime:image}
+    % \end{figure}
