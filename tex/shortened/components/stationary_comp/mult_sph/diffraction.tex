@@ -5,20 +5,20 @@
 
 Условие дифракции в случае трехмерной регулярной решетки при упругом рассеянии в системе координат, связанной с направлением падающего излучения, принимает вид~\cite{Kittel86}:
 
-%     \begin{equation}
-%         \begin{cases}
-%         \begin{aligned}
-%             \left( \vectbf{D}{x},\: \vectbf{e}{\textrm{out}} - \vectbf{e}{\textrm{in}}\right) &= h \lambda
-%             \\
-%             \left( \vectbf{D}{y},\: \vectbf{e}{\textrm{out}} - \vectbf{e}{\textrm{in}}\right) &= k \lambda
-%             \\
-%             \left( \vectbf{D}{z},\: \vectbf{e}{\textrm{out}} - \vectbf{e}{\textrm{in}}\right) &= l \lambda
-%         \end{aligned}
-%         \end{cases}
-%         \label{bragg_wolf_order}
-%     \end{equation}
+    \begin{equation}
+        \begin{cases}
+        \begin{aligned}
+            \left( \vectbf{D}{x},\: \vectbf{e}{\textrm{out}} - \vectbf{e}{\textrm{in}}\right) &= h \lambda
+            \\
+            \left( \vectbf{D}{y},\: \vectbf{e}{\textrm{out}} - \vectbf{e}{\textrm{in}}\right) &= k \lambda
+            \\
+            \left( \vectbf{D}{z},\: \vectbf{e}{\textrm{out}} - \vectbf{e}{\textrm{in}}\right) &= l \lambda
+        \end{aligned}
+        \end{cases}
+        \label{bragg_wolf_order}
+    \end{equation}
 
-% \noindentгде $h,\:k,\:l$ --- индексы Миллера представленные целыми числами, $\vectbf{D}{i}$ --- вектор, соединяющий соседние узлы решетки вдоль направления $i$, $\vectbf{e}{\textrm{in}}$ --- единичный вектор направления падающего излучения, $\vectbf{e}{\textrm{out}}$ --- единичный вектор направления прошедшего излучения. Переходя к сферическим координатам, связанными с $\vectbf{e}{\textrm{in}}$ так, что в декартовом представлении $\vectbf{e}{\textrm{in}} = \vectbf{e}{z}$, \autoref{bragg_wolf_order} можно преобразовать следующим образом, учитывая, что $|\vectbf{D}{x}| = |\vectbf{D}{y}| = |\vectbf{D}{z}| = d$ для рассматриваемой кубической решетки:
+\noindentгде $h,\:k,\:l$ --- индексы Миллера представленные целыми числами, $\vectbf{D}{i}$ --- вектор, соединяющий соседние узлы решетки вдоль направления $i$, $\vectbf{e}{\textrm{in}}$ --- единичный вектор направления падающего излучения, $\vectbf{e}{\textrm{out}}$ --- единичный вектор направления прошедшего излучения. Переходя к сферическим координатам, связанными с $\vectbf{e}{\textrm{in}}$ так, что в декартовом представлении $\vectbf{e}{\textrm{in}} = \vectbf{e}{z}$, (\ref{bragg_wolf_order}) можно преобразовать следующим образом, учитывая, что $|\vectbf{D}{x}| = |\vectbf{D}{y}| = |\vectbf{D}{z}| = d$ для рассматриваемой кубической решетки:
 
     \begin{equation}
         \begin{cases}
@@ -31,10 +31,10 @@
         \label{bragg_wolf_order_spherical}
     \end{equation}
 
-\noindentгде $\Delta \theta,\:\Delta \varphi$ --- углы, характеризующие отклонение направления дифрагировавшего излучения относительно падающего, $\theta_0,\:\varphi_0$ --- углы, характеризующие поворот мишени (решётки) в пространстве, $h^\prime,\:k^\prime,\:l^\prime$ --- индексы Миллера (\autoref{3ddiffr:image}). Используя \autoref{bragg_wolf_order_spherical}, можем получить угловое распределение дифрагировавшего излучения при заданных начальных параметрах $d$, $\lambda$, $\theta_0$, $\varphi_0$. 
+\noindentгде $\Delta \theta,\:\Delta \varphi$ --- углы, характеризующие отклонение направления дифрагировавшего излучения относительно падающего, $\theta_0,\:\varphi_0$ --- углы, характеризующие поворот мишени (решётки) в пространстве, $h^\prime,\:k^\prime,\:l^\prime$ --- новые индексы Миллера (\autoref{3ddiffr:image}). Используя (\ref{bragg_wolf_order_spherical}), можем получить угловое распределение дифрагировавшего излучения при заданных начальных параметрах $d$, $\lambda$, $\theta_0$, $\varphi_0$. 
 
     \begin{figure}[H]
-        \subimgtwo[../img/3ddiffrxzgas]{Проекция на плоскость $xz$.}{3ddiffr:a}{0.4\textwidth}
+        \subimgtwo[../img/merged_scheme_theta_V]{Проекция на плоскость $xz$.}{3ddiffr:a}{0.42\textwidth}
         \hfil
         \subimgtwo[../img/3ddiffrxygas]{Проекция на плоскость $xy$.}{3ddiffr:b}{0.4\textwidth}
         \caption{Общая схема взаимодействия падающего излучения с решеткой. $\theta_0$, $\varphi_0$ --- характеризуют углы покорота мишени в пространстве, $\Delta \theta$, $\Delta \varphi$ --- углы отклонения направления дифрагировавшего излучения относительно падающего, $r_{\textrm{gas}}$ --- радиус газовой струи, представляюшей мишень, $w$ --- диаметр гауссова пучка падающего излучения. $\Delta \theta$ отсчитывается вокруг $y$ против часовой стрелки, $\Delta \varphi$ --- вокруг $z$ против часовой стрелки.}\label{3ddiffr:image}

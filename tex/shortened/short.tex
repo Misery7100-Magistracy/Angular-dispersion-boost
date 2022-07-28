@@ -29,7 +29,8 @@
 \usepackage{tempora}
 \usepackage{mathtools}
 \usepackage[unicode=true,hidelinks]{hyperref}
-\usepackage[fixlanguage]{babelbib}
+%\usepackage{babelbib}
+\usepackage[backend=biber, style=ieee, bibencoding=utf8, language=auto, autolang=other, citestyle=numeric-comp]{biblatex}
 \usepackage[oldsyntax]{stackengine}
 \usepackage[labelformat=simple, labelsep=colon]{subfig}
 %\usepackage{MnSymbol}
@@ -49,6 +50,8 @@
 \input{../custom/autoref_multiple.tex}
 \input{../custom/figure.tex}
 \input{../custom/slant_unslant.tex}
+
+\addbibresource{../bibliography/bibliography.bib}
 
 % ------------------------- %
 %  Document
@@ -82,7 +85,7 @@
 
 	\title{Усиление угловой дисперсии лазерных гармоник высокого порядка при взаимодействии с плотными плазменными кластерами}
 	\author{
-		Л.А. Литвинов\textsuperscript{1}, А.А. Андреев\textsuperscript{1, 2}
+		А.А. Андреев\textsuperscript{1, 2}, Л.А. Литвинов\textsuperscript{1}
 	}
 	\date{
 		\normalsize{\textit{\textsuperscript{1}Санкт-Петербургский государственный университет, Санкт-Петербург \\ \textsuperscript{2}Физико-технический институт имени А.Ф.Иоффе, Санкт-Петербург}}
@@ -99,8 +102,10 @@
 
 	% add bibliography
 	\clearpage
-	\selectbiblanguage{russian}
-	\bibliographystyle{ieeetr}
-	\bibliography{../bibliography/bibliography.bib}
+
+	\printbibliography
+	%\selectbiblanguage{russian}
+	%\bibliographystyle{ieeetr}
+	%\bibliography{../bibliography/bibliography.bib}
 
 \end{document}
